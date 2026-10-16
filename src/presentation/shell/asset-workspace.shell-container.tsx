@@ -91,8 +91,14 @@ const SURFACES: Readonly<Record<string, SurfaceData>> = {
     },
     "actions": {
       "90313f83-a914-448b-9cea-3dcf3a5b6071": [],
-      "a459b008-602a-428d-96e7-35be8fd36b62": [],
-      "5adb6363-ae89-4089-b43c-9c6b8af77320": []
+      "a459b008-602a-428d-96e7-35be8fd36b62": [
+        { "slug": "account", "href": "/account", "label": "My profile", "order": 0 },
+        { "slug": "sign-out", "href": "/sign-out", "label": "Sign out", "order": 1 }
+      ],
+      "5adb6363-ae89-4089-b43c-9c6b8af77320": [
+        { "slug": "account", "href": "/account", "label": "My profile", "order": 0 },
+        { "slug": "sign-out", "href": "/sign-out", "label": "Sign out", "order": 1 }
+      ]
     }
   },
   "auth": {
