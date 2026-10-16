@@ -60,8 +60,8 @@ export function CryptoScreenContainer(
   const [Alert, setAlert] = React.useState<readonly Alert[]>([]);
   const [AlertNotice, setAlertNotice] = React.useState<DataNotice | null>(null);
   const [AlertTruncatedCap, setAlertTruncatedCap] = React.useState<number | null>(null);
-  const Crypto: readonly Crypto[] = [];
-  const CryptoNotice: DataNotice | null = { code: 'lectura-sin-tabla' };
+  const [Crypto, setCrypto] = React.useState<readonly Crypto[]>([]);
+  const [CryptoNotice, setCryptoNotice] = React.useState<DataNotice | null>(null);
   const [PerformancePoint, setPerformancePoint] = React.useState<readonly PerformancePoint[]>([]);
   const [PerformancePointNotice, setPerformancePointNotice] = React.useState<DataNotice | null>(null);
   const [PerformancePointTruncatedCap, setPerformancePointTruncatedCap] = React.useState<number | null>(null);
@@ -88,9 +88,28 @@ export function CryptoScreenContainer(
       repositories.alert.listAll(),
       repositories.performancePoint.listAll(),
       repositories.watchedAsset.listAll(),
+      repositories.asset.listAll({ filter: { assetClass: 'CRYPTOCURRENCY' }, sort: { field: 'currentPrice', dir: 'DESC' } }),
     ])
-    .then(([AlertResult, PerformancePointResult, WatchedAssetResult]) => {
+    .then(([AlertResult, PerformancePointResult, WatchedAssetResult, AssetResult]) => {
       if (!live) return;
+      if (AssetResult.ok === false) {
+        setLoadError(AssetResult.error);
+        setLoading(false);
+        return;
+      }
+      setCrypto(
+        AssetResult.data.items.map((a) => ({
+          id: a.id,
+          name: a.name,
+          symbol: a.symbol,
+          currentPrice: a.currentPrice,
+          dayChange: a.dayChange,
+          marketCap: a.marketCap,
+          assetId: a.id,
+          createdAt: a.createdAt,
+        })),
+      );
+      setCryptoNotice(AssetResult.data.hasMore === true ? { code: 'agregado-truncado' } : null);
       if (AlertResult === null) {
         setAlert([]);
         setAlertTruncatedCap(null);
