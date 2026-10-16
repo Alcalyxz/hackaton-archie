@@ -44,7 +44,7 @@ function NavList(props: { nav: readonly ShellNavItem[]; current: string; onNavig
         return (
           <div key={i} className="flex flex-col gap-1">
             {labelled ? (
-              <p className="type-eyebrow px-3 pt-4 pb-1 text-chrome-muted">{run.group}</p>
+              <p className="type-eyebrow px-3 pt-4 pb-1 text-chrome-muted md:hidden lg:block">{run.group}</p>
             ) : i > 0 ? (
               <Separator className="my-2 bg-chrome-border" />
             ) : null}
@@ -57,14 +57,16 @@ function NavList(props: { nav: readonly ShellNavItem[]; current: string; onNavig
                   href={item.href}
                   onClick={props.onNavigate}
                   aria-current={active ? "page" : undefined}
+                  title={item.label}
+                  aria-label={item.label}
                   className={cn(
-                    "flex h-9 items-center gap-3 rounded-control px-3 type-meta text-chrome-foreground hover:bg-chrome-hover",
+                    "flex h-9 items-center gap-3 rounded-control px-3 type-meta text-chrome-foreground hover:bg-chrome-hover md:h-11 md:justify-center md:px-0 lg:h-9 lg:justify-start lg:px-3",
                     focus,
                     active ? "bg-primary text-primary-foreground hover:bg-primary" : ""
                   )}
                 >
                   <NavIcon name={item.icon} aria-hidden className="size-5 shrink-0" />
-                  <span className="truncate">{item.label}</span>
+                  <span className="truncate md:hidden lg:inline">{item.label}</span>
                 </a>
               );
             })}
@@ -92,7 +94,7 @@ function Brand(props: { vm: ShellViewModel; href: string; showName?: boolean; cl
       ) : (
         <>
           <LogoMark className="size-8" />
-          {showName ? <span>{vm.brand.name}</span> : null}
+          {showName ? <span className="md:hidden lg:inline">{vm.brand.name}</span> : null}
         </>
       )}
     </a>
@@ -164,11 +166,11 @@ export function AssetWorkspaceShell(props: ShellProps): React.ReactElement {
 
   return (
     <div data-shell="asset-workspace" className="flex min-h-dvh flex-col bg-background md:flex-row md:gap-3 md:p-3">
-      <aside className="sticky top-3 hidden h-[calc(100dvh-1.5rem)] w-(--rail-w) shrink-0 flex-col overflow-hidden rounded-lg border border-chrome-border bg-chrome text-chrome-foreground shadow-sm md:flex">
-        <div className="flex h-(--topbar-h) shrink-0 items-center border-b border-chrome-border px-3">
+      <aside className="sticky top-3 hidden h-[calc(100dvh-1.5rem)] w-20 shrink-0 flex-col overflow-hidden rounded-lg lg:w-(--rail-w) border border-chrome-border bg-chrome text-chrome-foreground shadow-sm md:flex">
+        <div className="flex h-(--topbar-h) shrink-0 items-center border-b border-chrome-border px-3 md:justify-center lg:justify-start">
           <Brand vm={vm} href={homeHref} />
         </div>
-        <nav aria-label={t("asset-workspace.efe10c80")} className="flex-1 overflow-y-auto p-3">
+        <nav aria-label={t("asset-workspace.efe10c80")} className="flex-1 overflow-y-auto p-3 md:px-2 lg:p-3">
           <NavList nav={nav} current={vm.current} />
         </nav>
       </aside>
