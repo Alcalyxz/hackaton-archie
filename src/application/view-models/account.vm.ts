@@ -56,4 +56,10 @@ export interface AccountScreenViewModel {
   /** The load failure as a `RepoError`, or `null`. Distinguishes "backend down" from
    *  "no data". */
   readonly error: RepoError | null;
+  /** Saves the profile form (display name + phone). */
+  readonly onSaveProfile: (values: { displayName: string; phone: string }) => void;
+  /** Links an uploaded file as the user's avatar. */
+  readonly onAvatarUploaded: (fileId: string) => void;
+  /** State of the last profile write. */
+  readonly profileStatus: 'idle' | 'saving' | 'saved' | 'error';
 }

@@ -115,6 +115,9 @@
     "valor-sin-equivalente": "This value has no equivalent in your data, so it can't be saved."
   },
   "account": {
+    "saved": "Changes saved.",
+    "saveError": "We couldn't save your changes. Try again.",
+    "avatar": { "label": "Profile photo", "description": "PNG or JPG, up to 5 MB." },
     "78801183": "Notifications",
     "044ba8a9": "Always on",
     "0594beda": "Enter at least 2 characters.",

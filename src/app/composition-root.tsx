@@ -8,6 +8,8 @@
 import * as React from 'react';
 import { useArchieClient } from '@archie/react-sdk';
 import type { ArchieClient, IGraphQLModule } from '@archie/js-sdk';
+import { useFileUploader } from '../infrastructure/archie/use-file-uploader';
+import { UploaderProvider } from '../presentation/app-context';
 import { ArchieCoinInfoRepository } from '../infrastructure/archie/coin-info.adapter';
 import { useArchieAuth } from '../infrastructure/archie/auth.adapter';
 import { useArchieIdentity } from '../infrastructure/archie/identity';
@@ -75,7 +77,10 @@ export function AppProviders(props: {
       children: React.createElement(IdentityProvider, {
         identity,
         pending,
-        children: props.children,
+        children: React.createElement(UploaderProvider, {
+          useUploader: useFileUploader,
+          children: props.children,
+        }),
       }),
     }),
   });

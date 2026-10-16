@@ -20,6 +20,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, Controller } from "react-hook-form";
 import type { AccountScreenViewModel } from "@/application/view-models/account.vm";
+import { AvatarUploader } from "@/presentation/components/domain/avatar-uploader";
 
 function Panel({ children, className = "" }: { children: React.ReactNode; className?: string }): React.ReactElement {
   return <div className={`rounded-card border border-border bg-card text-card-foreground ${className}`}>{children}</div>;
@@ -96,6 +97,7 @@ export function AccountView(props: AccountScreenViewModel): React.ReactElement {
                   <AvatarImage src={me?.avatar?.src ?? undefined} alt={fullName} />
                   <AvatarFallback>{initials}</AvatarFallback>
                 </Avatar>
+                <AvatarUploader value={me?.avatar?.src ?? null} disabled={me === null || props.profileStatus === "saving"} onUploaded={props.onAvatarUploaded} />
                 <div className="min-w-0 flex-1 basis-56">
                   <p className="type-card-title text-foreground [overflow-wrap:anywhere]">{fullName}</p>
                   <p className="type-mono-id text-text-muted [overflow-wrap:anywhere]">{me?.email}</p>
@@ -120,7 +122,7 @@ export function AccountView(props: AccountScreenViewModel): React.ReactElement {
             <section className="flex flex-col gap-(--component-gap)">
               <SectionHead>{t("account.15c4aa13")}</SectionHead>
               <Panel className="p-(--card-padding)">
-                <form onSubmit={(e) => e.preventDefault()} noValidate className="flex flex-col gap-(--component-gap)">
+                <form onSubmit={profileForm.handleSubmit((v) => props.onSaveProfile(v))} noValidate className="flex flex-col gap-(--component-gap)">
                   <FieldGroup>
                     <Controller
                       name="displayName"
@@ -148,11 +150,13 @@ export function AccountView(props: AccountScreenViewModel): React.ReactElement {
                     />
                   </FieldGroup>
                   <div className="flex flex-wrap items-center gap-3">
-                    <Button disabled aria-disabled="true" title={t("account.da1ce7cb.button-attr-title")} type="button" className="min-h-11">
+                    <Button type="submit" disabled={me === null || props.profileStatus === "saving"} className="min-h-11">
                       {t("account.0c8209e7")}
                     </Button>
                   </div>
-                  <p role="status" className="type-body text-text-muted">{t("account.da1ce7cb.p")}</p>
+                  <p role="status" className="type-body text-text-muted">
+                    {props.profileStatus === "saved" ? t("account.saved", "Changes saved.") : props.profileStatus === "error" ? t("account.saveError", "We couldn't save your changes. Try again.") : ""}
+                  </p>
                 </form>
               </Panel>
             </section>

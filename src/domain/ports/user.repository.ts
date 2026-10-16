@@ -97,4 +97,6 @@ export interface UserRepository {
   create(input: NewUser): Promise<RepoResult<User>>;
   update(id: UserId, patch: UpdateUser): Promise<RepoResult<User>>;
   delete(id: UserId): Promise<RepoResult<void>>;
+  /** Links an already uploaded file (by its file id) as the user's avatar. */
+  setAvatar(id: UserId, fileId: string): Promise<RepoResult<User>>;
 }

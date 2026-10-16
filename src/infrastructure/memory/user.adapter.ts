@@ -51,6 +51,12 @@ export class MemoryUserRepository implements UserRepository {
     return { ok: true, data: res.data };
   }
 
+  async setAvatar(id: UserId, fileId: string): Promise<RepoResult<User>> {
+    const res = this.table.update(id, { avatar: { src: `/files/${fileId}` } });
+    if (res.ok === false) return res;
+    return { ok: true, data: res.data };
+  }
+
   async update(id: UserId, patch: UpdateUser): Promise<RepoResult<User>> {
     const res = this.table.update(id, patch);
     if (res.ok === false) return res;

@@ -58,6 +58,7 @@ export function AccountScreenContainer(
   const [loading, setLoading] = React.useState(true);
   const [loadError, setLoadError] = React.useState<RepoError | null>(null);
   const [reloadToken, setReloadToken] = React.useState(0);
+  const [profileStatus, setProfileStatus] = React.useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
   // "A load already SUCCEEDED" — not "first lap": a retry after a first failure must show the
   // spinner again, and a post-write reload must NOT blank the screen (L22).
   const hasLoadedRef = React.useRef(false);
@@ -78,7 +79,7 @@ export function AccountScreenContainer(
     setLoadError(null);
     void Promise.all([
       repositories.activeSession.list({ first: ACTIVE_SESSIONS_PAGE_SIZE, skip: activeSessionsPage * ACTIVE_SESSIONS_PAGE_SIZE }),
-      repositories.userActivity.list({ first: USER_ACTIVITIES_PAGE_SIZE, skip: userActivitiesPage * USER_ACTIVITIES_PAGE_SIZE }),
+      principalId === null ? null : repositories.userActivity.list({ first: USER_ACTIVITIES_PAGE_SIZE, skip: userActivitiesPage * USER_ACTIVITIES_PAGE_SIZE, userId: principalId }),
       principalId === null ? null : repositories.user.byId(principalId),
     ])
     .then(([activeSessionsResult, userActivitiesResult, usersResult]) => {
@@ -160,7 +161,48 @@ export function AccountScreenContainer(
     setUserActivitiesPage(page);
   }, []);
 
+  const finishWrite = React.useCallback((ok: boolean): void => {
+    setProfileStatus(ok ? 'saved' : 'error');
+    if (ok) setReloadToken((n) => n + 1);
+  }, []);
+
+  const onSaveProfile = React.useCallback(
+    (values: { displayName: string; phone: string }): void => {
+      if (principalId === null) {
+        setProfileStatus('error');
+        return;
+      }
+      const parts = values.displayName.trim().split(/\s+/);
+      const firstName = parts[0] ?? '';
+      const lastName = parts.slice(1).join(' ');
+      setProfileStatus('saving');
+      void repositories.user
+        .update(principalId, { firstName, lastName, phone: values.phone.trim() })
+        .then((res) => finishWrite(res.ok))
+        .catch(() => finishWrite(false));
+    },
+    [principalId, repositories, finishWrite],
+  );
+
+  const onAvatarUploaded = React.useCallback(
+    (fileId: string): void => {
+      if (principalId === null) {
+        setProfileStatus('error');
+        return;
+      }
+      setProfileStatus('saving');
+      void repositories.user
+        .setAvatar(principalId, fileId)
+        .then((res) => finishWrite(res.ok))
+        .catch(() => finishWrite(false));
+    },
+    [principalId, repositories, finishWrite],
+  );
+
   const vm: AccountScreenViewModel = {
+    onSaveProfile,
+    onAvatarUploaded,
+    profileStatus,
     activeSessions,
     activeSessionsNotice,
     activeSessionsTotal,

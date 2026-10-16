@@ -7,6 +7,7 @@
 // composition root, y es el único que lo sabe.
 
 import * as React from 'react';
+import type { UploadController } from '@/components/upload-field.policy';
 import type { AuthPort } from '../domain/auth';
 import type { AuthenticatedIdentity } from '../domain/session';
 import type { ActiveSessionRepository } from '../domain/ports/activeSession.repository';
@@ -133,6 +134,30 @@ export function useIdentity(): IdentityState {
     throw new Error(
       'useIdentity() fuera de <IdentityProvider>: no hay identidad que inyectar.',
     );
+  }
+  return value;
+}
+
+/** Hook that builds the file-upload controller. Injected by the composition root because the
+ *  upload SDK may only be touched under `infrastructure/archie/`. */
+export type UploaderHook = () => UploadController;
+
+const UploaderContext = React.createContext<UploaderHook | null>(null);
+
+export function UploaderProvider(props: {
+  readonly useUploader: UploaderHook;
+  readonly children: React.ReactNode;
+}): React.ReactElement {
+  return React.createElement(UploaderContext.Provider, {
+    value: props.useUploader,
+    children: props.children,
+  });
+}
+
+export function useUploaderHook(): UploaderHook {
+  const value = React.useContext(UploaderContext);
+  if (value === null) {
+    throw new Error('useUploaderHook() fuera de <UploaderProvider>.');
   }
   return value;
 }

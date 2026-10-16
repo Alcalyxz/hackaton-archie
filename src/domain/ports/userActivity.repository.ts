@@ -15,6 +15,8 @@ import type { UserActivity, UserActivityId } from '../entities/userActivity';
 
 /** Criterios de consulta de `UserActivity`. */
 export interface UserActivityQuery {
+  /** Only the events caused by this user (the signed-in user's id). */
+  userId?: string;
   /** Tamaño de página. El adapter lo traduce al `first` del documento. */
   first?: number;
   /** Elementos a saltar antes de la página. El adapter lo traduce al `skip`. */
