@@ -6,14 +6,16 @@ import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@
 import { Money, Change, formatMoney as money } from "@/presentation/components/domain/value-format";
 import { EmptyState } from "@/presentation/components/domain/empty-state";
 import { CryptoCard } from "@/presentation/components/domain/crypto-card";
+import { CryptoDetailSheet } from "@/presentation/components/domain/crypto-detail-sheet";
 import { Search, LayoutGrid, List, Coins } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const PAGE_SIZE = 20;
 
 /** Cryptocurrency directory: cards/table switch, search and pages of 20, highest price first.
- *  @param {{ Crypto: ReadonlyArray<any> }} props */
-export function CryptoDirectory({ Crypto }) {
+ *  @param {{ Crypto: ReadonlyArray<any>, loadCoinDetail: (assetId: string) => Promise<any> }} props */
+export function CryptoDirectory({ Crypto, loadCoinDetail }) {
+  const [selected, setSelected] = useState(null);
   const { t } = useTranslation();
   const [mode, setMode] = useState("cards");
   const [query, setQuery] = useState("");
@@ -91,7 +93,7 @@ export function CryptoDirectory({ Crypto }) {
         <ul className="grid grid-cols-1 gap-(--component-gap) sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {visible.map((c) => (
             <li key={c.id} className="min-w-0">
-              <CryptoCard crypto={c} />
+              <CryptoCard crypto={c} selected={selected?.id === c.id} onSelect={setSelected} />
             </li>
           ))}
         </ul>
@@ -108,12 +110,12 @@ export function CryptoDirectory({ Crypto }) {
             </TableHeader>
             <TableBody>
               {visible.map((c) => (
-                <TableRow key={c.id}>
+                <TableRow key={c.id} className="cursor-pointer" onClick={() => setSelected(c)}>
                   <TableCell>
-                    <div className="flex min-w-0 flex-col">
+                    <button type="button" onClick={() => setSelected(c)} className="flex min-w-0 flex-col text-left">
                       <span className="type-row-title truncate">{c.name}</span>
                       <span className="type-mono-id text-text-muted">{c.symbol}</span>
-                    </div>
+                    </button>
                   </TableCell>
                   <TableCell className="whitespace-nowrap text-right tabular-nums">
                     <Money value={c.currentPrice} align="end" className="type-meta" />
@@ -144,6 +146,8 @@ export function CryptoDirectory({ Crypto }) {
           </Button>
         </nav>
       )}
+
+      <CryptoDetailSheet crypto={selected} onClose={() => setSelected(null)} loadCoinDetail={loadCoinDetail} />
     </div>
   );
 }

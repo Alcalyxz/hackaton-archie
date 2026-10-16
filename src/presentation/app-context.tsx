@@ -13,6 +13,7 @@ import type { ActiveSessionRepository } from '../domain/ports/activeSession.repo
 import type { AlertRepository } from '../domain/ports/alert.repository';
 import type { AssetRepository } from '../domain/ports/asset.repository';
 import type { CryptoRepository } from '../domain/ports/crypto.repository';
+import type { CoinInfoRepository } from '../domain/ports/coin-info.repository';
 import type { CurrentUserRepository } from '../domain/ports/currentUser.repository';
 import type { OpportunityRepository } from '../domain/ports/opportunity.repository';
 import type { PerformancePointRepository } from '../domain/ports/performancePoint.repository';
@@ -28,6 +29,7 @@ export interface Repositories {
   readonly alert: AlertRepository;
   readonly asset: AssetRepository;
   readonly crypto: CryptoRepository;
+  readonly coinInfo: CoinInfoRepository;
   readonly currentUser: CurrentUserRepository;
   readonly opportunity: OpportunityRepository;
   readonly performancePoint: PerformancePointRepository;

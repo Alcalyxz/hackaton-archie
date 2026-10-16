@@ -10,6 +10,8 @@ import type { Crypto } from '../../domain/entities/crypto';
 import type { PerformancePoint } from '../../domain/entities/performancePoint';
 import type { WatchedAsset } from '../../domain/entities/watchedAsset';
 import type { DataNotice } from './notices';
+import type { RepoResult } from '../../domain/shared';
+import type { CoinInfo } from '../../domain/ports/coin-info.repository';
 
 // NOTE: `Crypto` was declared fail-closed by the binding audit (`lectura-sin-tabla`):
 // it is declared but served EMPTY with a notice, never unfiltered.
@@ -80,4 +82,6 @@ export interface CryptoScreenViewModel {
    *  (`availability.<write>.available === false`). The container shows the reason in
    *  its write-error state; nothing is written. Returns `void`. */
   readonly onUnavailable: (reason: 'escritura-no-disponible') => void;
+  /** Loads the provider's detail of one cryptocurrency (by the app's asset id). */
+  readonly loadCoinDetail: (assetId: string) => Promise<RepoResult<CoinInfo>>;
 }

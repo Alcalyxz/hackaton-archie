@@ -103,7 +103,7 @@ const directoryColumns = [
 
 /** @param {import("@/application/view-models/crypto.vm").CryptoScreenViewModel} props */
 export function CryptoView(props) {
-  return <CryptoDirectory Crypto={props.Crypto} />;
+  return <CryptoDirectory Crypto={props.Crypto} loadCoinDetail={props.loadCoinDetail} />;
 }
 
 /** Previous detail layout, no longer rendered. @param {import("@/application/view-models/crypto.vm").CryptoScreenViewModel} props */

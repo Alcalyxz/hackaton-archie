@@ -7,7 +7,8 @@
 
 import * as React from 'react';
 import { useArchieClient } from '@archie/react-sdk';
-import type { IGraphQLModule } from '@archie/js-sdk';
+import type { ArchieClient, IGraphQLModule } from '@archie/js-sdk';
+import { ArchieCoinInfoRepository } from '../infrastructure/archie/coin-info.adapter';
 import { useArchieAuth } from '../infrastructure/archie/auth.adapter';
 import { useArchieIdentity } from '../infrastructure/archie/identity';
 import { ArchieActiveSessionRepository } from '../infrastructure/archie/activeSession.adapter';
@@ -37,12 +38,13 @@ import {
  *  `useArchieQuery`/`useAuth` sí leen el cliente del provider (incidente en vivo). El ÚNICO
  *  `createClient()` de la app vive en `main.tsx` (inmutable, fuera de este árbol emitido); este
  *  composition root no construye ninguno. */
-export function createRepositories(gql: IGraphQLModule): Repositories {
+export function createRepositories(gql: IGraphQLModule, rest: ArchieClient['rest']): Repositories {
   return {
     activeSession: new ArchieActiveSessionRepository(gql),
     alert: new ArchieAlertRepository(gql),
     asset: new ArchieAssetRepository(gql),
     crypto: new ArchieCryptoRepository(gql),
+    coinInfo: new ArchieCoinInfoRepository(gql, rest),
     currentUser: new ArchieCurrentUserRepository(gql),
     opportunity: new ArchieOpportunityRepository(gql),
     performancePoint: new ArchiePerformancePointRepository(gql),
@@ -59,7 +61,7 @@ export function AppProviders(props: {
   readonly children: React.ReactNode;
 }): React.ReactElement {
   const client = useArchieClient();
-  const repositories = React.useMemo(() => createRepositories(client.graphql), [client]);
+  const repositories = React.useMemo(() => createRepositories(client.graphql, client.rest), [client]);
   const auth = useArchieAuth();
   const { identity, pending } = useArchieIdentity();
   // Los `children` viajan DENTRO del objeto de props, no como tercer argumento: el tipo
