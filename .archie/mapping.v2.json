@@ -1,0 +1,308 @@
+{
+  "meta": {
+    "version": 2,
+    "projectId": "db13e257-7143-4903-aeb3-b534fe62100b",
+    "schemaHash": "19ba0b6eb1d55eaaf7472357aad64393095fc1611bb4c22d11cb8ccd8e13022e",
+    "protoHash": "sha256:586ebf66bb4437e028f2356fb40541ba6709e6448f20d7f6e1cd692d3fd2ee0d",
+    "model": "C6",
+    "generatedAt": "2026-10-16T21:23:20.128Z",
+    "llmResolved": 5,
+    "unmapped": 2
+  },
+  "entities": [
+    {
+      "proto": "Alert",
+      "target": "Alert",
+      "confidence": 0.98,
+      "fields": [
+        {
+          "proto": "alertType",
+          "target": "alertType",
+          "confidence": 0.98
+        },
+        {
+          "proto": "createdAt",
+          "target": "createdAt",
+          "confidence": 0.98
+        },
+        {
+          "proto": "direction",
+          "target": "direction",
+          "confidence": 0.98
+        },
+        {
+          "proto": "lastNotifiedAt",
+          "target": "lastNotifiedAt",
+          "confidence": 0.98
+        },
+        {
+          "proto": "status",
+          "target": "status",
+          "confidence": 0.97
+        },
+        {
+          "proto": "thresholdValue",
+          "target": "thresholdValue",
+          "confidence": 0.98
+        },
+        {
+          "proto": "triggeredAt",
+          "target": "triggeredAt",
+          "confidence": 0.98
+        },
+        {
+          "proto": "watchedAssetId",
+          "target": "watchedAssetId",
+          "confidence": 0.98
+        }
+      ],
+      "requiredRelations": []
+    },
+    {
+      "proto": "Asset",
+      "target": "Asset",
+      "confidence": 0.98,
+      "fields": [
+        {
+          "proto": "assetClass",
+          "target": "assetClass",
+          "confidence": 0.98
+        },
+        {
+          "proto": "createdAt",
+          "target": "createdAt",
+          "confidence": 0.98
+        },
+        {
+          "proto": "currentPrice",
+          "target": "currentPrice",
+          "confidence": 0.98
+        },
+        {
+          "proto": "dataProvider",
+          "target": "dataProvider",
+          "confidence": 0.98
+        },
+        {
+          "proto": "dayChange",
+          "target": "dayChange",
+          "confidence": 0.98
+        },
+        {
+          "proto": "marketCap",
+          "target": "marketCap",
+          "confidence": 0.98
+        },
+        {
+          "proto": "name",
+          "target": "name",
+          "confidence": 0.98
+        },
+        {
+          "proto": "symbol",
+          "target": "symbol",
+          "confidence": 0.98
+        }
+      ],
+      "requiredRelations": []
+    },
+    {
+      "proto": "Crypto",
+      "target": null,
+      "confidence": 0.6,
+      "fields": [
+        {
+          "proto": "assetId",
+          "target": null,
+          "confidence": 0.6
+        },
+        {
+          "proto": "createdAt",
+          "target": null,
+          "confidence": 0.6
+        },
+        {
+          "proto": "currentPrice",
+          "target": null,
+          "confidence": 0.6
+        },
+        {
+          "proto": "dayChange",
+          "target": null,
+          "confidence": 0.6
+        },
+        {
+          "proto": "marketCap",
+          "target": null,
+          "confidence": 0.6
+        },
+        {
+          "proto": "name",
+          "target": null,
+          "confidence": 0.6
+        },
+        {
+          "proto": "symbol",
+          "target": null,
+          "confidence": 0.6
+        }
+      ]
+    },
+    {
+      "proto": "Opportunity",
+      "target": "Opportunity",
+      "confidence": 0.98,
+      "fields": [
+        {
+          "proto": "assetId",
+          "target": "assetId",
+          "confidence": 0.98
+        },
+        {
+          "proto": "createdAt",
+          "target": "createdAt",
+          "confidence": 0.98
+        },
+        {
+          "proto": "identifiedAt",
+          "target": "identifiedAt",
+          "confidence": 0.98
+        },
+        {
+          "proto": "priceAtDetection",
+          "target": "priceAtDetection",
+          "confidence": 0.98
+        },
+        {
+          "proto": "rationale",
+          "target": "rationale",
+          "confidence": 0.98
+        },
+        {
+          "proto": "signalStrength",
+          "target": "signalStrength",
+          "confidence": 0.98
+        },
+        {
+          "proto": "title",
+          "target": "title",
+          "confidence": 0.98
+        }
+      ],
+      "requiredRelations": []
+    },
+    {
+      "proto": "PerformancePoint",
+      "target": "PerformancePoint",
+      "confidence": 0.97,
+      "fields": [
+        {
+          "proto": "assetId",
+          "target": "assetId",
+          "confidence": 0.98
+        },
+        {
+          "proto": "observedAt",
+          "target": "observedAt",
+          "confidence": 0.98
+        },
+        {
+          "proto": "range",
+          "target": "interval",
+          "confidence": 0.8
+        },
+        {
+          "proto": "value",
+          "target": "value",
+          "confidence": 0.98
+        }
+      ],
+      "requiredRelations": []
+    },
+    {
+      "proto": "PerformanceView",
+      "target": null,
+      "confidence": 0.75,
+      "fields": [
+        {
+          "proto": "assetId",
+          "target": null,
+          "confidence": 0.7
+        },
+        {
+          "proto": "range",
+          "target": null,
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "proto": "WatchedAsset",
+      "target": "WatchedAsset",
+      "confidence": 0.98,
+      "fields": [
+        {
+          "proto": "assetId",
+          "target": "assetId",
+          "confidence": 0.98
+        },
+        {
+          "proto": "createdAt",
+          "target": "createdAt",
+          "confidence": 0.98
+        },
+        {
+          "proto": "displayOrder",
+          "target": "displayOrder",
+          "confidence": 0.98
+        },
+        {
+          "proto": "pausedAt",
+          "target": "pausedAt",
+          "confidence": 0.98
+        },
+        {
+          "proto": "performanceSinceAdded",
+          "target": null,
+          "confidence": 0.85
+        },
+        {
+          "proto": "priceWhenAdded",
+          "target": "priceWhenAdded",
+          "confidence": 0.98
+        },
+        {
+          "proto": "status",
+          "target": "status",
+          "confidence": 0.9
+        }
+      ],
+      "requiredRelations": []
+    }
+  ],
+  "enumValueMap": {
+    "Alert.direction": {
+      "above": "ABOVE",
+      "below": "BELOW"
+    },
+    "Alert.status": {
+      "Active": "ACTIVE",
+      "Paused": "PAUSED",
+      "Triggered": "TRIGGERED"
+    },
+    "Asset.assetClass": {
+      "cryptocurrency": "CRYPTOCURRENCY",
+      "other": "OTHER",
+      "stock": "STOCK"
+    },
+    "PerformancePoint.range": {
+      "1D": "ONE_DAY",
+      "1M": null,
+      "1W": null,
+      "1Y": null
+    },
+    "WatchedAsset.status": {
+      "watching with alerts active": "WATCHING"
+    }
+  }
+}
