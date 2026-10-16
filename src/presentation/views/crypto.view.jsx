@@ -21,6 +21,7 @@ import { useReactTable, getCoreRowModel, getSortedRowModel, getFilteredRowModel,
 import { schema } from "@/presentation/components/domain/schema";
 import { enumIs } from "@/presentation/components/domain/enum-vocab";
 import { useTranslation } from "react-i18next";
+import { CryptoDirectory } from "@/presentation/components/domain/crypto-directory";
 
 const watchedByAsset = {};
 const label = (key, value) => schema.enums[key]?.find((e) => e.value === value)?.label ?? value;
@@ -102,6 +103,11 @@ const directoryColumns = [
 
 /** @param {import("@/application/view-models/crypto.vm").CryptoScreenViewModel} props */
 export function CryptoView(props) {
+  return <CryptoDirectory Crypto={props.Crypto} />;
+}
+
+/** Previous detail layout, no longer rendered. @param {import("@/application/view-models/crypto.vm").CryptoScreenViewModel} props */
+export function LegacyCryptoView(props) {
   const { Crypto, WatchedAsset, Alert, PerformancePoint } = props;
   const { t } = useTranslation();
   const {  } = useMemo(() => {
