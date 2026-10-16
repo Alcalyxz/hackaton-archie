@@ -12,7 +12,7 @@ import { heldKeysInOrder, useActiveRoleKey } from './active-role';
 
 /** Role key (as `role-nav` normalizes the session's roles) → bare path of that role's landing page. */
 export const ROLE_LANDING: Readonly<Record<string, string>> = {
-  "5adb6363-ae89-4089-b43c-9c6b8af77320": "/welcome",
+  "5adb6363-ae89-4089-b43c-9c6b8af77320": "/overview",
   "90313f83-a914-448b-9cea-3dcf3a5b6071": "/welcome",
   "a459b008-602a-428d-96e7-35be8fd36b62": "/welcome",
 };
