@@ -307,16 +307,6 @@ export function WatchlistView(props: WatchlistScreenViewModel): React.ReactEleme
           </Card>
         )}
       </section>
-
-      <section data-vid="flix6lw" className="flex flex-col gap-(--component-gap) border-t border-border pt-(--component-gap)">
-        <h2 data-vid="e2pnaih" className="type-section">{t("watchlist.dd57c661")}</h2>
-        <div data-vid="qi6qpnd" className="flex flex-wrap gap-x-(--section-gap) gap-y-3">
-          <div data-vid="9pejj25" className="shrink-0">
-            <div data-vid="c747u15" className="type-eyebrow text-text-muted">{t("watchlist.eff2ec58")}</div>
-            <div data-vid="jespo39" className="type-stat tabular-nums">{totalCount}</div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
