@@ -80,6 +80,8 @@ export interface WatchlistScreenViewModel {
   readonly onAddWatchedAsset: (assetId: string) => void;
   /** Pauses or resumes a watched asset. */
   readonly onToggleWatchedAsset: (id: WatchedAssetId) => void;
+  /** Persists a new order: ids in their new visual order (displayOrder = index + 1). */
+  readonly onReorderWatchedAssets: (orderedIds: readonly WatchedAssetId[]) => void;
   /** `true` while a write is in flight. */
   readonly saving: boolean;
   /** `true` when a signed-in user can add assets. */

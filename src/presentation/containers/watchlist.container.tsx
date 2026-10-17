@@ -201,6 +201,23 @@ export function WatchlistScreenContainer(
     [userId, watchedAssets, assets, watchedAssetsTotal, repositories, runWrite],
   );
 
+  const onReorderWatchedAssets = React.useCallback(
+    (orderedIds: readonly WatchedAssetId[]): void => {
+      const changes = orderedIds
+        .map((id, i) => ({ id, order: i + 1, current: watchedAssets.find((w) => w.id === id)?.displayOrder }))
+        .filter((c) => c.current !== c.order);
+      if (changes.length === 0) return;
+      runWrite(async () => {
+        const results = await Promise.all(
+          changes.map((c) => repositories.watchedAsset.update(c.id, { displayOrder: c.order })),
+        );
+        const failed = results.find((r) => r.ok === false);
+        return failed && failed.ok === false ? { ok: false, error: failed.error } : { ok: true };
+      }, 'Orden actualizado.');
+    },
+    [watchedAssets, repositories, runWrite],
+  );
+
   const onToggleWatchedAsset = React.useCallback(
     (id: WatchedAssetId): void => {
       const w = watchedAssets.find((x) => x.id === id);
@@ -282,6 +299,7 @@ export function WatchlistScreenContainer(
     onDeleteWatchedAsset,
     onAddWatchedAsset,
     onToggleWatchedAsset,
+    onReorderWatchedAssets,
     saving,
     canAdd: userId !== '',
     availability: watchlistScreenViewModelAvailability,
