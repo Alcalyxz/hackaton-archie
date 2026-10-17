@@ -28,7 +28,8 @@ export function PublicTrackerShell({ vm, children }) {
   const items = nav || [];
   const name = brand?.name || t('public-tracker.f0585808');
   const homeHref = items[0]?.href || "#";
-  const signInHref = actions?.signIn?.href;
+  // Signed-out visitors get a visible Sign in button; the shell data carries no sign-in action, so it falls back to /login.
+  const signInHref = vm.identity?.email ? undefined : (actions?.signIn?.href ?? "/login");
   const legal = Array.isArray(actions?.legal) ? actions.legal : [];
 
   const linkClass = (item) =>
@@ -110,7 +111,7 @@ export function PublicTrackerShell({ vm, children }) {
               </Button>
             ) : null}
             {signInHref ? (
-              <Button data-vid="54682026" asChild variant="ghost" className="type-meta hidden lg:inline-flex">
+              <Button data-vid="54682026" asChild className="type-meta min-h-9 shrink-0 px-4">
                 <a data-vid="687603bb" href={signInHref}>{t('public-tracker.bfd402b2')}</a>
               </Button>
             ) : null}
