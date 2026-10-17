@@ -456,6 +456,25 @@
     "e9f2de84": "Answers about watching assets and setting alerts, and how to reach support when the answer is not here.",
     "f62e9267": "Alerts"
   },
+  "signup": {
+    "title": "Create your account",
+    "subtitle": "Sign up to track assets and get email alerts.",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "Email",
+    "password": "Password",
+    "firstNameRequired": "Enter your first name.",
+    "lastNameRequired": "Enter your last name.",
+    "emailRequired": "Enter your email address.",
+    "emailInvalid": "Enter a valid email address.",
+    "passwordRule": "Use at least 8 characters with an uppercase letter, a lowercase letter and a number.",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "submit": "Create account",
+    "creating": "Creating account...",
+    "haveAccount": "Already have an account?",
+    "signIn": "Sign in"
+  },
   "login": {
     "280f46b8": "Enter your email address.",
     "30c1d8d3": "Forgot password?",

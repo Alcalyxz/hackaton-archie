@@ -449,6 +449,25 @@
     "e9f2de84": "Respuestas sobre el seguimiento de activos y la configuración de alertas, y cómo contactar con soporte si la respuesta no está aquí.",
     "f62e9267": "Alertas"
   },
+  "signup": {
+    "title": "Crea tu cuenta",
+    "subtitle": "Regístrate para seguir activos y recibir alertas por correo.",
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "firstNameRequired": "Introduce tu nombre.",
+    "lastNameRequired": "Introduce tu apellido.",
+    "emailRequired": "Introduce tu correo electrónico.",
+    "emailInvalid": "Introduce un correo válido.",
+    "passwordRule": "Usa al menos 8 caracteres con una mayúscula, una minúscula y un número.",
+    "showPassword": "Mostrar contraseña",
+    "hidePassword": "Ocultar contraseña",
+    "submit": "Crear cuenta",
+    "creating": "Creando cuenta...",
+    "haveAccount": "¿Ya tienes cuenta?",
+    "signIn": "Iniciar sesión"
+  },
   "login": {
     "280f46b8": "Introduce tu correo electrónico.",
     "30c1d8d3": "¿Olvidaste la contraseña?",

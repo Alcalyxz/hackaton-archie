@@ -40,6 +40,10 @@ const ROUTES: readonly { readonly path: string; readonly surface: string }[] = [
     "surface": "auth"
   },
   {
+    "path": "/sign-up",
+    "surface": "auth"
+  },
+  {
     "path": "/welcome",
     "surface": "public-tracker"
   },
