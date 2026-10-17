@@ -5,6 +5,7 @@ import { Search, Trash2, Pause, Play, Plus } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { routes } from "@/presentation/navigation";
 import { Button } from "@/components/ui/button";
+import { ConfirmDeleteDialog } from "@/components/confirm-delete-dialog";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -20,6 +21,7 @@ export function WatchlistView(props: WatchlistScreenViewModel): React.ReactEleme
   const [classFilter, setClassFilter] = useState("all");
   const [statusFilter, setStatusFilter] = useState("all");
   const [toAdd, setToAdd] = useState("");
+  const [toDelete, setToDelete] = useState<{ id: string; name: string } | null>(null);
   const itemCls = "cursor-pointer rounded-lg py-2 text-sm focus:bg-accent focus:text-accent-foreground data-[state=checked]:font-medium";
   const contentCls = "min-w-(--radix-select-trigger-width) rounded-xl border border-border bg-popover p-1.5 shadow-lg";
 
@@ -83,6 +85,15 @@ export function WatchlistView(props: WatchlistScreenViewModel): React.ReactEleme
           </div>
         )}
       </header>
+      <ConfirmDeleteDialog
+        open={toDelete !== null}
+        onOpenChange={(o) => { if (!o) setToDelete(null); }}
+        itemName={toDelete?.name}
+        title="¿Quitar de tu lista?"
+        confirmLabel="Quitar"
+        pending={props.saving}
+        onConfirm={() => { if (toDelete) props.onDeleteWatchedAsset(toDelete.id); setToDelete(null); }}
+      />
 
       <div data-vid="bjc9s9v" className="flex flex-col gap-(--component-gap)">
         <div data-vid="3htsv5y" className="flex items-center gap-(--component-gap) overflow-x-auto pb-1 lg:flex-nowrap">
@@ -213,7 +224,7 @@ export function WatchlistView(props: WatchlistScreenViewModel): React.ReactEleme
                               aria-label={`${t("watchlist.c3812fc4")} ${asset.name} ${t("watchlist.a58e9c13")}`}
                               disabled={props.saving}
                               onClick={() => {
-                                if (window.confirm(`¿Quitar ${asset.name} de tu lista?`)) props.onDeleteWatchedAsset(w.id);
+                                setToDelete({ id: w.id, name: asset.name });
                               }}
                             >
                               <Trash2 data-vid="qw01bqq" className="size-4" />
