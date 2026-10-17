@@ -14,7 +14,8 @@ import type { PerformancePoint } from '../../domain/entities/performancePoint';
 import type { WatchedAsset, WatchedAssetId } from '../../domain/entities/watchedAsset';
 import type { DataNotice } from '../../application/view-models/notices';
 import { watchlistScreenViewModelAvailability, type WatchlistScreenViewModel } from '../../application/view-models/watchlist.vm';
-import { useRepositories } from '../app-context';
+import { useRepositories, useIdentity } from '../app-context';
+import { toast } from '@/components/ui/sonner';
 import { WatchlistView } from '../views/watchlist.view';
 import { ScreenError, ScreenLoading } from '../screen-state';
 
@@ -45,6 +46,9 @@ export function WatchlistScreenContainer(
 ): React.ReactElement {
   const View = props.view;
   const repositories = useRepositories();
+  const { identity } = useIdentity();
+  const userId = identity?.id ?? '';
+  const [saving, setSaving] = React.useState(false);
   const navigate = useAppNavigate();
   const [assets, setAssets] = React.useState<readonly Asset[]>([]);
   const [assetsTotal, setAssetsTotal] = React.useState(0);
@@ -77,7 +81,9 @@ export function WatchlistScreenContainer(
     void Promise.all([
       repositories.asset.list({ first: ASSETS_PAGE_SIZE, skip: assetsPage * ASSETS_PAGE_SIZE }),
       repositories.performancePoint.list({ first: PERFORMANCE_POINTS_PAGE_SIZE, skip: performancePointsPage * PERFORMANCE_POINTS_PAGE_SIZE }),
-      repositories.watchedAsset.list({ first: WATCHED_ASSETS_PAGE_SIZE, skip: watchedAssetsPage * WATCHED_ASSETS_PAGE_SIZE }),
+      userId === ''
+        ? Promise.resolve(null)
+        : repositories.watchedAsset.list({ first: WATCHED_ASSETS_PAGE_SIZE, skip: watchedAssetsPage * WATCHED_ASSETS_PAGE_SIZE, userId }),
     ])
     .then(([assetsResult, performancePointsResult, watchedAssetsResult]) => {
       if (!live) return;
@@ -147,7 +153,70 @@ export function WatchlistScreenContainer(
     return () => {
       live = false;
     };
-  }, [repositories, reloadToken, assetsPage, performancePointsPage, watchedAssetsPage]);
+  }, [repositories, reloadToken, assetsPage, performancePointsPage, watchedAssetsPage, userId]);
+
+  const runWrite = React.useCallback(
+    (op: () => Promise<{ ok: boolean; error?: RepoError }>, okMsg: string): void => {
+      setWriteError(null);
+      setSaving(true);
+      void op()
+        .then((result) => {
+          if (result.ok === false) {
+            setWriteError(result.error ?? null);
+            toast.error('No se pudo guardar el cambio.');
+            return;
+          }
+          toast.success(okMsg);
+          reload();
+        })
+        .catch((cause: unknown) => {
+          console.error('[archie] la escritura falló:', cause);
+          toast.error('No se pudo guardar el cambio.');
+        })
+        .finally(() => setSaving(false));
+    },
+    [reload],
+  );
+
+  const onAddWatchedAsset = React.useCallback(
+    (assetId: string): void => {
+      if (userId === '') return;
+      if (watchedAssets.some((w) => w.assetId === assetId)) {
+        toast.info('Ese activo ya está en tu lista.');
+        return;
+      }
+      const asset = assets.find((a) => a.id === assetId);
+      runWrite(
+        () =>
+          repositories.watchedAsset.create({
+            assetId,
+            userId,
+            status: 'WATCHING',
+            displayOrder: watchedAssetsTotal + 1,
+            priceWhenAdded: asset?.currentPrice,
+          }),
+        'Activo añadido a tu lista.',
+      );
+    },
+    [userId, watchedAssets, assets, watchedAssetsTotal, repositories, runWrite],
+  );
+
+  const onToggleWatchedAsset = React.useCallback(
+    (id: WatchedAssetId): void => {
+      const w = watchedAssets.find((x) => x.id === id);
+      if (!w) return;
+      const pausing = w.status !== 'PAUSED';
+      runWrite(
+        () =>
+          repositories.watchedAsset.update(id, {
+            status: pausing ? 'PAUSED' : 'WATCHING',
+            pausedAt: pausing ? new Date().toISOString() : undefined,
+          }),
+        pausing ? 'Seguimiento pausado.' : 'Seguimiento reanudado.',
+      );
+    },
+    [watchedAssets, repositories, runWrite],
+  );
 
   const onAssetsPageChange = React.useCallback((page: number): void => {
     setAssetsPage(page);
@@ -211,6 +280,10 @@ export function WatchlistScreenContainer(
     loading,
     error: loadError ?? writeError,
     onDeleteWatchedAsset,
+    onAddWatchedAsset,
+    onToggleWatchedAsset,
+    saving,
+    canAdd: userId !== '',
     availability: watchlistScreenViewModelAvailability,
     navigate,
   };

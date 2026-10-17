@@ -76,6 +76,14 @@ export interface WatchlistScreenViewModel {
   readonly error: RepoError | null;
   /** Deletes a `WatchedAsset` by id. Returns `void`: the write is the container's. */
   readonly onDeleteWatchedAsset: (id: WatchedAssetId) => void;
+  /** Adds an asset to the signed-in user's watchlist. */
+  readonly onAddWatchedAsset: (assetId: string) => void;
+  /** Pauses or resumes a watched asset. */
+  readonly onToggleWatchedAsset: (id: WatchedAssetId) => void;
+  /** `true` while a write is in flight. */
+  readonly saving: boolean;
+  /** `true` when a signed-in user can add assets. */
+  readonly canAdd: boolean;
   /** Static write availability: render disabled-with-reason from it, never guess. */
   readonly availability: WatchlistScreenViewModelAvailability;
   /** Navigates to another screen by route (`/slug`). The view never imports the

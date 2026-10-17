@@ -17,6 +17,8 @@ import type { WatchedAsset, WatchedAssetId } from '../entities/watchedAsset';
 export interface WatchedAssetQuery {
   /** Tamaño de página. El adapter lo traduce al `first` del documento. */
   first?: number;
+  /** Limita la consulta a las filas del usuario dueño (id de la tabla de usuarios). */
+  userId?: string;
   /** Elementos a saltar antes de la página. El adapter lo traduce al `skip`. */
   skip?: number;
   /** Filtro por IGUALDAD sobre escalares planos del dominio. Operadores, rangos y orden
@@ -66,7 +68,10 @@ export type NewWatchedAsset = Partial<
     | 'createdAt'
     | 'pausedAt'
   >
->;
+> & {
+  /** Usuario dueño de la fila. */
+  userId?: string;
+};
 
 /** Parche de actualización de `WatchedAsset`: TODO opcional, porque un parche es
  *  parcial por definición. Los campos salen del `WatchedAssetUpdateInput` REAL. */

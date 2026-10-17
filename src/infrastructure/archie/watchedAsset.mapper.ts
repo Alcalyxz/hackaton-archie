@@ -127,6 +127,9 @@ export function toWatchedAssetCreateInput(input: NewWatchedAsset): Record<string
   if (input.assetId != null && String(input.assetId) !== '') {
     out.asset = { connect: { id: input.assetId } };
   }
+  if (input.userId != null && input.userId !== '') {
+    out.user = { connect: { id: input.userId } };
+  }
   return out;
 }
 

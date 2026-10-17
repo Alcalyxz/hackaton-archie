@@ -101,10 +101,15 @@ export class ArchieWatchedAssetRepository implements WatchedAssetRepository {
         ),
       };
     }
+    const baseFilter = toWatchedAssetFilter(q?.filter);
+    const scoped =
+      q?.userId !== undefined && q.userId !== ''
+        ? { ...(baseFilter ?? {}), userId: { equals: q.userId } }
+        : baseFilter;
     const res = await this.gql.query<WatchedAssetListData>(WATCHED_ASSET_LIST, {
       first,
       skip,
-      filter: toWatchedAssetFilter(q?.filter),
+      filter: scoped,
       orderBy: toWatchedAssetOrderBy(q?.sort),
     });
     if (res.error !== null) return { ok: false, error: fromGraphQL(res.error) };
