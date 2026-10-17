@@ -195,7 +195,45 @@ export function WatchlistView(props: WatchlistScreenViewModel): React.ReactEleme
       <Card data-vid="y34orko" className="p-(--card-padding)">
         <figure data-vid="qdcbq5h" className="flex flex-col gap-(--component-gap)">
           <figcaption data-vid="lexgvjv" className="type-card-title">{t("watchlist.442aded8")}</figcaption>
-          <EmptyState data-vid="rcmgwmm" title={t("watchlist.59641555")} description={t("watchlist.3434c8d1")} />
+          {(() => {
+            const bars = rows
+              .map(({ w, asset }) => {
+                const now = asset?.currentPrice;
+                const then = w.priceWhenAdded;
+                const perf = asset && now != null && then != null && then > 0 ? ((now - then) / then) * 100 : null;
+                return { id: w.id, name: asset?.name ?? "", symbol: asset?.symbol ?? "", paused: w.status === "PAUSED", perf };
+              })
+              .filter((b): b is typeof b & { perf: number } => b.perf !== null)
+              .sort((a, b) => b.perf - a.perf);
+            if (bars.length === 0) {
+              return <EmptyState data-vid="rcmgwmm" title={t("watchlist.59641555")} description={t("watchlist.3434c8d1")} />;
+            }
+            const max = Math.max(...bars.map((b) => Math.abs(b.perf)), 0.01);
+            return (
+              <div className="flex flex-col gap-1">
+                <p className="type-meta text-text-muted">{t("watchlist.chartHint")}</p>
+                <ul className="mt-2 flex flex-col gap-2">
+                  {bars.map((b) => {
+                    const up = b.perf >= 0;
+                    const width = `${(Math.abs(b.perf) / max) * 100}%`;
+                    return (
+                      <li key={b.id} className={`grid grid-cols-[minmax(6rem,10rem)_1fr_4.5rem] items-center gap-3 ${b.paused ? "opacity-50" : ""}`} title={b.paused ? t("watchlist.statusPaused") : undefined}>
+                        <span className="min-w-0 truncate text-sm"><span className="font-medium text-foreground">{b.symbol}</span> <span className="text-text-muted">{b.name}</span></span>
+                        <div className="relative h-6 rounded-md bg-muted/50">
+                          <div className="absolute inset-y-0 left-1/2 w-px bg-border" />
+                          <div
+                            className={`absolute inset-y-1 rounded-sm transition-[width] duration-500 ease-out ${up ? "left-1/2 bg-success" : "right-1/2 bg-destructive"}`}
+                            style={{ width: `calc(${width} / 2)` }}
+                          />
+                        </div>
+                        <span className={`text-right text-sm font-medium tabular-nums ${up ? "text-success" : "text-destructive"}`}>{`${up ? "+" : ""}${b.perf.toFixed(2)}%`}</span>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            );
+          })()}
         </figure>
       </Card>
 

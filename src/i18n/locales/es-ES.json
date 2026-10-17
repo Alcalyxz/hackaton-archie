@@ -791,6 +791,7 @@
     "bd7cb04a": "activos en seguimiento ·",
     "priceWhenAdded": "Precio al agregar",
     "mSection": "Métricas de seguimiento",
+    "chartHint": "Rendimiento de cada activo desde que lo añadiste, de mejor a peor.",
     "mTotal": "Activos seguidos",
     "mTotalHint": "En tu lista de seguimiento",
     "mActive": "Activos",

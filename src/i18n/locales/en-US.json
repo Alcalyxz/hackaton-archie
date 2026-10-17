@@ -798,6 +798,7 @@
     "bd7cb04a": "assets watched ·",
     "priceWhenAdded": "Price when added",
     "mSection": "Watchlist metrics",
+    "chartHint": "Performance of each asset since you added it, best to worst.",
     "mTotal": "Watched assets",
     "mTotalHint": "In your watchlist",
     "mActive": "Active",
