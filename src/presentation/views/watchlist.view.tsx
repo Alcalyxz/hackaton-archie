@@ -190,7 +190,7 @@ export function WatchlistView(props: WatchlistScreenViewModel): React.ReactEleme
                     <TableHead data-vid="fel2nis" className="type-eyebrow text-text-muted text-right">{t("watchlist.priceWhenAdded", { defaultValue: "Precio al agregar" })}</TableHead>
                     <TableHead data-vid="88zg3hh" className="type-eyebrow text-text-muted text-right">{t("watchlist.currentPrice", { defaultValue: "Precio actual" })}</TableHead>
                     <TableHead data-vid="uxzqi0l" className="type-eyebrow text-text-muted text-right">{t("watchlist.9ea8258c")}</TableHead>
-                    <TableHead data-vid="1t60w4l" className="type-eyebrow text-text-muted text-right">{t("watchlist.bd82ce58")}</TableHead>
+                    
                     <TableHead data-vid="kgd6igf" className="w-12 type-eyebrow text-text-muted text-center">{t("watchlist.920e413c.table-column")}</TableHead>
                     <TableHead data-vid="309j3fa" className="type-eyebrow text-text-muted text-right">{t("watchlist.ff8059dc")}</TableHead>
                   </TableRow>
@@ -215,20 +215,18 @@ export function WatchlistView(props: WatchlistScreenViewModel): React.ReactEleme
                         </TableCell>
                         <TableCell data-vid="fg021e1" className="max-w-64 whitespace-nowrap text-right tabular-nums text-text-muted">
                           {w.priceWhenAdded != null ? (
-                            <Money data-vid="xgxtoyu" value={w.priceWhenAdded} align="end" />
+                            <span className="inline-block origin-right scale-[0.7]"><Money data-vid="xgxtoyu" value={w.priceWhenAdded} align="end" /></span>
                           ) : (
                             <span className="type-meta">—</span>
                           )}
                         </TableCell>
                         <TableCell data-vid="rv65h4a" className="max-w-64 whitespace-nowrap text-right tabular-nums">
-                          <Money data-vid="wqosa40" value={asset.currentPrice} align="end" />
+                          <span className="inline-block origin-right scale-[0.7]"><Money data-vid="wqosa40" value={asset.currentPrice} align="end" /></span>
                         </TableCell>
                         <TableCell data-vid="t4ep20y" className="max-w-64 whitespace-nowrap text-right tabular-nums">
                           <Change data-vid="e9d3u8f" value={asset.dayChange} />
                         </TableCell>
-                        <TableCell data-vid="pugk6zd" className="max-w-64 whitespace-nowrap text-right tabular-nums">
-                          <Change data-vid="yds76zu" value={w.performanceSinceAdded} />
-                        </TableCell>
+                        
                         <TableCell data-vid="z30gz29" className="w-12 text-center">
                           <span
                             className="group relative inline-flex size-6 items-center justify-center"
