@@ -24,7 +24,9 @@ export const ASSET_LIST = `query Gen_Asset_List_g1($filter: AssetFilter, $orderB
       symbol
       assetClass
       currentPrice
+      percentChange1h
       dayChange
+      percentChange7d
       marketCap
       dataProvider
       createdAt

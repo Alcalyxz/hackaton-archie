@@ -20,6 +20,9 @@ export interface AssetRow {
   assetClass: string;
   currentPrice: number;
   dayChange: number | null;
+  /** Sólo la lista los selecciona. */
+  percentChange1h?: number | null;
+  percentChange7d?: number | null;
   marketCap: number | null;
   dataProvider: string | null;
   createdAt: string;
@@ -95,6 +98,8 @@ export function toAsset(row: AssetRow): RepoResult<Asset> {
       assetClass,
       currentPrice: assetUrls(row.currentPrice),
       dayChange: assetUrls(row.dayChange) ?? undefined,
+      percentChange1h: assetUrls(row.percentChange1h) ?? undefined,
+      percentChange7d: assetUrls(row.percentChange7d) ?? undefined,
       marketCap: assetUrls(row.marketCap) ?? undefined,
       dataProvider: assetUrls(row.dataProvider) ?? undefined,
       createdAt: assetUrls(row.createdAt),

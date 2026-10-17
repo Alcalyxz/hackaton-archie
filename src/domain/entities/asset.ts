@@ -17,6 +17,8 @@ export interface Asset {
   assetClass: AssetAssetClass;
   currentPrice: number;
   dayChange?: number;
+  percentChange1h?: number;
+  percentChange7d?: number;
   marketCap?: number;
   dataProvider?: string;
   createdAt: string;

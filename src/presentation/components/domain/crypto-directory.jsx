@@ -107,7 +107,9 @@ export function CryptoDirectory({ Crypto, onOpen, onRefresh, refreshing }) {
               <TableRow>
                 <TableHead className="type-eyebrow">{t("crypto.colCoin", "Coin")}</TableHead>
                 <TableHead className="type-eyebrow text-right">{t("crypto.colPrice", "Price (USD)")}</TableHead>
+                <TableHead className="type-eyebrow text-right">{t("crypto.colChange1h", "1h")}</TableHead>
                 <TableHead className="type-eyebrow text-right">{t("crypto.colChange", "24h")}</TableHead>
+                <TableHead className="type-eyebrow text-right">{t("crypto.colChange7d", "7d")}</TableHead>
                 <TableHead className="type-eyebrow text-right">{t("crypto.colCap", "Market cap")}</TableHead>
               </TableRow>
             </TableHeader>
@@ -124,7 +126,13 @@ export function CryptoDirectory({ Crypto, onOpen, onRefresh, refreshing }) {
                     <Money value={c.currentPrice} align="end" className="type-meta" />
                   </TableCell>
                   <TableCell className="whitespace-nowrap text-right tabular-nums">
+                    <Change value={c.percentChange1h ?? null} />
+                  </TableCell>
+                  <TableCell className="whitespace-nowrap text-right tabular-nums">
                     <Change value={c.dayChange ?? null} />
+                  </TableCell>
+                  <TableCell className="whitespace-nowrap text-right tabular-nums">
+                    <Change value={c.percentChange7d ?? null} />
                   </TableCell>
                   <TableCell className="whitespace-nowrap text-right font-mono tabular-nums type-meta">
                     {c.marketCap == null ? "—" : money(c.marketCap, { compact: true })}

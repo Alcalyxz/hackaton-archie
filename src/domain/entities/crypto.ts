@@ -15,6 +15,8 @@ export interface Crypto {
   symbol: string;
   currentPrice: number;
   dayChange?: number;
+  percentChange1h?: number;
+  percentChange7d?: number;
   marketCap?: number;
   assetId: string;
   createdAt: string;

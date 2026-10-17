@@ -91,6 +91,16 @@ export function CryptoCard({
             <Change data-vid="6b2e1dce" value={c.dayChange ?? null} className="type-stat" />
           </div>
         </div>
+        <div className="flex flex-wrap gap-x-(--component-gap) gap-y-3">
+          <div className="min-w-0 shrink-0 whitespace-nowrap tabular-nums">
+            <p className="type-eyebrow text-text-muted">{t('crypto.change1h', '1h')}</p>
+            <Change value={c.percentChange1h ?? null} className="type-meta" />
+          </div>
+          <div className="min-w-0 shrink-0 whitespace-nowrap tabular-nums">
+            <p className="type-eyebrow text-text-muted">{t('crypto.change7d', '7d')}</p>
+            <Change value={c.percentChange7d ?? null} className="type-meta" />
+          </div>
+        </div>
         {hasCap ? (
           <p data-vid="5dd5632e" className="type-caption whitespace-nowrap tabular-nums text-text-muted">
             {t('crypto-card.8c68e22a')} {formatMoney(c.marketCap, { compact: true })}

@@ -109,6 +109,8 @@ export function CryptoScreenContainer(
           symbol: a.symbol,
           currentPrice: a.currentPrice,
           dayChange: a.dayChange,
+          percentChange1h: a.percentChange1h,
+          percentChange7d: a.percentChange7d,
           marketCap: a.marketCap,
           assetId: a.id,
           createdAt: a.createdAt,
