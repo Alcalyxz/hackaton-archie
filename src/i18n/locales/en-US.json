@@ -473,7 +473,9 @@
     "submit": "Create account",
     "creating": "Creating account...",
     "haveAccount": "Already have an account?",
-    "signIn": "Sign in"
+    "signIn": "Sign in",
+    "noAccount": "Don't have an account?",
+    "createAccount": "Sign up"
   },
   "login": {
     "280f46b8": "Enter your email address.",

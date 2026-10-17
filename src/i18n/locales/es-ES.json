@@ -466,7 +466,9 @@
     "submit": "Crear cuenta",
     "creating": "Creando cuenta...",
     "haveAccount": "¿Ya tienes cuenta?",
-    "signIn": "Iniciar sesión"
+    "signIn": "Iniciar sesión",
+    "noAccount": "¿No tienes cuenta?",
+    "createAccount": "Regístrate"
   },
   "login": {
     "280f46b8": "Introduce tu correo electrónico.",

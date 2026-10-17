@@ -165,6 +165,18 @@ export function LoginView(props: AuthViewModel): React.ReactElement {
           </CardContent>
         </Card>
 
+        <p className="type-caption text-text-muted">
+          {t("signup.noAccount")}{" "}
+          <Button
+            type="button"
+            variant="link"
+            className="type-caption h-auto p-0 text-text-link hover:underline"
+            onClick={() => props.navigate("/sign-up")}
+          >
+            {t("signup.createAccount")}
+          </Button>
+        </p>
+
         <p className="type-caption text-text-muted">{t("login.905b6a2c")}</p>
       </div>
     </main>
