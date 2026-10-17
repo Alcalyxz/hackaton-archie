@@ -11,6 +11,12 @@ import { cn } from "@/lib/utils";
 import { LogoMark } from "@/presentation/components/domain/logo-mark";
 import { useShellActions, useShellHeaderOffset } from "@/lib/shell-actions";
 import { useTranslation } from "react-i18next";
+import { LanguageSwitcher } from "@/presentation/components/language-switcher";
+
+const FOOTER_COPY = {
+  en: { cta: "Create a free account", account: "Account", signIn: "Sign in", signUp: "Sign up", forgot: "Forgot password", support: "Support", help: "Help center", terms: "Terms", privacy: "Privacy", disclaimer: "Market data is informational, not financial advice." },
+  es: { cta: "Crea una cuenta gratis", account: "Cuenta", signIn: "Iniciar sesión", signUp: "Registrarse", forgot: "Olvidé mi contraseña", support: "Soporte", help: "Centro de ayuda", terms: "Términos", privacy: "Privacidad", disclaimer: "Los datos de mercado son informativos, no asesoría financiera." },
+};
 
 /** @param {import("@/application/view-models/shell.vm").ShellProps} props */
 export function PublicTrackerShell({ vm, children }) {
@@ -18,7 +24,9 @@ export function PublicTrackerShell({ vm, children }) {
   const nav = vm.nav.map((n) => ({ ...n, title: n.label, generated: true }));
   const actions = /** @type {any} */ (vm.shellActions);
   const persona = { name: vm.identity?.name ?? '', roleLabel: vm.identity?.roleLabel ?? '', email: vm.identity?.email, organization: undefined, initials: vm.identity?.initials ?? '' };
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const fc = (i18n.resolvedLanguage ?? i18n.language ?? "en").startsWith("es") ? FOOTER_COPY.es : FOOTER_COPY.en;
+  const footLink = "type-meta rounded-control text-chrome-foreground hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring";
   const headerRef = useShellHeaderOffset();
   useShellActions(actions);
   const [open, setOpen] = useState(false);
@@ -97,6 +105,7 @@ export function PublicTrackerShell({ vm, children }) {
             {items.map((item) => renderLink(item, linkClass(item)))}
           </nav>
           <div data-vid="368a3667" className="ml-auto flex shrink-0 items-center gap-2 lg:gap-4">
+            <LanguageSwitcher />
             {available ? (
               <Button data-vid="57e7b69e"
                 type="button"
@@ -163,15 +172,34 @@ export function PublicTrackerShell({ vm, children }) {
       </main>
 
       <footer data-vid="f5ffffd8" className="bg-surface-sunken text-chrome-foreground border-chrome-border border-t">
-        <div data-vid="e357e9b0" className="flex flex-col gap-8 px-(--container-padding) py-10 md:flex-row md:justify-between">
-          <div data-vid="c82b4067" className="flex max-w-sm flex-col gap-2">
+        <div data-vid="e357e9b0" className="mx-auto grid w-full max-w-(--content-max) gap-10 px-(--container-padding) py-14 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr]">
+          <div data-vid="c82b4067" className="flex max-w-sm flex-col gap-4">
             <Brand data-vid="b07fc927" small />
             <p data-vid="49b0893a" className="type-meta text-chrome-muted">
               {t('public-tracker.32163c0d')}
             </p>
+            <a href="/sign-up" className="type-meta inline-flex w-fit items-center rounded-control bg-primary px-4 py-2 font-medium text-primary-foreground hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+              {fc.cta}
+            </a>
           </div>
+          <nav aria-label={fc.account} className="flex flex-col gap-3">
+            <span className="type-eyebrow text-chrome-muted">{fc.account}</span>
+            <ul className="flex flex-col gap-2">
+              <li><a href="/login" className={footLink}>{fc.signIn}</a></li>
+              <li><a href="/sign-up" className={footLink}>{fc.signUp}</a></li>
+              <li><a href="/forgot-password" className={footLink}>{fc.forgot}</a></li>
+            </ul>
+          </nav>
+          <nav aria-label={fc.support} className="flex flex-col gap-3">
+            <span className="type-eyebrow text-chrome-muted">{fc.support}</span>
+            <ul className="flex flex-col gap-2">
+              <li><a href="/help" className={footLink}>{fc.help}</a></li>
+              <li><a href="/terms" className={footLink}>{fc.terms}</a></li>
+              <li><a href="/privacy" className={footLink}>{fc.privacy}</a></li>
+            </ul>
+          </nav>
           {items.length > 0 ? (
-            <nav data-vid="656c418e" aria-label={t('public-tracker.26c87bb5')} className="flex flex-col gap-2">
+            <nav data-vid="656c418e" aria-label={t('public-tracker.26c87bb5')} className="flex flex-col gap-3">
               <span data-vid="1411e450" className="type-eyebrow text-chrome-muted">{t('public-tracker.3b73900b')}</span>
               <ul data-vid="8a354857" className="flex flex-col gap-2">
                 {items.map((item) => (
@@ -189,8 +217,9 @@ export function PublicTrackerShell({ vm, children }) {
             </nav>
           ) : null}
         </div>
-        {legal.length > 0 ? (
-          <div data-vid="b7077164" className="border-chrome-border border-t px-(--container-padding) py-4">
+        <div data-vid="b7077164" className="border-chrome-border border-t">
+          <div className="mx-auto flex w-full max-w-(--content-max) flex-col gap-3 px-(--container-padding) py-5 sm:flex-row sm:items-center sm:justify-between">
+            <span className="type-meta text-chrome-muted">© {new Date().getFullYear()} Market Beacon. {fc.disclaimer}</span>
             <ul data-vid="d23d1e36" className="flex flex-wrap gap-x-6 gap-y-2">
               {legal.map((item) => (
                 <li data-vid="2bfebb4d" key={item.href}>
@@ -204,7 +233,7 @@ export function PublicTrackerShell({ vm, children }) {
               ))}
             </ul>
           </div>
-        ) : null}
+        </div>
       </footer>
     </div>
   );
