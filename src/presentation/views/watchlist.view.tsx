@@ -235,9 +235,8 @@ export function WatchlistView(props: WatchlistScreenViewModel): React.ReactEleme
                         </TableCell>
                         <TableCell data-vid="txgmvp4" className="max-w-64 whitespace-nowrap text-right tabular-nums">
                           <div data-vid="16e4epq" className="flex items-center justify-end gap-1">
-                            <Button data-vid="f221rp0" variant="ghost" size="sm" disabled={props.saving} onClick={() => props.onToggleWatchedAsset(w.id)} className="whitespace-nowrap">
+                            <Button data-vid="f221rp0" variant="ghost" size="icon" disabled={props.saving} onClick={() => props.onToggleWatchedAsset(w.id)} aria-label={paused ? t("watchlist.e836ee38") : t("watchlist.4ca5fe7f")} title={paused ? t("watchlist.e836ee38") : t("watchlist.4ca5fe7f")} className="size-8">
                               {paused ? <Play data-vid="fwgcjmy" className="size-4" /> : <Pause data-vid="6ff6c6f" className="size-4" />}
-                              {paused ? t("watchlist.e836ee38") : t("watchlist.4ca5fe7f")}
                             </Button>
                             <Button data-vid="6d0ub6d"
                               variant="ghost"
