@@ -3,11 +3,11 @@
 import { Picture } from "@/lib/image";
 import { formatDate, formatDateTime } from "@/lib/format";
 import { Button } from "@/components/ui/button";
-import { ChartContainer } from "@/components/ui/chart";
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
 import { StatusMark } from "@/presentation/components/domain/status-mark";
 import { Money, Change, formatMoney } from "@/presentation/components/domain/value-format";
 import { ArrowRight } from "lucide-react";
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, ReferenceLine } from "recharts";
+import { LineChart, Line, AreaChart, Area, CartesianGrid, XAxis, YAxis, ReferenceLine } from "recharts";
 import { schema } from "@/presentation/components/domain/schema";
 import { enumIs } from "@/presentation/components/domain/enum-vocab";
 import { useTranslation } from "react-i18next";
@@ -15,9 +15,22 @@ import { useMemo } from "react";
 
 const FEATURED_ASSET = "ast-003";
 
+// Mock data: 30 daily Bitcoin readings, used while the screen has no real series to draw.
+const MOCK_SERIES = Array.from({ length: 30 }, (_, i) => ({
+  at: new Date(Date.UTC(2026, 9, 1 + i)).toISOString(),
+  value: Math.round(80000 + Math.sin(i / 3.2) * 3200 + Math.cos(i / 1.7) * 900 + i * 160),
+}));
+const MOCK_THRESHOLD = 84000;
+const MOCK_BTC = {
+  name: "Bitcoin",
+  symbol: "BTC",
+  currentPrice: MOCK_SERIES[MOCK_SERIES.length - 1].value,
+  dayChange: 2.4,
+};
+
 const counts = {};
 const bestRange = Object.keys(counts).sort((a, b) => counts[b] - counts[a])[0];
-const rangeLabel = schema.enums.PerformanceRange.find((r) => r.value === bestRange)?.label ?? "";
+const rangeLabel = schema.enums.PerformanceRange.find((r) => r.value === bestRange)?.label ?? "30 days";
 
 const chartConfig = { value: { label: "Performance", color: "var(--chart-1)" } };
 
@@ -28,18 +41,19 @@ export function WelcomeView(props) {
   const { Asset, Crypto, Alert, PerformancePoint, WatchedAsset, href } = props;
   const { t } = useTranslation();
   const { bitcoin, btcAsset, alert, threshold, allPoints, series, values, yMin, yMax, directionLabel, alertAsset, alertName, assetById, groups, Sparkline } = useMemo(() => {
-    const bitcoin = Crypto.find((c) => c.id === "cr-001") ?? null;
+    const bitcoin = Crypto.find((c) => c.id === "cr-001") ?? MOCK_BTC;
     const btcAsset = Asset.find((a) => a.id === FEATURED_ASSET);
     const alert = Alert.find((a) => a.id === "al-001") ?? null;
-    const threshold = alert?.thresholdValue ?? 0;
+    const threshold = alert?.thresholdValue ?? MOCK_THRESHOLD;
     const allPoints = PerformancePoint.filter((p) => p.assetId === FEATURED_ASSET);
     allPoints.forEach((p) => {
     counts[p.range] = (counts[p.range] ?? 0) + 1;
   });
-    const series = allPoints
+    const realSeries = allPoints
     .filter((p) => enumIs(p.range, bestRange, "PerformancePoint.range"))
     .sort((a, b) => String(a.observedAt).localeCompare(String(b.observedAt)))
     .map((p) => ({ at: p.observedAt, value: p.value }));
+    const series = realSeries.length > 1 ? realSeries : MOCK_SERIES;
     const values = series.map((s) => s.value);
     const yMin = values.length ? ((v) => (Number.isFinite(v) ? v : null))(Math.min(...values)) * 0.98 : 0;
     const yMax = Math.max(values.length ? ((v) => (Number.isFinite(v) ? v : null))(Math.max(...values)) : 0, threshold) * 1.02;
@@ -136,19 +150,26 @@ export function WelcomeView(props) {
             </p>
           </div>
           <figure data-vid="08b97c21" className="flex flex-col gap-(--component-gap)">
-            <div data-vid="504824fd" inert className="relative max-h-[420px] overflow-hidden rounded-card border border-border bg-card p-(--card-padding)">
+            <div data-vid="504824fd" className="relative max-h-[420px] overflow-hidden rounded-card border border-border bg-card p-(--card-padding)">
               <div data-vid="83554fd6" className="mb-3 flex flex-wrap items-end gap-x-(--component-gap) gap-y-2">
                 <Money data-vid="b8decebc" value={bitcoin?.currentPrice} className="whitespace-nowrap" />
                 <Change data-vid="7344ac1f" value={bitcoin?.dayChange} performance className="type-stat" />
               </div>
               <ChartContainer data-vid="72fbda00" config={chartConfig} className="aspect-auto h-64 w-full">
-                <LineChart data-vid="bf23ef4b" data={series} margin={{ top: 12, right: 12 }}>
-                  <CartesianGrid data-vid="473ec895" vertical={false} />
+                <AreaChart data-vid="bf23ef4b" data={series} margin={{ top: 12, right: 12 }}>
+                  <defs>
+                    <linearGradient id="btcFill" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="var(--color-value)" stopOpacity={0.35} />
+                      <stop offset="100%" stopColor="var(--color-value)" stopOpacity={0} />
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid data-vid="473ec895" vertical={false} strokeDasharray="3 3" />
                   <XAxis data-vid="c9acfa36" dataKey="at" tickLine={false} axisLine={false} tickFormatter={(v) => formatDate(v)} className="type-caption tabular-nums" />
                   <YAxis data-vid="89efbed0" domain={[yMin, yMax]} tickLine={false} axisLine={false} width={64} tickFormatter={(v) => formatMoney(v, { compact: true })} className="type-caption tabular-nums" />
                   <ReferenceLine data-vid="310b858e" y={threshold} stroke="var(--border-strong)" strokeDasharray="4 4" label={{ value: `Alert ${formatMoney(threshold)}`, position: "insideTopLeft", className: "type-caption fill-foreground" }} />
-                  <Line data-vid="2e62fd5e" type="monotone" dataKey="value" stroke="var(--color-value)" strokeWidth={2} dot={false} isAnimationActive={false} />
-                </LineChart>
+                  <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel formatter={(v) => formatMoney(Number(v))} />} />
+                  <Area data-vid="2e62fd5e" type="monotone" dataKey="value" stroke="var(--color-value)" strokeWidth={2.5} fill="url(#btcFill)" dot={false} activeDot={{ r: 4 }} isAnimationActive={false} />
+                </AreaChart>
               </ChartContainer>
               <div data-vid="a96d67d1" className="pointer-events-none absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-card to-transparent" />
             </div>
