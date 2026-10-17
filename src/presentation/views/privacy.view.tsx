@@ -19,22 +19,22 @@ export function PrivacyView(props: PrivacyScreenViewModel): React.ReactElement {
   ];
 
   return (
-    <div className="flex flex-col gap-(--section-gap) py-(--section-gap)">
-      <header className="mx-auto w-full max-w-(--content-max) px-(--container-padding)">
-        <div className="flex max-w-prose flex-col gap-(--component-gap)">
-          <h1 className="type-page-title md:type-display">{t("privacy.ba445cff")}</h1>
-          <p className="type-body text-text-body">{t("privacy.88698418")}</p>
-          <p className="type-caption text-text-muted">
-            {t("privacy.382ac5f3")} <span className="font-mono tabular-nums">—</span>{" "}
-            <span className="font-mono tabular-nums">
+    <div data-vid="jv8sceg" className="flex flex-col gap-(--section-gap) py-(--section-gap)">
+      <header data-vid="fgby61f" className="mx-auto w-full max-w-(--content-max) px-(--container-padding)">
+        <div data-vid="62icci2" className="flex max-w-prose flex-col gap-(--component-gap)">
+          <h1 data-vid="374p0pv" className="type-page-title md:type-display">{t("privacy.ba445cff")}</h1>
+          <p data-vid="ukc3nuz" className="type-body text-text-body">{t("privacy.88698418")}</p>
+          <p data-vid="a9miomw" className="type-caption text-text-muted">
+            {t("privacy.382ac5f3")} <span data-vid="qe3tjjd" className="font-mono tabular-nums">—</span>{" "}
+            <span data-vid="epmxl9e" className="font-mono tabular-nums">
               {props.users.length > 0 ? props.usersTotal : ""}
             </span>
           </p>
         </div>
       </header>
 
-      <div className="mx-auto w-full max-w-(--content-max) px-(--container-padding)">
-        <Picture
+      <div data-vid="57tswcc" className="mx-auto w-full max-w-(--content-max) px-(--container-padding)">
+        <Picture data-vid="mjfdzh7"
           src="/assets/img/b6dff1245f5a-9488eed1ce.webp"
           intent="Close view of a market-data workspace, a dim monitor edge and keyboard in cool low-key light on a blue-black desk, subtle cyan bias, no coins, no candlesticks"
           alt={t("privacy.c05bc900")}
@@ -43,21 +43,21 @@ export function PrivacyView(props: PrivacyScreenViewModel): React.ReactElement {
         />
       </div>
 
-      <nav
+      <nav data-vid="15q8tjd"
         aria-label={t("privacy.e0ef5142")}
         className="mx-auto w-full max-w-(--content-max) px-(--container-padding)"
       >
-        <div className="max-w-prose">
-          <h2 className="type-eyebrow text-text-muted">{t("privacy.437aea62")}</h2>
-          <ol className="mt-3 flex flex-col border-t border-border">
+        <div data-vid="o8cp0jo" className="max-w-prose">
+          <h2 data-vid="1h0abvz" className="type-eyebrow text-text-muted">{t("privacy.437aea62")}</h2>
+          <ol data-vid="fvlpgns" className="mt-3 flex flex-col border-t border-border">
             {sections.map((s, i) => (
-              <li key={s.id} className="border-b border-border">
-                <span className="group flex min-h-11 items-center justify-between gap-3 py-2 text-text-muted">
-                  <span className="type-body min-w-0">
-                    <span className="mr-3 font-mono tabular-nums text-text-muted">{i + 1}</span>
+              <li data-vid="bqks9r5" key={s.id} className="border-b border-border">
+                <span data-vid="ynqr01j" className="group flex min-h-11 items-center justify-between gap-3 py-2 text-text-muted">
+                  <span data-vid="juyizjz" className="type-body min-w-0">
+                    <span data-vid="0zvj9ir" className="mr-3 font-mono tabular-nums text-text-muted">{i + 1}</span>
                     {s.title}
                   </span>
-                  <ArrowRight className="size-4 shrink-0" aria-hidden="true" />
+                  <ArrowRight data-vid="1n3595f" className="size-4 shrink-0" aria-hidden="true" />
                 </span>
               </li>
             ))}
@@ -65,17 +65,17 @@ export function PrivacyView(props: PrivacyScreenViewModel): React.ReactElement {
         </div>
       </nav>
 
-      <div className="mx-auto w-full max-w-(--content-max) px-(--container-padding)">
-        <div className="flex max-w-prose flex-col gap-(--section-gap)">
+      <div data-vid="ron0dg9" className="mx-auto w-full max-w-(--content-max) px-(--container-padding)">
+        <div data-vid="ea2yaxn" className="flex max-w-prose flex-col gap-(--section-gap)">
           {sections.map((s, i) => (
-            <section
+            <section data-vid="i8irasq"
               key={s.id}
               id={s.id}
               aria-labelledby={`${s.id}-h`}
               className="flex scroll-mt-24 flex-col gap-(--component-gap)"
             >
-              <h2 id={`${s.id}-h`} className="type-section">
-                <span className="mr-3 font-mono tabular-nums text-text-muted">{i + 1}</span>
+              <h2 data-vid="kvswc34" id={`${s.id}-h`} className="type-section">
+                <span data-vid="doj1khh" className="mr-3 font-mono tabular-nums text-text-muted">{i + 1}</span>
                 {s.title}
               </h2>
             </section>
@@ -83,20 +83,20 @@ export function PrivacyView(props: PrivacyScreenViewModel): React.ReactElement {
         </div>
       </div>
 
-      <div className="mx-auto w-full max-w-(--content-max) px-(--container-padding)">
-        <Card className="max-w-prose gap-(--component-gap) p-(--card-padding)">
-          <h2 className="type-card-title">{t("privacy.519bad45")}</h2>
-          <p className="type-body text-text-body">
-            {t("privacy.969ccbd3")} <span className="font-mono">{t("privacy.961440cd")}</span> {t("privacy.a2fc94e2")}
+      <div data-vid="cg8muvu" className="mx-auto w-full max-w-(--content-max) px-(--container-padding)">
+        <Card data-vid="wlyhnct" className="max-w-prose gap-(--component-gap) p-(--card-padding)">
+          <h2 data-vid="347trth" className="type-card-title">{t("privacy.519bad45")}</h2>
+          <p data-vid="uprqttn" className="type-body text-text-body">
+            {t("privacy.969ccbd3")} <span data-vid="rnnmkhy" className="font-mono">{t("privacy.961440cd")}</span> {t("privacy.a2fc94e2")}
           </p>
-          <dl className="flex flex-wrap gap-x-(--section-gap) gap-y-3">
-            <div className="shrink-0">
-              <dt className="type-eyebrow text-text-muted">{t("privacy.93e7491e")}</dt>
-              <dd className="type-meta font-mono">{t("privacy.e7f88094")}</dd>
+          <dl data-vid="5jvbsmy" className="flex flex-wrap gap-x-(--section-gap) gap-y-3">
+            <div data-vid="k6knzuw" className="shrink-0">
+              <dt data-vid="mqz80ta" className="type-eyebrow text-text-muted">{t("privacy.93e7491e")}</dt>
+              <dd data-vid="bvn694e" className="type-meta font-mono">{t("privacy.e7f88094")}</dd>
             </div>
-            <div className="min-w-0">
-              <dt className="type-eyebrow text-text-muted">{t("privacy.8d3bc64d")}</dt>
-              <dd className="type-meta font-mono">{t("privacy.07511fe8")}</dd>
+            <div data-vid="14njhnj" className="min-w-0">
+              <dt data-vid="0et3j3r" className="type-eyebrow text-text-muted">{t("privacy.8d3bc64d")}</dt>
+              <dd data-vid="xcy0n6c" className="type-meta font-mono">{t("privacy.07511fe8")}</dd>
             </div>
           </dl>
         </Card>

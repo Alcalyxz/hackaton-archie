@@ -166,17 +166,17 @@ export function Timeline<Row = unknown>({
   const todayD = isNum ? null : toDate(today)
   const shared = { events, todayD, selectedId, onSelect, emptyLabel, axisMode, unitLabel }
   return (
-    <figure data-slot="timeline" aria-label={label} className={cn("m-0 min-w-0", className)} {...rest}>
-      {events.length === 0 ? <p className="type-body text-text-muted">{emptyLabel}</p> : (
+    <figure data-vid="xmghkiu" data-slot="timeline" aria-label={label} className={cn("m-0 min-w-0", className)} {...rest}>
+      {events.length === 0 ? <p data-vid="frveo3r" className="type-body text-text-muted">{emptyLabel}</p> : (
         <>
           {orientation !== "vertical" ? (
-            <div className={cn(orientation === "auto" && "hidden md:block")}>
-              <Horizontal {...shared} range={range} ticks={ticks} hasLanes={Boolean(lane)} />
+            <div data-vid="iojchqx" className={cn(orientation === "auto" && "hidden md:block")}>
+              <Horizontal data-vid="vu4nc6q" {...shared} range={range} ticks={ticks} hasLanes={Boolean(lane)} />
             </div>
           ) : null}
           {orientation !== "horizontal" ? (
-            <div className={cn(orientation === "auto" && "md:hidden")}>
-              <Vertical {...shared} />
+            <div data-vid="j63rce4" className={cn(orientation === "auto" && "md:hidden")}>
+              <Vertical data-vid="pdv91nh" {...shared} />
             </div>
           ) : null}
         </>
@@ -207,7 +207,7 @@ interface MarkProps<Row> {
 function Mark<Row>({ ev, onSelect, selectedId, axisMode, unitLabel, className, style, children }: MarkProps<Row>) {
   const selected = selectedId != null && String(selectedId) === ev.key
   return (
-    <ItemBox href={ev.href} onSelect={onSelect} row={ev.row} data-event-id={ev.key} aria-current={selected ? "true" : undefined}
+    <ItemBox data-vid="vxu15y8" href={ev.href} onSelect={onSelect} row={ev.row} data-event-id={ev.key} aria-current={selected ? "true" : undefined}
       aria-label={`${ev.title}, ${whenOf(ev, axisMode, unitLabel)}${ev.lane != null ? `, ${ev.lane}` : ""}`}
       className={cn("outline-none focus-visible:ring-2 focus-visible:ring-ring", selected && "ring-2 ring-ring", className)} style={style}>
       {children}
@@ -272,40 +272,40 @@ function Horizontal<Row>({ events, todayD, selectedId, onSelect, range, ticks, h
   const todayX = todayD ? pct(todayD) : null
 
   return (
-    <div className="min-w-0 overflow-x-auto">
-      <div className={cn("grid min-w-[40rem]", hasLanes ? "grid-cols-[minmax(6rem,10rem)_minmax(0,1fr)]" : "grid-cols-[minmax(0,1fr)]")}>
-        {hasLanes ? <span /> : null}
-        <div className="relative h-6 border-b border-border-strong" aria-hidden="true">
+    <div data-vid="n9w9l2i" className="min-w-0 overflow-x-auto">
+      <div data-vid="7d2lizl" className={cn("grid min-w-[40rem]", hasLanes ? "grid-cols-[minmax(6rem,10rem)_minmax(0,1fr)]" : "grid-cols-[minmax(0,1fr)]")}>
+        {hasLanes ? <span data-vid="xcplkia" /> : null}
+        <div data-vid="uqkhza3" className="relative h-6 border-b border-border-strong" aria-hidden="true">
           {tickValues.map((d, i) => (
-            <span key={tickKey(d)} className="absolute bottom-0 h-2 border-l border-border-strong" style={{ left: `${pct(d)}%` }}>
-              {i % every === 0 ? <span className="absolute bottom-2.5 left-1 whitespace-nowrap type-caption tabular-nums text-text-muted">{fmtTick(d)}</span> : null}
+            <span data-vid="djfff19" key={tickKey(d)} className="absolute bottom-0 h-2 border-l border-border-strong" style={{ left: `${pct(d)}%` }}>
+              {i % every === 0 ? <span data-vid="cxnxmnz" className="absolute bottom-2.5 left-1 whitespace-nowrap type-caption tabular-nums text-text-muted">{fmtTick(d)}</span> : null}
             </span>
           ))}
         </div>
         {lanes.map((ln) => (
-          <div key={ln.name} className="contents">
-            {hasLanes ? <div className="flex min-w-0 items-start border-b border-border py-2 pr-3"><span className="truncate type-row-title text-foreground">{ln.name}</span></div> : null}
-            <div className="relative border-b border-border" style={{ height: `${ln.rows * ROW + 1}rem` }}>
-              {tickValues.map((d) => <span key={tickKey(d)} aria-hidden="true" className="absolute inset-y-0 border-l border-border" style={{ left: `${pct(d)}%` }} />)}
-              {todayX != null && todayX >= 0 && todayX <= 100 ? <span aria-hidden="true" className="absolute inset-y-0 z-10 border-l-2 border-primary" style={{ left: `${todayX}%` }} /> : null}
-              <ol>
+          <div data-vid="f9acjak" key={ln.name} className="contents">
+            {hasLanes ? <div data-vid="nrhi7bf" className="flex min-w-0 items-start border-b border-border py-2 pr-3"><span data-vid="bqn4lfx" className="truncate type-row-title text-foreground">{ln.name}</span></div> : null}
+            <div data-vid="b67wee4" className="relative border-b border-border" style={{ height: `${ln.rows * ROW + 1}rem` }}>
+              {tickValues.map((d) => <span data-vid="9ne948x" key={tickKey(d)} aria-hidden="true" className="absolute inset-y-0 border-l border-border" style={{ left: `${pct(d)}%` }} />)}
+              {todayX != null && todayX >= 0 && todayX <= 100 ? <span data-vid="1lbmo17" aria-hidden="true" className="absolute inset-y-0 z-10 border-l-2 border-primary" style={{ left: `${todayX}%` }} /> : null}
+              <ol data-vid="fo0dyfv">
                 {ln.placed.map(({ ev, x, w, r, flip }) => {
                   const t = toneOf(ev.tone)
                   const top = `${0.5 + r * ROW}rem`
                   return (
-                    <li key={ev.key}>
+                    <li data-vid="mvxyijw" key={ev.key}>
                       {ev.end ? (
-                        <Mark ev={ev} onSelect={onSelect} selectedId={selectedId} axisMode={axisMode} unitLabel={unitLabel}
+                        <Mark data-vid="whgrxvy" ev={ev} onSelect={onSelect} selectedId={selectedId} axisMode={axisMode} unitLabel={unitLabel}
                           className={cn("absolute flex h-6 min-w-0 items-center overflow-hidden rounded-sm border-l-2 px-1.5 text-left", t.soft, t.edge)}
                           style={{ top, left: `${x}%`, width: `${w}%` }}>
-                          <span className="truncate type-caption">{ev.title}</span>
+                          <span data-vid="xcergk4" className="truncate type-caption">{ev.title}</span>
                         </Mark>
                       ) : (
-                        <Mark ev={ev} onSelect={onSelect} selectedId={selectedId} axisMode={axisMode} unitLabel={unitLabel}
+                        <Mark data-vid="mkag3uj" ev={ev} onSelect={onSelect} selectedId={selectedId} axisMode={axisMode} unitLabel={unitLabel}
                           className={cn("absolute flex h-6 max-w-[16%] min-w-0 items-center gap-1.5 rounded-sm text-left", flip && "flex-row-reverse")}
                           style={flip ? { top, right: `${100 - x}%`, transform: "translateX(0.375rem)" } : { top, left: `${x}%`, transform: "translateX(-0.375rem)" }}>
-                          <span className={cn("size-3 shrink-0 rounded-full border-2 border-card", t.dot)} aria-hidden="true" />
-                          <span className="min-w-0 truncate type-caption text-foreground">{ev.title}</span>
+                          <span data-vid="8p1c4r9" className={cn("size-3 shrink-0 rounded-full border-2 border-card", t.dot)} aria-hidden="true" />
+                          <span data-vid="9ylq1hv" className="min-w-0 truncate type-caption text-foreground">{ev.title}</span>
                         </Mark>
                       )}
                     </li>
@@ -316,8 +316,8 @@ function Horizontal<Row>({ events, todayD, selectedId, onSelect, range, ticks, h
           </div>
         ))}
       </div>
-      {todayX != null && todayX >= 0 && todayX <= 100 ? <p className="mt-1 type-caption text-text-muted"><span className="mr-1.5 inline-block h-3 border-l-2 border-primary align-middle" aria-hidden="true" />Today, {F.date.format(todayD ?? undefined)}</p> : null}
-      {isNum && unitLabel ? <p className="mt-1 type-caption text-text-muted">{unitLabel}</p> : null}
+      {todayX != null && todayX >= 0 && todayX <= 100 ? <p data-vid="aorrvj7" className="mt-1 type-caption text-text-muted"><span data-vid="8bpy9o1" className="mr-1.5 inline-block h-3 border-l-2 border-primary align-middle" aria-hidden="true" />Today, {F.date.format(todayD ?? undefined)}</p> : null}
+      {isNum && unitLabel ? <p data-vid="5abbbob" className="mt-1 type-caption text-text-muted">{unitLabel}</p> : null}
     </div>
   )
 }
@@ -332,27 +332,27 @@ function Vertical<Row>({ events, todayD, selectedId, onSelect, axisMode, unitLab
   }
   const todayKey = todayD ? startOfDay(todayD).getTime() : null
   return (
-    <div className="grid min-w-0 gap-(--component-gap)">
+    <div data-vid="ydaygm1" className="grid min-w-0 gap-(--component-gap)">
       {groups.map((g) => (
-        <section key={g.name || "all"} className="grid min-w-0 gap-2">
-          {g.name ? <h4 className="type-eyebrow text-text-muted">{g.name}</h4> : null}
-          <ol className="grid min-w-0">
+        <section data-vid="g3dwm0m" key={g.name || "all"} className="grid min-w-0 gap-2">
+          {g.name ? <h4 data-vid="c372orm" className="type-eyebrow text-text-muted">{g.name}</h4> : null}
+          <ol data-vid="8s9y3hk" className="grid min-w-0">
             {g.evs.map((ev, i) => {
               const t = toneOf(ev.tone)
               const last = i === g.evs.length - 1
               const past = todayKey != null && startOfDay(dv(ev.end ?? ev.start)).getTime() < todayKey
               return (
-                <li key={ev.key} className="grid min-w-0 grid-cols-[1rem_minmax(0,1fr)] gap-x-3">
-                  <span className="flex flex-col items-center" aria-hidden="true">
-                    <span className={cn("mt-1.5 size-3 shrink-0 rounded-full", t.dot, past && "opacity-60")} />
-                    {!last ? <span className="w-px flex-1 bg-border" /> : null}
+                <li data-vid="uypy80i" key={ev.key} className="grid min-w-0 grid-cols-[1rem_minmax(0,1fr)] gap-x-3">
+                  <span data-vid="a5vcs7r" className="flex flex-col items-center" aria-hidden="true">
+                    <span data-vid="9mq7h6l" className={cn("mt-1.5 size-3 shrink-0 rounded-full", t.dot, past && "opacity-60")} />
+                    {!last ? <span data-vid="d3fv9zf" className="w-px flex-1 bg-border" /> : null}
                   </span>
-                  <Mark ev={ev} onSelect={onSelect} selectedId={selectedId} axisMode={axisMode} unitLabel={unitLabel}
+                  <Mark data-vid="dq7672n" ev={ev} onSelect={onSelect} selectedId={selectedId} axisMode={axisMode} unitLabel={unitLabel}
                     className={cn("grid min-w-0 gap-0.5 rounded-sm pb-4 text-left", (ev.href || onSelect) && "hover:bg-muted")}>
-                    <span className="type-mono-id tabular-nums text-text-muted">{whenOf(ev, axisMode, unitLabel)}</span>
-                    <span className="type-row-title text-foreground">{ev.title}</span>
+                    <span data-vid="ys55egl" className="type-mono-id tabular-nums text-text-muted">{whenOf(ev, axisMode, unitLabel)}</span>
+                    <span data-vid="uq73x6r" className="type-row-title text-foreground">{ev.title}</span>
                     {ev.lane != null || (ev.meta != null && ev.meta !== "") ? (
-                      <span className="truncate type-meta text-text-muted">{[ev.lane, ev.meta].filter((x) => x != null && x !== "").join(" · ")}</span>
+                      <span data-vid="egwhwr4" className="truncate type-meta text-text-muted">{[ev.lane, ev.meta].filter((x) => x != null && x !== "").join(" · ")}</span>
                     ) : null}
                   </Mark>
                 </li>

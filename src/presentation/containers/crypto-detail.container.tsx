@@ -59,16 +59,16 @@ export default function CryptoDetailScreenRoute(): React.ReactElement {
   return (
     <>
       {loading ? (
-        <ScreenLoading />
+        <ScreenLoading data-vid="bt252qj" />
       ) : error !== null ? (
-        <ScreenError error={error} onRetry={retry} />
+        <ScreenError data-vid="dzszswh" error={error} onRetry={retry} />
       ) : detail === null ? (
-        <ScreenNotFound
+        <ScreenNotFound data-vid="kv3lggx"
           title={t('cryptoDetail.notFoundTitle', 'Cryptocurrency not found')}
           description={t('cryptoDetail.notFoundDesc', 'Pick one from the Crypto list.')}
         />
       ) : (
-        <CryptoDetailView detail={detail} onBack={back} />
+        <CryptoDetailView data-vid="cbc18jk" detail={detail} onBack={back} />
       )}
     </>
   );

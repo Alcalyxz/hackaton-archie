@@ -50,11 +50,11 @@ export function TermsScreenContainer(
     query,
   };
 
-  return <View {...vm} />;
+  return <View data-vid="ec663pn" {...vm} />;
 }
 
 // THE ROUTE MODULE. `routes.config.tsx` lazy-imports this file and needs a prop-less
 // `export default`: it binds the container to its view and does nothing else.
 export default function TermsScreenRoute(): React.ReactElement {
-  return <TermsScreenContainer view={TermsView} />;
+  return <TermsScreenContainer data-vid="11si61j" view={TermsView} />;
 }

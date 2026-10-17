@@ -13,8 +13,8 @@ const MOCK_CRYPTOS = [
 
 function Stat({ label, children }: { label: string; children: ReactNode }) {
   return (
-    <div className="flex items-center justify-between gap-3 text-sm">
-      <span className="text-muted-foreground">{label}</span>
+    <div data-vid="ih4gbp8" className="flex items-center justify-between gap-3 text-sm">
+      <span data-vid="pk4kx00" className="text-muted-foreground">{label}</span>
       {children}
     </div>
   );
@@ -22,29 +22,29 @@ function Stat({ label, children }: { label: string; children: ReactNode }) {
 
 export function CryptoCarousel() {
   return (
-    <section className="px-(--container-padding) py-(--section-gap)">
-      <div className="mx-auto flex max-w-(--content-max) flex-col gap-(--component-gap)">
-        <h2 className="text-2xl font-semibold text-foreground">Most popular cryptocurrencies</h2>
-        <Carousel opts={{ align: "start", loop: true }} className="w-full px-12">
-          <CarouselContent>
+    <section data-vid="l5u73q6" className="px-(--container-padding) py-(--section-gap)">
+      <div data-vid="xjv96yc" className="mx-auto flex max-w-(--content-max) flex-col gap-(--component-gap)">
+        <h2 data-vid="selquih" className="text-2xl font-semibold text-foreground">Most popular cryptocurrencies</h2>
+        <Carousel data-vid="ehpg96s" opts={{ align: "start", loop: true }} className="w-full px-12">
+          <CarouselContent data-vid="bwj5yrd">
             {MOCK_CRYPTOS.map((c) => (
-              <CarouselItem key={c.id} className="basis-full sm:basis-1/2 lg:basis-1/3">
-                <div className="flex h-full flex-col gap-3 rounded-lg border border-border bg-card p-5">
-                  <div>
-                    <p className="font-semibold text-foreground">{c.name}</p>
-                    <p className="font-mono text-xs text-muted-foreground">{c.symbol}</p>
+              <CarouselItem data-vid="dps1jz4" key={c.id} className="basis-full sm:basis-1/2 lg:basis-1/3">
+                <div data-vid="c7qao3h" className="flex h-full flex-col gap-3 rounded-lg border border-border bg-card p-5">
+                  <div data-vid="puvgswv">
+                    <p data-vid="ui151g1" className="font-semibold text-foreground">{c.name}</p>
+                    <p data-vid="59d6oe5" className="font-mono text-xs text-muted-foreground">{c.symbol}</p>
                   </div>
-                  <Money value={c.currentPrice} />
-                  <Stat label="1h"><Change value={c.percentChange1h} /></Stat>
-                  <Stat label="24h"><Change value={c.dayChange} /></Stat>
-                  <Stat label="7d"><Change value={c.percentChange7d} /></Stat>
-                  <Stat label="Market cap"><Money value={c.marketCap} compact className="text-sm" /></Stat>
+                  <Money data-vid="7f6hq5t" value={c.currentPrice} />
+                  <Stat data-vid="o50pv3h" label="1h"><Change data-vid="h0xm3py" value={c.percentChange1h} /></Stat>
+                  <Stat data-vid="8lypb7q" label="24h"><Change data-vid="gynmjcr" value={c.dayChange} /></Stat>
+                  <Stat data-vid="r9jlfqb" label="7d"><Change data-vid="v3erujq" value={c.percentChange7d} /></Stat>
+                  <Stat data-vid="shnoadq" label="Market cap"><Money data-vid="kohbc1m" value={c.marketCap} compact className="text-sm" /></Stat>
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious data-vid="p6fxfsm" />
+          <CarouselNext data-vid="cz3007g" />
         </Carousel>
       </div>
     </section>

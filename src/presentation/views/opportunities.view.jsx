@@ -210,7 +210,7 @@ export function OpportunitiesView(props) {
                 </TableHeader>
                 <TableBody data-vid="3502c12c">
                   {visible.map((r) => (
-                    <Fragment key={r.id}>
+                    <Fragment data-vid="flvr52f" key={r.id}>
                       <TableRow data-vid="e8c4096b" className="align-top">
                         <TableCell data-vid="cfa1636c" className="min-w-40">
                           <a data-vid="26ab38a9"

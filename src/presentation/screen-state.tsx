@@ -15,7 +15,7 @@ const ACTION =
 export function ScreenSection(props: {
   readonly children?: React.ReactNode;
 }): React.ReactElement {
-  return <section className="w-full p-6">{props.children}</section>;
+  return <section data-vid="cm3i0bf" className="w-full p-6">{props.children}</section>;
 }
 
 export function ScreenEmptyState(props: {
@@ -24,9 +24,9 @@ export function ScreenEmptyState(props: {
   readonly children?: React.ReactNode;
 }): React.ReactElement {
   return (
-    <div className={CARD}>
-      <h2 className="text-base font-semibold">{props.title}</h2>
-      <p className="text-sm text-muted-foreground">{props.desc}</p>
+    <div data-vid="niyl126" className={CARD}>
+      <h2 data-vid="44ocpsl" className="text-base font-semibold">{props.title}</h2>
+      <p data-vid="77wedc6" className="text-sm text-muted-foreground">{props.desc}</p>
       {props.children}
     </div>
   );
@@ -34,10 +34,10 @@ export function ScreenEmptyState(props: {
 
 export function ScreenLoading(): React.ReactElement {
   return (
-    <div role="status" aria-busy="true" className="w-full space-y-3 p-6">
-      <div className="h-6 w-1/3 animate-pulse rounded-md bg-muted" />
-      <div className="h-4 w-2/3 animate-pulse rounded-md bg-muted" />
-      <div className="h-32 w-full animate-pulse rounded-md bg-muted" />
+    <div data-vid="vbrap6l" role="status" aria-busy="true" className="w-full space-y-3 p-6">
+      <div data-vid="pf598u4" className="h-6 w-1/3 animate-pulse rounded-md bg-muted" />
+      <div data-vid="1pykw2t" className="h-4 w-2/3 animate-pulse rounded-md bg-muted" />
+      <div data-vid="3oxgthi" className="h-32 w-full animate-pulse rounded-md bg-muted" />
     </div>
   );
 }
@@ -60,11 +60,11 @@ export function ScreenError(props: {
   const { t } = useTranslation();
   const keys = keysFor(props.error.kind);
   return (
-    <ScreenSection>
-      <div role="alert" className={CARD}>
-        <h2 className="text-base font-semibold">{t(keys.title)}</h2>
-        <p className="text-sm text-muted-foreground">{t(keys.desc)}</p>
-        <button type="button" className={ACTION} onClick={props.onRetry}>
+    <ScreenSection data-vid="ub8unw8">
+      <div data-vid="4jd3ay8" role="alert" className={CARD}>
+        <h2 data-vid="ge8w45f" className="text-base font-semibold">{t(keys.title)}</h2>
+        <p data-vid="7qxrvam" className="text-sm text-muted-foreground">{t(keys.desc)}</p>
+        <button data-vid="e6srtm4" type="button" className={ACTION} onClick={props.onRetry}>
           {t('_app.load-state.retry')}
         </button>
       </div>
@@ -76,8 +76,8 @@ export function ScreenError(props: {
 export function ScreenUnavailable(): React.ReactElement {
   const { t } = useTranslation();
   return (
-    <ScreenSection>
-      <ScreenEmptyState
+    <ScreenSection data-vid="9icq6df">
+      <ScreenEmptyState data-vid="7b45jk2"
         title={t('_app.no-data-state.title')}
         desc={t('_app.no-data-state.desc')}
       />
@@ -92,8 +92,8 @@ export function ScreenEmpty(props: {
   readonly children?: React.ReactNode;
 }): React.ReactElement {
   return (
-    <ScreenSection>
-      <ScreenEmptyState title={props.title} desc={props.description}>
+    <ScreenSection data-vid="jp5jp5x">
+      <ScreenEmptyState data-vid="v4ucb0r" title={props.title} desc={props.description}>
         {props.children}
       </ScreenEmptyState>
     </ScreenSection>
@@ -107,10 +107,10 @@ export function ScreenNotFound(props: {
   readonly children?: React.ReactNode;
 }): React.ReactElement {
   return (
-    <ScreenSection>
-      <div role="status" className={CARD}>
-        <h2 className="text-base font-semibold">{props.title}</h2>
-        <p className="text-sm text-muted-foreground">{props.description}</p>
+    <ScreenSection data-vid="6eb9t8a">
+      <div data-vid="nd9sa79" role="status" className={CARD}>
+        <h2 data-vid="d00due6" className="text-base font-semibold">{props.title}</h2>
+        <p data-vid="etjx2bo" className="text-sm text-muted-foreground">{props.description}</p>
         {props.children}
       </div>
     </ScreenSection>
@@ -128,11 +128,11 @@ export function ScreenNotice(props: {
       ? 'border-destructive/40 bg-destructive/5'
       : 'border-border bg-muted/40';
   return (
-    <ScreenSection>
-      <div role="status" className={`mx-auto w-full max-w-xl rounded-lg border p-4 ${tone}`}>
-        <p className="text-sm font-medium">{props.title}</p>
+    <ScreenSection data-vid="09o5snk">
+      <div data-vid="m4hgo1y" role="status" className={`mx-auto w-full max-w-xl rounded-lg border p-4 ${tone}`}>
+        <p data-vid="qp0yuu7" className="text-sm font-medium">{props.title}</p>
         {props.description !== undefined ? (
-          <p className="mt-1 text-sm text-muted-foreground">{props.description}</p>
+          <p data-vid="9xbg9ou" className="mt-1 text-sm text-muted-foreground">{props.description}</p>
         ) : null}
       </div>
     </ScreenSection>

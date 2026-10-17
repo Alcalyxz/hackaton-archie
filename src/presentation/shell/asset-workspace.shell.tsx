@@ -38,20 +38,20 @@ function groupRuns(nav: readonly ShellNavItem[]): Run[] {
 function NavList(props: { nav: readonly ShellNavItem[]; current: string; onNavigate?: () => void }) {
   const runs = groupRuns([...props.nav].sort((a, b) => a.order - b.order));
   return (
-    <div className="flex flex-col gap-1">
+    <div data-vid="6rajmbn" className="flex flex-col gap-1">
       {runs.map((run, i) => {
         const labelled = run.group && run.items.length > 1;
         return (
-          <div key={i} className="flex flex-col gap-1">
+          <div data-vid="51do8ku" key={i} className="flex flex-col gap-1">
             {labelled ? (
-              <p className="type-eyebrow px-3 pt-4 pb-1 text-chrome-muted md:hidden lg:block">{run.group}</p>
+              <p data-vid="2wn6dfh" className="type-eyebrow px-3 pt-4 pb-1 text-chrome-muted md:hidden lg:block">{run.group}</p>
             ) : i > 0 ? (
-              <Separator className="my-2 bg-chrome-border" />
+              <Separator data-vid="c39lx1e" className="my-2 bg-chrome-border" />
             ) : null}
             {run.items.map((item) => {
               const active = item.slug === props.current;
               return (
-                <a
+                <a data-vid="wums6vk"
                   key={item.slug + item.href}
                   {...navEntryMask(item.slug)}
                   href={item.href}
@@ -65,8 +65,8 @@ function NavList(props: { nav: readonly ShellNavItem[]; current: string; onNavig
                     active ? "bg-primary text-primary-foreground hover:bg-primary" : ""
                   )}
                 >
-                  <NavIcon name={item.icon} aria-hidden className="size-5 shrink-0" />
-                  <span className="truncate md:hidden lg:inline">{item.label}</span>
+                  <NavIcon data-vid="lbzr2jt" name={item.icon} aria-hidden className="size-5 shrink-0" />
+                  <span data-vid="b6752s7" className="truncate md:hidden lg:inline">{item.label}</span>
                 </a>
               );
             })}
@@ -83,18 +83,18 @@ function Brand(props: { vm: ShellViewModel; href: string; showName?: boolean; cl
   const logo = vm.brand.logo;
   const src = logo ? (logo.light ?? logo.dark) : undefined;
   return (
-    <a
+    <a data-vid="68d8ybm"
       href={props.href}
       data-slot="brand"
       title={vm.brand.name}
       className={cn("flex items-center gap-2 whitespace-nowrap rounded-control type-card-title text-chrome-foreground", focus, props.className)}
     >
       {src ? (
-        <img src={src} alt="" className="h-6 w-auto" />
+        <img data-vid="x5mchld" src={src} alt="" className="h-6 w-auto" />
       ) : (
         <>
-          <LogoMark className="size-8" />
-          {showName ? <span className="md:hidden lg:inline">{vm.brand.name}</span> : null}
+          <LogoMark data-vid="kjvkj0q" className="size-8" />
+          {showName ? <span data-vid="glzajuu" className="md:hidden lg:inline">{vm.brand.name}</span> : null}
         </>
       )}
     </a>
@@ -107,39 +107,39 @@ function IdentityMenu(props: { vm: ShellViewModel }) {
   if (vm.identity === null) return null;
   const id = vm.identity;
   return (
-    <div {...IDENTITY_MASK}>
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <button
+    <div data-vid="wn53qc6" {...IDENTITY_MASK}>
+      <DropdownMenu data-vid="7cdu9oz">
+        <DropdownMenuTrigger data-vid="778lwxb" asChild>
+          <button data-vid="4ugatbl"
             type="button"
             aria-label={t("asset-workspace.7fb5995b")}
             className={cn("flex h-9 shrink-0 items-center gap-2 rounded-control px-1 hover:bg-chrome-hover max-md:h-11", focus)}
           >
-            <Avatar className="size-8">
-              {id.avatarSrc ? <AvatarImage src={id.avatarSrc} alt={id.name} /> : null}
-              <AvatarFallback className="type-caption">{id.initials}</AvatarFallback>
+            <Avatar data-vid="fihix8p" className="size-8">
+              {id.avatarSrc ? <AvatarImage data-vid="sew98rz" src={id.avatarSrc} alt={id.name} /> : null}
+              <AvatarFallback data-vid="hxfguo3" className="type-caption">{id.initials}</AvatarFallback>
             </Avatar>
-            <span className="type-meta hidden lg:inline">{id.name}</span>
-            <ChevronsUpDown aria-hidden="true" className="hidden size-4 text-chrome-muted lg:inline" />
+            <span data-vid="ssca5ne" className="type-meta hidden lg:inline">{id.name}</span>
+            <ChevronsUpDown data-vid="mh0q8kw" aria-hidden="true" className="hidden size-4 text-chrome-muted lg:inline" />
           </button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="w-64">
-          <DropdownMenuLabel className="flex flex-col gap-0.5">
-            <span data-slot="persona-name" className="type-row-title">{id.name}</span>
-            <span data-slot="persona-role" className="type-caption text-text-muted">{id.roleLabel}</span>
-            {id.email ? <span className="type-caption text-text-muted">{id.email}</span> : null}
+        <DropdownMenuContent data-vid="cebhdh0" align="end" className="w-64">
+          <DropdownMenuLabel data-vid="q8s0div" className="flex flex-col gap-0.5">
+            <span data-vid="ksszivp" data-slot="persona-name" className="type-row-title">{id.name}</span>
+            <span data-vid="bm1nlaj" data-slot="persona-role" className="type-caption text-text-muted">{id.roleLabel}</span>
+            {id.email ? <span data-vid="4co4igc" className="type-caption text-text-muted">{id.email}</span> : null}
           </DropdownMenuLabel>
-          <DropdownMenuSeparator />
+          <DropdownMenuSeparator data-vid="1gcpezt" />
           {vm.actions.map((a) => (
-            <DropdownMenuItem key={a.slug} asChild>
-              <a href={a.href} className="type-meta">{a.label}</a>
+            <DropdownMenuItem data-vid="q57rwny" key={a.slug} asChild>
+              <a data-vid="wikj6gv" href={a.href} className="type-meta">{a.label}</a>
             </DropdownMenuItem>
           ))}
           {vm.roles.length > 0 ? (
             <>
-              <DropdownMenuSeparator />
+              <DropdownMenuSeparator data-vid="af1vgwz" />
               {vm.roles.map((r) => (
-                <DropdownMenuItem
+                <DropdownMenuItem data-vid="ml0mowo"
                   key={r.id}
                   className="type-meta"
                   aria-current={r.id === vm.role ? true : undefined}
@@ -166,30 +166,30 @@ export function AssetWorkspaceShell(props: ShellProps): React.ReactElement {
   const tabs = nav.slice(0, 3);
 
   return (
-    <div data-shell="asset-workspace" className="flex min-h-dvh flex-col bg-background md:flex-row md:gap-3 md:p-3">
-      <aside className="sticky top-3 hidden h-[calc(100dvh-1.5rem)] w-20 shrink-0 flex-col overflow-hidden rounded-lg lg:w-(--rail-w) border border-chrome-border bg-chrome text-chrome-foreground shadow-sm md:flex">
-        <div className="flex h-(--topbar-h) shrink-0 items-center border-b border-chrome-border px-3 md:justify-center lg:justify-start">
-          <Brand vm={vm} href={homeHref} />
+    <div data-vid="qo3wjnq" data-shell="asset-workspace" className="flex min-h-dvh flex-col bg-background md:flex-row md:gap-3 md:p-3">
+      <aside data-vid="t60r52i" className="sticky top-3 hidden h-[calc(100dvh-1.5rem)] w-20 shrink-0 flex-col overflow-hidden rounded-lg lg:w-(--rail-w) border border-chrome-border bg-chrome text-chrome-foreground shadow-sm md:flex">
+        <div data-vid="6hxpghg" className="flex h-(--topbar-h) shrink-0 items-center border-b border-chrome-border px-3 md:justify-center lg:justify-start">
+          <Brand data-vid="9ukoxe6" vm={vm} href={homeHref} />
         </div>
-        <nav aria-label={t("asset-workspace.efe10c80")} className="flex-1 overflow-y-auto p-3 md:px-2 lg:p-3">
-          <NavList nav={nav} current={vm.current} />
+        <nav data-vid="5x6zc2q" aria-label={t("asset-workspace.efe10c80")} className="flex-1 overflow-y-auto p-3 md:px-2 lg:p-3">
+          <NavList data-vid="51ftq6k" nav={nav} current={vm.current} />
         </nav>
       </aside>
 
-      <div className="flex min-w-0 flex-1 flex-col max-md:pb-[calc(var(--bottom-nav-h)+env(safe-area-inset-bottom))]">
-        <div className="sticky top-0 z-40 bg-background md:top-3 md:pb-3 md:before:absolute md:before:inset-x-0 md:before:-top-3 md:before:h-3 md:before:bg-background md:before:content-['']">
-          <header className="flex h-(--topbar-h) shrink-0 items-center gap-4 border-b border-chrome-border bg-chrome px-(--container-padding) text-chrome-foreground md:rounded-lg md:border md:shadow-sm">
-            <Brand vm={vm} href={homeHref} showName={false} className="shrink-0 md:hidden" />
-            <span className="type-row-title min-w-0 flex-1 truncate md:hidden">{currentItem?.label}</span>
+      <div data-vid="pf5gyna" className="flex min-w-0 flex-1 flex-col max-md:pb-[calc(var(--bottom-nav-h)+env(safe-area-inset-bottom))]">
+        <div data-vid="9kycark" className="sticky top-0 z-40 bg-background md:top-3 md:pb-3 md:before:absolute md:before:inset-x-0 md:before:-top-3 md:before:h-3 md:before:bg-background md:before:content-['']">
+          <header data-vid="p0xtkpl" className="flex h-(--topbar-h) shrink-0 items-center gap-4 border-b border-chrome-border bg-chrome px-(--container-padding) text-chrome-foreground md:rounded-lg md:border md:shadow-sm">
+            <Brand data-vid="3j4alk7" vm={vm} href={homeHref} showName={false} className="shrink-0 md:hidden" />
+            <span data-vid="k2wcaoc" className="type-row-title min-w-0 flex-1 truncate md:hidden">{currentItem?.label}</span>
 
-            <button
+            <button data-vid="hb5j49q"
               type="button"
               aria-label={t("asset-workspace.49c266ba")}
               className={cn("flex size-11 shrink-0 items-center justify-center rounded-control hover:bg-chrome-hover md:hidden", focus)}
             >
-              <Search aria-hidden="true" className="size-5" />
+              <Search data-vid="cbng24e" aria-hidden="true" className="size-5" />
             </button>
-            <button
+            <button data-vid="ak2fvi5"
               type="button"
               aria-label={t("asset-workspace.e96e79f7")}
               className={cn(
@@ -197,38 +197,38 @@ export function AssetWorkspaceShell(props: ShellProps): React.ReactElement {
                 focus
               )}
             >
-              <Search aria-hidden="true" className="size-5 shrink-0" />
-              <span className="type-meta truncate">{t("asset-workspace.f354c51e")}</span>
+              <Search data-vid="v1jwvti" aria-hidden="true" className="size-5 shrink-0" />
+              <span data-vid="tbrkwou" className="type-meta truncate">{t("asset-workspace.f354c51e")}</span>
             </button>
 
-            <div className="ml-auto hidden shrink-0 items-center gap-4 md:flex">
-              <CircleHelp aria-hidden="true" className="hidden" />
-              <span className="hidden">
-                <Menu aria-hidden="true" />
-                <TrendingUp aria-hidden="true" />
-                <Sun aria-hidden="true" />
-                <Moon aria-hidden="true" />
-                <Monitor aria-hidden="true" />
+            <div data-vid="28a9c5r" className="ml-auto hidden shrink-0 items-center gap-4 md:flex">
+              <CircleHelp data-vid="580skrj" aria-hidden="true" className="hidden" />
+              <span data-vid="lx2gk7a" className="hidden">
+                <Menu data-vid="jsxv0fs" aria-hidden="true" />
+                <TrendingUp data-vid="1nfp4kh" aria-hidden="true" />
+                <Sun data-vid="kbh7zho" aria-hidden="true" />
+                <Moon data-vid="7el0j3k" aria-hidden="true" />
+                <Monitor data-vid="vk5v9mk" aria-hidden="true" />
               </span>
-              <IdentityMenu vm={vm} />
+              <IdentityMenu data-vid="jdiz3p3" vm={vm} />
             </div>
           </header>
         </div>
 
-        <main id="main" className="min-h-0 flex-1 bg-background">
-          <div className="mx-auto w-full max-w-(--content-max) px-(--container-padding) pt-0 pb-6">{children}</div>
+        <main data-vid="ylu9p2z" id="main" className="min-h-0 flex-1 bg-background">
+          <div data-vid="prib4kq" className="mx-auto w-full max-w-(--content-max) px-(--container-padding) pt-0 pb-6">{children}</div>
         </main>
       </div>
 
-      <nav
+      <nav data-vid="umy69cv"
         aria-label={t("asset-workspace.8e5ea509")}
         className="fixed inset-x-0 bottom-0 z-40 border-t border-chrome-border bg-chrome pb-[env(safe-area-inset-bottom)] text-chrome-foreground md:hidden"
       >
-        <div className="flex h-(--bottom-nav-h)">
+        <div data-vid="6gysr7v" className="flex h-(--bottom-nav-h)">
           {tabs.map((item) => {
             const active = item.slug === vm.current;
             return (
-              <a
+              <a data-vid="h33psrq"
                 key={item.slug}
                 {...navEntryMask(item.slug)}
                 href={item.href}
@@ -239,12 +239,12 @@ export function AssetWorkspaceShell(props: ShellProps): React.ReactElement {
                   focus
                 )}
               >
-                <NavIcon name={item.icon} aria-hidden className="size-5 shrink-0" />
-                <span className="type-caption max-w-full truncate">{item.label}</span>
+                <NavIcon data-vid="h05ib3j" name={item.icon} aria-hidden className="size-5 shrink-0" />
+                <span data-vid="d93z0sq" className="type-caption max-w-full truncate">{item.label}</span>
               </a>
             );
           })}
-          <button
+          <button data-vid="ll48w1q"
             type="button"
             onClick={() => setMoreOpen(true)}
             className={cn(
@@ -252,33 +252,33 @@ export function AssetWorkspaceShell(props: ShellProps): React.ReactElement {
               focus
             )}
           >
-            <MoreHorizontal aria-hidden="true" className="size-5 shrink-0" />
-            <span className="type-caption max-w-full truncate">{t("asset-workspace.d47d7cb0")}</span>
+            <MoreHorizontal data-vid="1zg0dw6" aria-hidden="true" className="size-5 shrink-0" />
+            <span data-vid="2qvtqc1" className="type-caption max-w-full truncate">{t("asset-workspace.d47d7cb0")}</span>
           </button>
         </div>
       </nav>
 
-      <Sheet open={moreOpen} onOpenChange={setMoreOpen}>
-        <SheetContent side="left" className="flex flex-col gap-0 bg-chrome p-0 text-chrome-foreground">
-          <SheetHeader className="border-b border-chrome-border">
-            <SheetTitle className="type-card-title">{vm.brand.name}</SheetTitle>
+      <Sheet data-vid="nlj6msf" open={moreOpen} onOpenChange={setMoreOpen}>
+        <SheetContent data-vid="oa7tisj" side="left" className="flex flex-col gap-0 bg-chrome p-0 text-chrome-foreground">
+          <SheetHeader data-vid="ufxh01h" className="border-b border-chrome-border">
+            <SheetTitle data-vid="te7uq4l" className="type-card-title">{vm.brand.name}</SheetTitle>
           </SheetHeader>
-          <div className="flex-1 overflow-y-auto p-3">
-            <NavList nav={nav} current={vm.current} onNavigate={() => setMoreOpen(false)} />
+          <div data-vid="97h06gf" className="flex-1 overflow-y-auto p-3">
+            <NavList data-vid="512zgsl" nav={nav} current={vm.current} onNavigate={() => setMoreOpen(false)} />
           </div>
           {vm.identity !== null ? (
-            <div className="flex items-center gap-3 border-t border-chrome-border p-4">
-              <Avatar className="size-8">
-                {vm.identity.avatarSrc ? <AvatarImage src={vm.identity.avatarSrc} alt={vm.identity.name} /> : null}
-                <AvatarFallback className="type-caption">{vm.identity.initials}</AvatarFallback>
+            <div data-vid="jtw4r4c" className="flex items-center gap-3 border-t border-chrome-border p-4">
+              <Avatar data-vid="xk6as61" className="size-8">
+                {vm.identity.avatarSrc ? <AvatarImage data-vid="tj2o0g0" src={vm.identity.avatarSrc} alt={vm.identity.name} /> : null}
+                <AvatarFallback data-vid="p6iijs4" className="type-caption">{vm.identity.initials}</AvatarFallback>
               </Avatar>
-              <div className="flex min-w-0 flex-col">
-                <span className="type-row-title truncate">{vm.identity.name}</span>
-                <span className="type-caption truncate text-chrome-muted">{vm.identity.roleLabel}</span>
+              <div data-vid="7uiyyoc" className="flex min-w-0 flex-col">
+                <span data-vid="b20z73c" className="type-row-title truncate">{vm.identity.name}</span>
+                <span data-vid="z2qm05z" className="type-caption truncate text-chrome-muted">{vm.identity.roleLabel}</span>
               </div>
               {vm.actions.map((a) => (
-                <Button key={a.slug} asChild variant="ghost" size="sm" className="ml-auto">
-                  <a href={a.href}>{a.label}</a>
+                <Button data-vid="wcqulvs" key={a.slug} asChild variant="ghost" size="sm" className="ml-auto">
+                  <a data-vid="d0e4gim" href={a.href}>{a.label}</a>
                 </Button>
               ))}
             </div>

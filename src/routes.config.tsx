@@ -34,15 +34,15 @@ export const defaultRoute = "welcome";
 
 /** Ruta índice: '/' redirige a la defaultRoute — la raíz NUNCA renderiza un outlet vacío. */
 function RootRedirect() {
-  return <RoleLandingRedirect />;
+  return <RoleLandingRedirect data-vid="icdocux" />;
 }
 
 const LazyScreen_overview = lazy(() => import('./presentation/containers/overview.container'));
 function Guarded_overview() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_overview />
+    <AuthGuard data-vid="w75o9c5" loadingComponent={<LoadingFallback data-vid="813808o" />} fallback={<Navigate data-vid="369arg0" to="/login" replace />}>
+      <Suspense data-vid="hwalmf8" fallback={<LoadingFallback data-vid="8op78rt" />}>
+        <LazyScreen_overview data-vid="ubdvd80" />
       </Suspense>
     </AuthGuard>
   );
@@ -51,9 +51,9 @@ function Guarded_overview() {
 const LazyScreen_asset_detail = lazy(() => import('./presentation/containers/asset-detail.container'));
 function Guarded_asset_detail() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_asset_detail />
+    <AuthGuard data-vid="taqmzjs" loadingComponent={<LoadingFallback data-vid="csrw3jl" />} fallback={<Navigate data-vid="fkuflfx" to="/login" replace />}>
+      <Suspense data-vid="njwlxck" fallback={<LoadingFallback data-vid="fskw05m" />}>
+        <LazyScreen_asset_detail data-vid="foc3tw2" />
       </Suspense>
     </AuthGuard>
   );
@@ -62,9 +62,9 @@ function Guarded_asset_detail() {
 const LazyScreen_user_detail = lazy(() => import('./presentation/containers/user-detail.container'));
 function Guarded_user_detail() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_user_detail />
+    <AuthGuard data-vid="nspu4wb" loadingComponent={<LoadingFallback data-vid="unhpz3s" />} fallback={<Navigate data-vid="78dd3wt" to="/login" replace />}>
+      <Suspense data-vid="xxnqnyt" fallback={<LoadingFallback data-vid="jmd7jto" />}>
+        <LazyScreen_user_detail data-vid="kd8im5t" />
       </Suspense>
     </AuthGuard>
   );
@@ -73,9 +73,9 @@ function Guarded_user_detail() {
 const LazyScreen_watchlist = lazy(() => import('./presentation/containers/watchlist.container'));
 function Guarded_watchlist() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_watchlist />
+    <AuthGuard data-vid="yw6rj39" loadingComponent={<LoadingFallback data-vid="4tgucph" />} fallback={<Navigate data-vid="qd0njzb" to="/login" replace />}>
+      <Suspense data-vid="964assw" fallback={<LoadingFallback data-vid="t24mja5" />}>
+        <LazyScreen_watchlist data-vid="1l5mcls" />
       </Suspense>
     </AuthGuard>
   );
@@ -84,9 +84,9 @@ function Guarded_watchlist() {
 const LazyScreen_crypto = lazy(() => import('./presentation/containers/crypto.container'));
 function Guarded_crypto() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_crypto />
+    <AuthGuard data-vid="2pargaz" loadingComponent={<LoadingFallback data-vid="xlvtd51" />} fallback={<Navigate data-vid="sc43t3e" to="/login" replace />}>
+      <Suspense data-vid="1y1j0c7" fallback={<LoadingFallback data-vid="nfek699" />}>
+        <LazyScreen_crypto data-vid="q4q672t" />
       </Suspense>
     </AuthGuard>
   );
@@ -95,9 +95,9 @@ function Guarded_crypto() {
 const LazyScreen_crypto_detail = lazy(() => import('./presentation/containers/crypto-detail.container'));
 function Guarded_crypto_detail() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_crypto_detail />
+    <AuthGuard data-vid="yx03dxw" loadingComponent={<LoadingFallback data-vid="a6gzmsa" />} fallback={<Navigate data-vid="6h4l7an" to="/login" replace />}>
+      <Suspense data-vid="rhcth6i" fallback={<LoadingFallback data-vid="7gl5n99" />}>
+        <LazyScreen_crypto_detail data-vid="jbu8op3" />
       </Suspense>
     </AuthGuard>
   );
@@ -106,9 +106,9 @@ function Guarded_crypto_detail() {
 const LazyScreen_users = lazy(() => import('./presentation/containers/users.container'));
 function Guarded_users() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_users />
+    <AuthGuard data-vid="g1jn9qs" loadingComponent={<LoadingFallback data-vid="y0iehl9" />} fallback={<Navigate data-vid="79luddl" to="/login" replace />}>
+      <Suspense data-vid="rl8joi9" fallback={<LoadingFallback data-vid="03emfra" />}>
+        <LazyScreen_users data-vid="8gqz7f4" />
       </Suspense>
     </AuthGuard>
   );
@@ -117,9 +117,9 @@ function Guarded_users() {
 const LazyScreen_alerts = lazy(() => import('./presentation/containers/alerts.container'));
 function Guarded_alerts() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_alerts />
+    <AuthGuard data-vid="oam4zpy" loadingComponent={<LoadingFallback data-vid="bq7bp8d" />} fallback={<Navigate data-vid="8a01ans" to="/login" replace />}>
+      <Suspense data-vid="avjibao" fallback={<LoadingFallback data-vid="i03sbts" />}>
+        <LazyScreen_alerts data-vid="b017123" />
       </Suspense>
     </AuthGuard>
   );
@@ -128,9 +128,9 @@ function Guarded_alerts() {
 const LazyScreen_account = lazy(() => import('./presentation/containers/account.container'));
 function Guarded_account() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_account />
+    <AuthGuard data-vid="iww8r6x" loadingComponent={<LoadingFallback data-vid="3pzlcwc" />} fallback={<Navigate data-vid="1ayuwwv" to="/login" replace />}>
+      <Suspense data-vid="o198cbr" fallback={<LoadingFallback data-vid="0nkfncx" />}>
+        <LazyScreen_account data-vid="hurrlh5" />
       </Suspense>
     </AuthGuard>
   );
@@ -139,9 +139,9 @@ function Guarded_account() {
 const LazyScreen_opportunities = lazy(() => import('./presentation/containers/opportunities.container'));
 function Guarded_opportunities() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_opportunities />
+    <AuthGuard data-vid="94zid96" loadingComponent={<LoadingFallback data-vid="g11t5sb" />} fallback={<Navigate data-vid="8twc2kz" to="/login" replace />}>
+      <Suspense data-vid="7t8czqg" fallback={<LoadingFallback data-vid="do0aye3" />}>
+        <LazyScreen_opportunities data-vid="n0zodfs" />
       </Suspense>
     </AuthGuard>
   );
@@ -150,9 +150,9 @@ function Guarded_opportunities() {
 const LazyScreen_login = lazy(() => import('./presentation/containers/login.container'));
 function Screen_login() {
   return (
-    <SignedInRedirect to="/">
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_login />
+    <SignedInRedirect data-vid="50ahcff" to="/">
+      <Suspense data-vid="w3h7f41" fallback={<LoadingFallback data-vid="sjb1vhs" />}>
+        <LazyScreen_login data-vid="7peybbf" />
       </Suspense>
     </SignedInRedirect>
   );
@@ -161,9 +161,9 @@ function Screen_login() {
 const LazyScreen_sign_up = lazy(() => import('./presentation/containers/sign-up.container'));
 function Screen_sign_up() {
   return (
-    <SignedInRedirect to="/">
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_sign_up />
+    <SignedInRedirect data-vid="rhu5z3a" to="/">
+      <Suspense data-vid="mwh7qrq" fallback={<LoadingFallback data-vid="y5m35pv" />}>
+        <LazyScreen_sign_up data-vid="tsz986d" />
       </Suspense>
     </SignedInRedirect>
   );
@@ -172,8 +172,8 @@ function Screen_sign_up() {
 const LazyScreen_forgot_password = lazy(() => import('./presentation/containers/forgot-password.container'));
 function Screen_forgot_password() {
   return (
-    <Suspense fallback={<LoadingFallback />}>
-      <LazyScreen_forgot_password />
+    <Suspense data-vid="cz03ufu" fallback={<LoadingFallback data-vid="fqabsje" />}>
+      <LazyScreen_forgot_password data-vid="ajj5umt" />
     </Suspense>
   );
 }
@@ -181,8 +181,8 @@ function Screen_forgot_password() {
 const LazyScreen_welcome = lazy(() => import('./presentation/containers/welcome.container'));
 function Screen_welcome() {
   return (
-    <Suspense fallback={<LoadingFallback />}>
-      <LazyScreen_welcome />
+    <Suspense data-vid="h7n3t9z" fallback={<LoadingFallback data-vid="q6b3oqs" />}>
+      <LazyScreen_welcome data-vid="fvt2u6e" />
     </Suspense>
   );
 }
@@ -190,8 +190,8 @@ function Screen_welcome() {
 const LazyScreen_reset_password = lazy(() => import('./presentation/containers/reset-password.container'));
 function Screen_reset_password() {
   return (
-    <Suspense fallback={<LoadingFallback />}>
-      <LazyScreen_reset_password />
+    <Suspense data-vid="urnlqrq" fallback={<LoadingFallback data-vid="29kt016" />}>
+      <LazyScreen_reset_password data-vid="nk8gka0" />
     </Suspense>
   );
 }
@@ -199,8 +199,8 @@ function Screen_reset_password() {
 const LazyScreen_not_found = lazy(() => import('./presentation/containers/not-found.container'));
 function Screen_not_found() {
   return (
-    <Suspense fallback={<LoadingFallback />}>
-      <LazyScreen_not_found />
+    <Suspense data-vid="p2v228h" fallback={<LoadingFallback data-vid="fazu0ao" />}>
+      <LazyScreen_not_found data-vid="0qafk1x" />
     </Suspense>
   );
 }
@@ -208,8 +208,8 @@ function Screen_not_found() {
 const LazyScreen_terms = lazy(() => import('./presentation/containers/terms.container'));
 function Screen_terms() {
   return (
-    <Suspense fallback={<LoadingFallback />}>
-      <LazyScreen_terms />
+    <Suspense data-vid="90qsr1b" fallback={<LoadingFallback data-vid="3l45i34" />}>
+      <LazyScreen_terms data-vid="hhmigbp" />
     </Suspense>
   );
 }
@@ -217,8 +217,8 @@ function Screen_terms() {
 const LazyScreen_privacy = lazy(() => import('./presentation/containers/privacy.container'));
 function Screen_privacy() {
   return (
-    <Suspense fallback={<LoadingFallback />}>
-      <LazyScreen_privacy />
+    <Suspense data-vid="dac8sh1" fallback={<LoadingFallback data-vid="f1dtan3" />}>
+      <LazyScreen_privacy data-vid="ewgvfhi" />
     </Suspense>
   );
 }
@@ -226,20 +226,20 @@ function Screen_privacy() {
 const LazyScreen_help = lazy(() => import('./presentation/containers/help.container'));
 function Screen_help() {
   return (
-    <Suspense fallback={<LoadingFallback />}>
-      <LazyScreen_help />
+    <Suspense data-vid="lyubv0n" fallback={<LoadingFallback data-vid="b4up5go" />}>
+      <LazyScreen_help data-vid="o77q2m7" />
     </Suspense>
   );
 }
 
 /** ARCH-2675 (STATE.17): in-shell 404 for the "dashboard" layout group. */
 function NotFound_dashboard() {
-  return <NotFound inShell homeHref="/overview" />;
+  return <NotFound data-vid="whounu1" inShell homeHref="/overview" />;
 }
 
 /** ARCH-2675 (STATE.17): in-shell 404 for the "public" layout group. */
 function NotFound_public() {
-  return <NotFound inShell homeHref="/welcome" />;
+  return <NotFound data-vid="1s74hbg" inShell homeHref="/welcome" />;
 }
 
 /** ARCH-2246 — ends the session through the app's auth port, then leaves for "/login". The shell's "Sign out" link points here. */
@@ -279,16 +279,16 @@ function SignOutRoute() {
   // with no sign-in screen the memory session re-seats the persona: the identity never clears, nothing to wait for
   const waitForIdentity = true;
   if (!done || (waitForIdentity && identity !== null && !grace))
-    return <LoadingFallback />;
-  return <Navigate to="/login" replace />;
+    return <LoadingFallback data-vid="rfl6d6l" />;
+  return <Navigate data-vid="4pmjyqp" to="/login" replace />;
 }
 
 /** ARCH-2443 — the app's own accept-invitation page (token in the URL fragment). Public: never wrapped in AuthGuard. */
 const LazyAcceptInvitation = lazy(() => import('./app/accept-invitation'));
 function AcceptInvitationPage() {
   return (
-    <Suspense fallback={<LoadingFallback />}>
-      <LazyAcceptInvitation />
+    <Suspense data-vid="4svcvvz" fallback={<LoadingFallback data-vid="3qmzh0u" />}>
+      <LazyAcceptInvitation data-vid="96eqcia" />
     </Suspense>
   );
 }
@@ -581,7 +581,7 @@ export function toRouteObjects(rs: AppRoute[] = routes): RouteObject[] {
 /** A visitor who already has a session (e.g. the preview's "Signed in as" just opened one) leaves the sign-in form. */
 function SignedInRedirect(props: { to: string; children: ReactNode }) {
   const { identity, pending } = useIdentity();
-  if (pending) return <LoadingFallback />;
-  if (identity !== null) return <Navigate to={props.to} replace />;
+  if (pending) return <LoadingFallback data-vid="sebxjm9" />;
+  if (identity !== null) return <Navigate data-vid="waj0llp" to={props.to} replace />;
   return <>{props.children}</>;
 }

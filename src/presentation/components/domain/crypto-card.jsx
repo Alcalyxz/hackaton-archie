@@ -91,14 +91,14 @@ export function CryptoCard({
             <Change data-vid="6b2e1dce" value={c.dayChange ?? null} className="type-stat" />
           </div>
         </div>
-        <div className="flex flex-wrap gap-x-(--component-gap) gap-y-3">
-          <div className="min-w-0 shrink-0 whitespace-nowrap tabular-nums">
-            <p className="type-eyebrow text-text-muted">{t('crypto.change1h', '1h')}</p>
-            <Change value={c.percentChange1h ?? null} className="type-meta" />
+        <div data-vid="9jo3ics" className="flex flex-wrap gap-x-(--component-gap) gap-y-3">
+          <div data-vid="t088fse" className="min-w-0 shrink-0 whitespace-nowrap tabular-nums">
+            <p data-vid="4zzqvby" className="type-eyebrow text-text-muted">{t('crypto.change1h', '1h')}</p>
+            <Change data-vid="s8ob5o9" value={c.percentChange1h ?? null} className="type-meta" />
           </div>
-          <div className="min-w-0 shrink-0 whitespace-nowrap tabular-nums">
-            <p className="type-eyebrow text-text-muted">{t('crypto.change7d', '7d')}</p>
-            <Change value={c.percentChange7d ?? null} className="type-meta" />
+          <div data-vid="9gjmipj" className="min-w-0 shrink-0 whitespace-nowrap tabular-nums">
+            <p data-vid="mczqzqo" className="type-eyebrow text-text-muted">{t('crypto.change7d', '7d')}</p>
+            <Change data-vid="sruwhb4" value={c.percentChange7d ?? null} className="type-meta" />
           </div>
         </div>
         {hasCap ? (

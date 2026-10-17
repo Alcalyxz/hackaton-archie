@@ -64,9 +64,9 @@ export function Stepper({ steps = [], current, orientation = "auto", onSelect, l
   }))
   const shared = { items, onSelect }
   return (
-    <nav data-slot="stepper" aria-label={label} className={cn("min-w-0", className)} {...rest}>
-      {orientation !== "vertical" ? <div className={cn(orientation === "auto" && "hidden md:block")}><Horizontal {...shared} /></div> : null}
-      {orientation !== "horizontal" ? <div className={cn(orientation === "auto" && "md:hidden")}><Vertical {...shared} /></div> : null}
+    <nav data-vid="r1idkz2" data-slot="stepper" aria-label={label} className={cn("min-w-0", className)} {...rest}>
+      {orientation !== "vertical" ? <div data-vid="rusero9" className={cn(orientation === "auto" && "hidden md:block")}><Horizontal data-vid="hgohl59" {...shared} /></div> : null}
+      {orientation !== "horizontal" ? <div data-vid="fq59n88" className={cn(orientation === "auto" && "md:hidden")}><Vertical data-vid="1jazz2q" {...shared} /></div> : null}
     </nav>
   )
 }
@@ -74,14 +74,14 @@ export function Stepper({ steps = [], current, orientation = "auto", onSelect, l
 function Marker({ step }: { step: ResolvedStep }) {
   const s = step.state
   return (
-    <span aria-hidden="true" className={cn(
+    <span data-vid="6rtbvhv" aria-hidden="true" className={cn(
       "relative z-10 inline-flex size-8 shrink-0 items-center justify-center rounded-full type-mono-id tabular-nums",
       s === "complete" && "bg-primary text-primary-foreground",
       s === "current" && "border-2 border-primary bg-card text-foreground",
       s === "upcoming" && "border border-border-strong bg-card text-text-muted",
       s === "blocked" && "border border-status-danger bg-status-danger-bg text-status-danger-ink",
     )}>
-      {s === "complete" ? <CheckIcon className="size-4" /> : s === "blocked" ? "!" : step.index + 1}
+      {s === "complete" ? <CheckIcon data-vid="hwvi8xb" className="size-4" /> : s === "blocked" ? "!" : step.index + 1}
     </span>
   )
 }
@@ -89,11 +89,11 @@ function Marker({ step }: { step: ResolvedStep }) {
 function StepText({ step, align }: { step: ResolvedStep; align?: "center" }) {
   const chrome = useChrome()
   return (
-    <span className={cn("grid min-w-0 gap-0.5", align === "center" && "justify-items-center text-center")}>
-      <span className={cn("type-meta", step.state === "upcoming" ? "text-text-muted" : "text-foreground")}>{step.label}</span>
-      <span className="sr-only">, {STATE_KEY[step.state] ? chrome(STATE_KEY[step.state]) : step.state}</span>
-      {step.description ? <span className="type-caption text-text-muted">{step.description}</span> : null}
-      {step.meta ? <span className="type-mono-id tabular-nums text-text-muted">{step.meta}</span> : null}
+    <span data-vid="kk066jt" className={cn("grid min-w-0 gap-0.5", align === "center" && "justify-items-center text-center")}>
+      <span data-vid="nx85ktu" className={cn("type-meta", step.state === "upcoming" ? "text-text-muted" : "text-foreground")}>{step.label}</span>
+      <span data-vid="jr2x2g1" className="sr-only">, {STATE_KEY[step.state] ? chrome(STATE_KEY[step.state]) : step.state}</span>
+      {step.description ? <span data-vid="gyvpcyf" className="type-caption text-text-muted">{step.description}</span> : null}
+      {step.meta ? <span data-vid="je40j8u" className="type-mono-id tabular-nums text-text-muted">{step.meta}</span> : null}
     </span>
   )
 }
@@ -107,9 +107,9 @@ interface WrapProps {
 
 function Wrap({ step, onSelect, className, children }: WrapProps) {
   const cls = cn("rounded-sm text-left outline-none focus-visible:ring-2 focus-visible:ring-ring", (step.href || onSelect) && "hover:bg-muted", className)
-  if (step.href) return <a href={step.href} className={cls}>{children}</a>
-  if (onSelect) return <button type="button" onClick={() => onSelect(step)} className={cls}>{children}</button>
-  return <div className={cls}>{children}</div>
+  if (step.href) return <a data-vid="ky6pys6" href={step.href} className={cls}>{children}</a>
+  if (onSelect) return <button data-vid="xmt6hpn" type="button" onClick={() => onSelect(step)} className={cls}>{children}</button>
+  return <div data-vid="d5dpdrn" className={cls}>{children}</div>
 }
 
 interface ListProps {
@@ -119,13 +119,13 @@ interface ListProps {
 
 function Horizontal({ items, onSelect }: ListProps) {
   return (
-    <ol className="flex min-w-0 items-start">
+    <ol data-vid="20c7q3t" className="flex min-w-0 items-start">
       {items.map((step, i) => (
-        <li key={String(step.id)} aria-current={step.state === "current" ? "step" : undefined} className="relative flex min-w-0 flex-1 flex-col items-center gap-2 px-1">
-          {i > 0 ? <span aria-hidden="true" className={cn("absolute right-1/2 top-4 h-px w-full", items[i - 1].state === "complete" ? "bg-primary" : "bg-border-strong")} /> : null}
-          <Wrap step={step} onSelect={onSelect} className="relative flex min-w-0 flex-col items-center gap-2 p-1">
-            <Marker step={step} />
-            <StepText step={step} align="center" />
+        <li data-vid="mk8azt7" key={String(step.id)} aria-current={step.state === "current" ? "step" : undefined} className="relative flex min-w-0 flex-1 flex-col items-center gap-2 px-1">
+          {i > 0 ? <span data-vid="61qqf4g" aria-hidden="true" className={cn("absolute right-1/2 top-4 h-px w-full", items[i - 1].state === "complete" ? "bg-primary" : "bg-border-strong")} /> : null}
+          <Wrap data-vid="ve9crcd" step={step} onSelect={onSelect} className="relative flex min-w-0 flex-col items-center gap-2 p-1">
+            <Marker data-vid="6gqsu5c" step={step} />
+            <StepText data-vid="9vpl2iv" step={step} align="center" />
           </Wrap>
         </li>
       ))}
@@ -135,15 +135,15 @@ function Horizontal({ items, onSelect }: ListProps) {
 
 function Vertical({ items, onSelect }: ListProps) {
   return (
-    <ol className="grid min-w-0">
+    <ol data-vid="7dkax4l" className="grid min-w-0">
       {items.map((step, i) => (
-        <li key={String(step.id)} aria-current={step.state === "current" ? "step" : undefined} className="grid min-w-0 grid-cols-[2rem_minmax(0,1fr)] gap-x-3">
-          <span className="flex flex-col items-center">
-            <Marker step={step} />
-            {i < items.length - 1 ? <span aria-hidden="true" className={cn("my-1 w-px flex-1", step.state === "complete" ? "bg-primary" : "bg-border-strong")} /> : null}
+        <li data-vid="w8v3tvj" key={String(step.id)} aria-current={step.state === "current" ? "step" : undefined} className="grid min-w-0 grid-cols-[2rem_minmax(0,1fr)] gap-x-3">
+          <span data-vid="him8ysl" className="flex flex-col items-center">
+            <Marker data-vid="ns8v30x" step={step} />
+            {i < items.length - 1 ? <span data-vid="lxtq39b" aria-hidden="true" className={cn("my-1 w-px flex-1", step.state === "complete" ? "bg-primary" : "bg-border-strong")} /> : null}
           </span>
-          <Wrap step={step} onSelect={onSelect} className="min-w-0 pb-4 pt-1">
-            <StepText step={step} />
+          <Wrap data-vid="r2fo7o7" step={step} onSelect={onSelect} className="min-w-0 pb-4 pt-1">
+            <StepText data-vid="h0k1j6a" step={step} />
           </Wrap>
         </li>
       ))}

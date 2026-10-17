@@ -7,7 +7,7 @@ function Input({
   ...props
 }: React.ComponentProps<"input">) {
   return (
-    <input
+    <input data-vid="izeiksm"
       type={type}
       data-slot="input"
       className={cn(

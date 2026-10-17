@@ -15,7 +15,7 @@ function DirectionProvider({
   children
 }: DirectionProviderProps) {
   return (
-    <Direction.DirectionProvider dir={direction ?? dir ?? "ltr"}>
+    <Direction.DirectionProvider data-vid="opchhii" dir={direction ?? dir ?? "ltr"}>
       {children}
     </Direction.DirectionProvider>
   )

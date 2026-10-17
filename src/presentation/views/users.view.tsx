@@ -46,20 +46,20 @@ export function UsersView(props: UsersScreenViewModel): React.ReactElement {
         cell: ({ row }) => {
           const u = row.original;
           return (
-            <button type="button" onClick={() => props.navigate(routes["user-detail"]())} className="flex min-w-0 items-center gap-3 text-foreground hover:underline focus-visible:ring-2 focus-visible:ring-ring rounded-sm">
-              <Avatar className="size-8 shrink-0">
-                <AvatarImage src={u.avatar?.src} alt="" />
-                <AvatarFallback>{initials(u)}</AvatarFallback>
+            <button data-vid="jvhhomt" type="button" onClick={() => props.navigate(routes["user-detail"]())} className="flex min-w-0 items-center gap-3 text-foreground hover:underline focus-visible:ring-2 focus-visible:ring-ring rounded-sm">
+              <Avatar data-vid="rk06lja" className="size-8 shrink-0">
+                <AvatarImage data-vid="5lt72qr" src={u.avatar?.src} alt="" />
+                <AvatarFallback data-vid="qsk2t4l">{initials(u)}</AvatarFallback>
               </Avatar>
-              <span className="type-row-title truncate">{fullName(u)}</span>
+              <span data-vid="ipeesio" className="type-row-title truncate">{fullName(u)}</span>
             </button>
           );
         },
       },
-      { accessorKey: "email", header: t("users.969ccbd3.table-column"), cell: ({ row }) => <span className="type-meta text-text-body truncate block">{row.original.email}</span> },
-      { accessorKey: "phone", header: t("users.63dceb88"), enableSorting: false, cell: ({ row }) => <span className="type-mono-id whitespace-nowrap text-text-muted">{row.original.phone || "—"}</span> },
-      { accessorKey: "role", header: t("users.14736a2e.table-column"), cell: ({ row }) => <Badge variant="outline" className="whitespace-nowrap">{row.original.role || "—"}</Badge> },
-      { accessorKey: "createdAt", header: t("users.69318b0c"), cell: ({ row }) => <span className="type-meta whitespace-nowrap tabular-nums text-text-muted">{formatDate(row.original.createdAt)}</span> },
+      { accessorKey: "email", header: t("users.969ccbd3.table-column"), cell: ({ row }) => <span data-vid="1t0xg16" className="type-meta text-text-body truncate block">{row.original.email}</span> },
+      { accessorKey: "phone", header: t("users.63dceb88"), enableSorting: false, cell: ({ row }) => <span data-vid="g08vr9d" className="type-mono-id whitespace-nowrap text-text-muted">{row.original.phone || "—"}</span> },
+      { accessorKey: "role", header: t("users.14736a2e.table-column"), cell: ({ row }) => <Badge data-vid="2s36x2y" variant="outline" className="whitespace-nowrap">{row.original.role || "—"}</Badge> },
+      { accessorKey: "createdAt", header: t("users.69318b0c"), cell: ({ row }) => <span data-vid="jmgpks9" className="type-meta whitespace-nowrap tabular-nums text-text-muted">{formatDate(row.original.createdAt)}</span> },
     ],
     state: { sorting, globalFilter },
     onSortingChange: setSorting,
@@ -93,28 +93,28 @@ export function UsersView(props: UsersScreenViewModel): React.ReactElement {
   };
 
   return (
-    <MotionConfig reducedMotion="user">
-      <div className="flex flex-col gap-(--section-gap) p-(--container-padding)">
-        <header className="flex flex-wrap items-start justify-between gap-(--component-gap)">
-          <div className="min-w-0">
-            <h1 className="type-page-title">{t("users.6b0cc904")}</h1>
-            <p className="type-meta text-text-muted">{t("users.a80a8c19")}</p>
+    <MotionConfig data-vid="nmrslxs" reducedMotion="user">
+      <div data-vid="x6c0bsb" className="flex flex-col gap-(--section-gap) p-(--container-padding)">
+        <header data-vid="lb9om8i" className="flex flex-wrap items-start justify-between gap-(--component-gap)">
+          <div data-vid="tzrracf" className="min-w-0">
+            <h1 data-vid="bl1wpbi" className="type-page-title">{t("users.6b0cc904")}</h1>
+            <p data-vid="g5fkpk3" className="type-meta text-text-muted">{t("users.a80a8c19")}</p>
           </div>
-          <Button onClick={() => setInviteOpen(true)} className="min-h-11 md:min-h-9">
-            <UserPlus className="size-4" /> {t("users.08aa7a0b.button")}
+          <Button data-vid="1ds2gyo" onClick={() => setInviteOpen(true)} className="min-h-11 md:min-h-9">
+            <UserPlus data-vid="mrvqb6w" className="size-4" /> {t("users.08aa7a0b.button")}
           </Button>
         </header>
 
-        <Tabs defaultValue="members" className="flex flex-col gap-(--component-gap)">
-          <TabsList variant="line" className="self-start">
-            <TabsTrigger value="members" className="min-h-11 md:min-h-9">{t("users.ebc719b9")}{props.users.length})</TabsTrigger>
-            <TabsTrigger value="roles" className="min-h-11 md:min-h-9">{t("users.7c259307")}{props.rolesAll.length})</TabsTrigger>
+        <Tabs data-vid="cqqm48k" defaultValue="members" className="flex flex-col gap-(--component-gap)">
+          <TabsList data-vid="zl8oo23" variant="line" className="self-start">
+            <TabsTrigger data-vid="1o47yxu" value="members" className="min-h-11 md:min-h-9">{t("users.ebc719b9")}{props.users.length})</TabsTrigger>
+            <TabsTrigger data-vid="mldl0yk" value="roles" className="min-h-11 md:min-h-9">{t("users.7c259307")}{props.rolesAll.length})</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="members" className="flex flex-col gap-(--component-gap)">
-            <div className="flex items-center gap-2 rounded-control border border-border-strong bg-card px-3 w-full sm:max-w-sm focus-within:ring-2 focus-within:ring-ring">
-              <Search className="size-4 shrink-0 text-text-muted" />
-              <Input
+          <TabsContent data-vid="jii8b7n" value="members" className="flex flex-col gap-(--component-gap)">
+            <div data-vid="lh1e5qg" className="flex items-center gap-2 rounded-control border border-border-strong bg-card px-3 w-full sm:max-w-sm focus-within:ring-2 focus-within:ring-ring">
+              <Search data-vid="7e23vyq" className="size-4 shrink-0 text-text-muted" />
+              <Input data-vid="g02egeb"
                 aria-label={t("users.6497fc6f")}
                 placeholder={t("users.6936e681")}
                 value={globalFilter}
@@ -123,47 +123,47 @@ export function UsersView(props: UsersScreenViewModel): React.ReactElement {
               />
             </div>
 
-            <div className="overflow-x-auto rounded-card border border-border bg-card">
-              <Table>
-                <TableHeader>
+            <div data-vid="wku2fon" className="overflow-x-auto rounded-card border border-border bg-card">
+              <Table data-vid="a5418fr">
+                <TableHeader data-vid="qp0k9kp">
                   {table.getHeaderGroups().map((hg) => (
-                    <TableRow key={hg.id}>
+                    <TableRow data-vid="g1zonzl" key={hg.id}>
                       {hg.headers.map((h) => {
                         const sorted = h.column.getIsSorted();
                         const can = h.column.getCanSort();
                         return (
-                          <TableHead key={h.id} aria-sort={sorted === "asc" ? "ascending" : sorted === "desc" ? "descending" : "none"}>
+                          <TableHead data-vid="ozj7ycz" key={h.id} aria-sort={sorted === "asc" ? "ascending" : sorted === "desc" ? "descending" : "none"}>
                             {can ? (
-                              <button type="button" onClick={h.column.getToggleSortingHandler()} className="type-eyebrow inline-flex min-h-11 items-center gap-1 focus-visible:ring-2 focus-visible:ring-ring rounded-sm md:min-h-0">
+                              <button data-vid="4acs71j" type="button" onClick={h.column.getToggleSortingHandler()} className="type-eyebrow inline-flex min-h-11 items-center gap-1 focus-visible:ring-2 focus-visible:ring-ring rounded-sm md:min-h-0">
                                 {flexRender(h.column.columnDef.header, h.getContext())}
-                                {sorted === "asc" ? <ArrowUp className="size-3" /> : sorted === "desc" ? <ArrowDown className="size-3" /> : <ArrowUpDown className="size-3" />}
+                                {sorted === "asc" ? <ArrowUp data-vid="r5z18nv" className="size-3" /> : sorted === "desc" ? <ArrowDown data-vid="ygh5o5l" className="size-3" /> : <ArrowUpDown data-vid="k6hj5qg" className="size-3" />}
                               </button>
                             ) : (
-                              <span className="type-eyebrow">{flexRender(h.column.columnDef.header, h.getContext())}</span>
+                              <span data-vid="3ge5hvy" className="type-eyebrow">{flexRender(h.column.columnDef.header, h.getContext())}</span>
                             )}
                           </TableHead>
                         );
                       })}
-                      <TableHead className="w-12"><span className="sr-only">{t("users.ff8059dc")}</span></TableHead>
+                      <TableHead data-vid="bal3rny" className="w-12"><span data-vid="c651jpy" className="sr-only">{t("users.ff8059dc")}</span></TableHead>
                     </TableRow>
                   ))}
                 </TableHeader>
-                <TableBody>
-                  <AnimatePresence initial={false}>
+                <TableBody data-vid="7ec1mok">
+                  <AnimatePresence data-vid="8una8f2" initial={false}>
                     {rows.map((row) => (
-                      <TableRow key={row.id}>
+                      <TableRow data-vid="q1ymplj" key={row.id}>
                         {row.getVisibleCells().map((c) => (
-                          <TableCell key={c.id} className="max-w-64 min-w-0">{flexRender(c.column.columnDef.cell, c.getContext())}</TableCell>
+                          <TableCell data-vid="ugqoqbg" key={c.id} className="max-w-64 min-w-0">{flexRender(c.column.columnDef.cell, c.getContext())}</TableCell>
                         ))}
-                        <TableCell className="text-right">
-                          <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
-                              <Button variant="ghost" size="icon-sm" aria-label={`${t("users.4533dfe7")} ${fullName(row.original)}`} className="size-11 md:size-8">
-                                <MoreHorizontal className="size-4" />
+                        <TableCell data-vid="k5jq63s" className="text-right">
+                          <DropdownMenu data-vid="qihibxf">
+                            <DropdownMenuTrigger data-vid="oitws3u" asChild>
+                              <Button data-vid="hqqm6h4" variant="ghost" size="icon-sm" aria-label={`${t("users.4533dfe7")} ${fullName(row.original)}`} className="size-11 md:size-8">
+                                <MoreHorizontal data-vid="hx4g9zh" className="size-4" />
                               </Button>
                             </DropdownMenuTrigger>
-                            <DropdownMenuContent align="end">
-                              <DropdownMenuItem onSelect={() => { setEditingId(row.original.id); setEditRole(row.original.role ?? ""); }}>{t("users.a43a8d8c.dropdownmenuitem")}</DropdownMenuItem>
+                            <DropdownMenuContent data-vid="zyul8ly" align="end">
+                              <DropdownMenuItem data-vid="fyfrkrw" onSelect={() => { setEditingId(row.original.id); setEditRole(row.original.role ?? ""); }}>{t("users.a43a8d8c.dropdownmenuitem")}</DropdownMenuItem>
                             </DropdownMenuContent>
                           </DropdownMenu>
                         </TableCell>
@@ -173,33 +173,33 @@ export function UsersView(props: UsersScreenViewModel): React.ReactElement {
                 </TableBody>
               </Table>
               {rows.length === 0 && (
-                <div className="p-(--card-padding)">
+                <div data-vid="5foji6b" className="p-(--card-padding)">
                   {props.users.length === 0 ? (
-                    <EmptyState icon={<UsersIcon />} title={t("users.669a52e9")} description={t("users.600df880")} action={<Button onClick={() => setInviteOpen(true)}>{t("users.08aa7a0b.button")}</Button>} />
+                    <EmptyState data-vid="7j0vnvw" icon={<UsersIcon data-vid="cy6pkas" />} title={t("users.669a52e9")} description={t("users.600df880")} action={<Button data-vid="1z9til7" onClick={() => setInviteOpen(true)}>{t("users.08aa7a0b.button")}</Button>} />
                   ) : (
-                    <EmptyState filtered icon={<Search />} title={t("users.53ec2cf4")} action={<Button variant="outline" onClick={() => setGlobalFilter("")}>{t("users.3b7ea517")}</Button>} />
+                    <EmptyState data-vid="8151r91" filtered icon={<Search data-vid="bldj2rb" />} title={t("users.53ec2cf4")} action={<Button data-vid="0c2gf2k" variant="outline" onClick={() => setGlobalFilter("")}>{t("users.3b7ea517")}</Button>} />
                   )}
                 </div>
               )}
             </div>
-            <p className="type-caption text-text-muted tabular-nums">{t("users.d604310a")} {rows.length} {t("users.28391d3b")} {props.users.length}</p>
+            <p data-vid="pyxfq4i" className="type-caption text-text-muted tabular-nums">{t("users.d604310a")} {rows.length} {t("users.28391d3b")} {props.users.length}</p>
           </TabsContent>
 
-          <TabsContent value="roles">
-            <motion.ul layout transition={{ duration: 0.15 }} className="flex flex-col divide-y divide-border rounded-card border border-border bg-card">
+          <TabsContent data-vid="p3zoz0m" value="roles">
+            <motion.ul data-vid="w2vugpu" layout transition={{ duration: 0.15 }} className="flex flex-col divide-y divide-border rounded-card border border-border bg-card">
               {props.roles.map((r) => (
-                <li key={r.id} className="grid grid-cols-1 gap-3 p-(--card-padding) md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)_auto] md:items-start">
-                  <div className="min-w-0">
-                    <h2 className="type-row-title">{r.name}</h2>
-                    <p className="type-meta text-text-muted">{r.description}</p>
+                <li data-vid="26gha87" key={r.id} className="grid grid-cols-1 gap-3 p-(--card-padding) md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)_auto] md:items-start">
+                  <div data-vid="spzx9up" className="min-w-0">
+                    <h2 data-vid="ftcnks3" className="type-row-title">{r.name}</h2>
+                    <p data-vid="nd305oe" className="type-meta text-text-muted">{r.description}</p>
                   </div>
-                  <ul className="flex flex-wrap gap-2" aria-label={`${t("users.e474cdc4")} ${r.name}`}>
+                  <ul data-vid="a4sajtu" className="flex flex-wrap gap-2" aria-label={`${t("users.e474cdc4")} ${r.name}`}>
                     {(r.permissions ?? "").split(",").map((p) => p.trim()).filter(Boolean).map((p) => (
-                      <li key={p} className="type-mono-id rounded-badge border border-border-strong px-2 py-1 text-text-body whitespace-nowrap">{p}</li>
+                      <li data-vid="6tzdcr6" key={p} className="type-mono-id rounded-badge border border-border-strong px-2 py-1 text-text-body whitespace-nowrap">{p}</li>
                     ))}
                   </ul>
-                  <div>
-                    <Badge variant="outline" className="whitespace-nowrap">{r.isActive ? t("users.92340695") : t("users.ac7c949f")}</Badge>
+                  <div data-vid="liuj5bp">
+                    <Badge data-vid="4luntn8" variant="outline" className="whitespace-nowrap">{r.isActive ? t("users.92340695") : t("users.ac7c949f")}</Badge>
                   </div>
                 </li>
               ))}
@@ -207,54 +207,54 @@ export function UsersView(props: UsersScreenViewModel): React.ReactElement {
           </TabsContent>
         </Tabs>
 
-        <Dialog open={inviteOpen} onOpenChange={setInviteOpen}>
-          <DialogContent>
-            <form onSubmit={submitInvite} noValidate className="flex flex-col gap-(--component-gap)">
-              <DialogHeader>
-                <DialogTitle>{t("users.08aa7a0b.dialogtitle")}</DialogTitle>
-                <DialogDescription>{t("users.650645d8")}</DialogDescription>
+        <Dialog data-vid="jazbawy" open={inviteOpen} onOpenChange={setInviteOpen}>
+          <DialogContent data-vid="z07le04">
+            <form data-vid="pilf7bk" onSubmit={submitInvite} noValidate className="flex flex-col gap-(--component-gap)">
+              <DialogHeader data-vid="x9nf5a3">
+                <DialogTitle data-vid="g1eyip9">{t("users.08aa7a0b.dialogtitle")}</DialogTitle>
+                <DialogDescription data-vid="fr7cfsz">{t("users.650645d8")}</DialogDescription>
               </DialogHeader>
-              <FieldGroup>
-                <Field>
-                  <FieldLabel htmlFor="invite-email">{t("users.969ccbd3.fieldlabel")}</FieldLabel>
-                  <Input id="invite-email" type="email" autoComplete="off" value={inviteEmail} onChange={(e) => setInviteEmail(e.target.value)} className="min-h-11 md:min-h-9" />
+              <FieldGroup data-vid="7d9wvpl">
+                <Field data-vid="s7u3ibl">
+                  <FieldLabel data-vid="lhgz5h0" htmlFor="invite-email">{t("users.969ccbd3.fieldlabel")}</FieldLabel>
+                  <Input data-vid="85d368k" id="invite-email" type="email" autoComplete="off" value={inviteEmail} onChange={(e) => setInviteEmail(e.target.value)} className="min-h-11 md:min-h-9" />
                 </Field>
-                <Field>
-                  <FieldLabel htmlFor="invite-role">{t("users.14736a2e.fieldlabel")}</FieldLabel>
-                  <Select value={inviteRole} onValueChange={setInviteRole}>
-                    <SelectTrigger id="invite-role" className="min-h-11 w-full md:min-h-9"><SelectValue placeholder={t("users.a49c49b0")} /></SelectTrigger>
-                    <SelectContent>
-                      {roleNames.map((n) => <SelectItem key={n} value={n}>{n}</SelectItem>)}
+                <Field data-vid="kgchwto">
+                  <FieldLabel data-vid="sfqb02r" htmlFor="invite-role">{t("users.14736a2e.fieldlabel")}</FieldLabel>
+                  <Select data-vid="dhw04qz" value={inviteRole} onValueChange={setInviteRole}>
+                    <SelectTrigger data-vid="nlbmz47" id="invite-role" className="min-h-11 w-full md:min-h-9"><SelectValue data-vid="kf2tgpr" placeholder={t("users.a49c49b0")} /></SelectTrigger>
+                    <SelectContent data-vid="jzxzse6">
+                      {roleNames.map((n) => <SelectItem data-vid="n9rk9hj" key={n} value={n}>{n}</SelectItem>)}
                     </SelectContent>
                   </Select>
                 </Field>
               </FieldGroup>
-              <DialogFooter>
-                <Button type="button" variant="outline" onClick={() => setInviteOpen(false)} className="min-h-11 md:min-h-9">{t("users.19766ed6")}</Button>
-                <Button type="submit" disabled={!inviteEmail.trim() || !inviteRole} className="min-h-11 md:min-h-9">{t("users.08aa7a0b.button")}</Button>
+              <DialogFooter data-vid="2qjg1lo">
+                <Button data-vid="7r0fdd9" type="button" variant="outline" onClick={() => setInviteOpen(false)} className="min-h-11 md:min-h-9">{t("users.19766ed6")}</Button>
+                <Button data-vid="u7r3t2e" type="submit" disabled={!inviteEmail.trim() || !inviteRole} className="min-h-11 md:min-h-9">{t("users.08aa7a0b.button")}</Button>
               </DialogFooter>
             </form>
           </DialogContent>
         </Dialog>
 
-        <Dialog open={editing !== undefined} onOpenChange={(o) => { if (!o) setEditingId(null); }}>
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>{t("users.a43a8d8c.dialogtitle")}{editing ? ` ${t("users.10c22bcf")} ${fullName(editing)}` : ""}</DialogTitle>
-              <DialogDescription>{t("users.fe1e3079")}</DialogDescription>
+        <Dialog data-vid="hx4bdct" open={editing !== undefined} onOpenChange={(o) => { if (!o) setEditingId(null); }}>
+          <DialogContent data-vid="834mkx7">
+            <DialogHeader data-vid="67ba098">
+              <DialogTitle data-vid="5p24hpd">{t("users.a43a8d8c.dialogtitle")}{editing ? ` ${t("users.10c22bcf")} ${fullName(editing)}` : ""}</DialogTitle>
+              <DialogDescription data-vid="i3yjem5">{t("users.fe1e3079")}</DialogDescription>
             </DialogHeader>
-            <Field>
-              <FieldLabel htmlFor="edit-role">{t("users.14736a2e.fieldlabel")}</FieldLabel>
-              <Select value={editRole} onValueChange={setEditRole}>
-                <SelectTrigger id="edit-role" className="min-h-11 w-full md:min-h-9"><SelectValue placeholder={t("users.a49c49b0")} /></SelectTrigger>
-                <SelectContent>
-                  {roleNames.map((n) => <SelectItem key={n} value={n}>{n}</SelectItem>)}
+            <Field data-vid="fu7jltt">
+              <FieldLabel data-vid="3ajig5o" htmlFor="edit-role">{t("users.14736a2e.fieldlabel")}</FieldLabel>
+              <Select data-vid="lzu1kji" value={editRole} onValueChange={setEditRole}>
+                <SelectTrigger data-vid="zwf9yh1" id="edit-role" className="min-h-11 w-full md:min-h-9"><SelectValue data-vid="8lme9xa" placeholder={t("users.a49c49b0")} /></SelectTrigger>
+                <SelectContent data-vid="sz9kq36">
+                  {roleNames.map((n) => <SelectItem data-vid="9b198eb" key={n} value={n}>{n}</SelectItem>)}
                 </SelectContent>
               </Select>
             </Field>
-            <DialogFooter>
-              <Button variant="outline" onClick={() => setEditingId(null)} className="min-h-11 md:min-h-9">{t("users.19766ed6")}</Button>
-              <Button onClick={saveRole} disabled={!editRole || !editing || editRole === editing.role} className="min-h-11 md:min-h-9">{t("users.c7523b15")}</Button>
+            <DialogFooter data-vid="efvijmj">
+              <Button data-vid="5g7u2r2" variant="outline" onClick={() => setEditingId(null)} className="min-h-11 md:min-h-9">{t("users.19766ed6")}</Button>
+              <Button data-vid="70w8gls" onClick={saveRole} disabled={!editRole || !editing || editRole === editing.role} className="min-h-11 md:min-h-9">{t("users.c7523b15")}</Button>
             </DialogFooter>
           </DialogContent>
         </Dialog>

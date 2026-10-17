@@ -44,19 +44,19 @@ export function WatchlistView(props: WatchlistScreenViewModel): React.ReactEleme
   const totalCount = props.watchedAssetsTotal;
 
   return (
-    <div className="flex flex-col gap-(--section-gap) px-(--container-padding) py-(--section-gap)">
-      <header className="flex min-h-[72px] flex-col justify-center gap-1">
-        <h1 className="type-page-title">{t("watchlist.eff2ec58")}</h1>
-        <p className="type-meta text-text-muted tabular-nums">
+    <div data-vid="578hw8t" className="flex flex-col gap-(--section-gap) px-(--container-padding) py-(--section-gap)">
+      <header data-vid="wbnx3a4" className="flex min-h-[72px] flex-col justify-center gap-1">
+        <h1 data-vid="lfo7lgq" className="type-page-title">{t("watchlist.eff2ec58")}</h1>
+        <p data-vid="dvks302" className="type-meta text-text-muted tabular-nums">
           {totalCount} {t("watchlist.bd7cb04a")}
         </p>
       </header>
 
-      <div className="flex flex-col gap-(--component-gap)">
-        <div className="flex items-center gap-(--component-gap) overflow-x-auto pb-1 lg:flex-nowrap">
-          <div className="flex h-9 min-h-11 w-64 shrink-0 items-center gap-2 rounded-control border border-border-strong bg-background px-3 focus-within:ring-2 focus-within:ring-ring md:min-h-9">
-            <Search className="size-4 text-text-muted" />
-            <Input
+      <div data-vid="bjc9s9v" className="flex flex-col gap-(--component-gap)">
+        <div data-vid="3htsv5y" className="flex items-center gap-(--component-gap) overflow-x-auto pb-1 lg:flex-nowrap">
+          <div data-vid="b5jkbu2" className="flex h-9 min-h-11 w-64 shrink-0 items-center gap-2 rounded-control border border-border-strong bg-background px-3 focus-within:ring-2 focus-within:ring-ring md:min-h-9">
+            <Search data-vid="30siagb" className="size-4 text-text-muted" />
+            <Input data-vid="2s5mmnl"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder={t("watchlist.474cf1ff")}
@@ -64,121 +64,121 @@ export function WatchlistView(props: WatchlistScreenViewModel): React.ReactEleme
               className="h-full rounded-none border-0 bg-transparent p-0 shadow-none focus-visible:ring-0 dark:bg-transparent"
             />
           </div>
-          <Select value={classFilter} onValueChange={setClassFilter}>
-            <SelectTrigger className="min-h-11 w-44 shrink-0 border-border-strong bg-background text-sm shadow-none md:min-h-9" aria-label={t("watchlist.f8bd4d21")}>
-              <SelectValue />
+          <Select data-vid="cs0ux7i" value={classFilter} onValueChange={setClassFilter}>
+            <SelectTrigger data-vid="6yc2akp" className="min-h-11 w-44 shrink-0 border-border-strong bg-background text-sm shadow-none md:min-h-9" aria-label={t("watchlist.f8bd4d21")}>
+              <SelectValue data-vid="kytae65" />
             </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">{t("watchlist.9329251b")}</SelectItem>
+            <SelectContent data-vid="2zobc93">
+              <SelectItem data-vid="r4t4dgf" value="all">{t("watchlist.9329251b")}</SelectItem>
             </SelectContent>
           </Select>
-          <Select value={statusFilter} onValueChange={setStatusFilter}>
-            <SelectTrigger className="min-h-11 w-44 shrink-0 border-border-strong bg-background text-sm shadow-none md:min-h-9" aria-label={t("watchlist.920e413c.selecttrigger-attr-aria-label")}>
-              <SelectValue />
+          <Select data-vid="vq8pci5" value={statusFilter} onValueChange={setStatusFilter}>
+            <SelectTrigger data-vid="qoeupao" className="min-h-11 w-44 shrink-0 border-border-strong bg-background text-sm shadow-none md:min-h-9" aria-label={t("watchlist.920e413c.selecttrigger-attr-aria-label")}>
+              <SelectValue data-vid="z3tdlqf" />
             </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">{t("watchlist.8ee57323")}</SelectItem>
-              <SelectItem value="watching">{t("watchlist.fbc59405")}</SelectItem>
-              <SelectItem value="paused">{t("watchlist.e159b061")}</SelectItem>
+            <SelectContent data-vid="pfbkhbf">
+              <SelectItem data-vid="mc4fc0h" value="all">{t("watchlist.8ee57323")}</SelectItem>
+              <SelectItem data-vid="yqatx84" value="watching">{t("watchlist.fbc59405")}</SelectItem>
+              <SelectItem data-vid="dhr70du" value="paused">{t("watchlist.e159b061")}</SelectItem>
             </SelectContent>
           </Select>
         </div>
         {filtersApplied && (
-          <div className="flex items-center gap-3">
-            <Button variant="ghost" size="xs" onClick={clearAll}>
+          <div data-vid="zd2dkel" className="flex items-center gap-3">
+            <Button data-vid="9v1zon9" variant="ghost" size="xs" onClick={clearAll}>
               {t("watchlist.29a390f9")}
             </Button>
           </div>
         )}
       </div>
 
-      <Card className="p-(--card-padding)">
-        <figure className="flex flex-col gap-(--component-gap)">
-          <figcaption className="type-card-title">{t("watchlist.442aded8")}</figcaption>
-          <EmptyState title={t("watchlist.59641555")} description={t("watchlist.3434c8d1")} />
+      <Card data-vid="y34orko" className="p-(--card-padding)">
+        <figure data-vid="qdcbq5h" className="flex flex-col gap-(--component-gap)">
+          <figcaption data-vid="lexgvjv" className="type-card-title">{t("watchlist.442aded8")}</figcaption>
+          <EmptyState data-vid="rcmgwmm" title={t("watchlist.59641555")} description={t("watchlist.3434c8d1")} />
         </figure>
       </Card>
 
-      <section aria-label={t("watchlist.c7f56b0d")} className="min-w-0">
+      <section data-vid="jl1rs8h" aria-label={t("watchlist.c7f56b0d")} className="min-w-0">
         {rows.length === 0 ? (
           totalCount === 0 ? (
-            <EmptyState title={t("watchlist.2ac45d84")} description={t("watchlist.4f389f9c")} />
+            <EmptyState data-vid="59ory2v" title={t("watchlist.2ac45d84")} description={t("watchlist.4f389f9c")} />
           ) : (
-            <EmptyState
+            <EmptyState data-vid="kiu2cvd"
               filtered
               title={t("watchlist.2999c712")}
               action={
-                <Button variant="outline" onClick={clearAll}>
+                <Button data-vid="v5gcit5" variant="outline" onClick={clearAll}>
                   {t("watchlist.29a390f9")}
                 </Button>
               }
             />
           )
         ) : (
-          <Card className="overflow-hidden p-0">
-            <div className="overflow-x-auto">
-              <Table className="min-w-[56rem]">
-                <TableHeader>
-                  <TableRow>
-                    <TableHead className="type-eyebrow text-text-muted">{t("watchlist.80d298c9")}</TableHead>
-                    <TableHead className="type-eyebrow text-text-muted">{t("watchlist.4f3a9bd0")}</TableHead>
-                    <TableHead className="type-eyebrow text-text-muted text-right">{t("watchlist.28af28fc")}</TableHead>
-                    <TableHead className="type-eyebrow text-text-muted text-right">{t("watchlist.9ea8258c")}</TableHead>
-                    <TableHead className="type-eyebrow text-text-muted text-right">{t("watchlist.bd82ce58")}</TableHead>
-                    <TableHead className="type-eyebrow text-text-muted">{t("watchlist.920e413c.table-column")}</TableHead>
-                    <TableHead className="type-eyebrow text-text-muted text-right">{t("watchlist.ff8059dc")}</TableHead>
+          <Card data-vid="m86y1rh" className="overflow-hidden p-0">
+            <div data-vid="nhnvs0u" className="overflow-x-auto">
+              <Table data-vid="lbsb2zr" className="min-w-[56rem]">
+                <TableHeader data-vid="ub8wajo">
+                  <TableRow data-vid="vi00zy5">
+                    <TableHead data-vid="btfmi66" className="type-eyebrow text-text-muted">{t("watchlist.80d298c9")}</TableHead>
+                    <TableHead data-vid="fel2nis" className="type-eyebrow text-text-muted">{t("watchlist.4f3a9bd0")}</TableHead>
+                    <TableHead data-vid="88zg3hh" className="type-eyebrow text-text-muted text-right">{t("watchlist.28af28fc")}</TableHead>
+                    <TableHead data-vid="uxzqi0l" className="type-eyebrow text-text-muted text-right">{t("watchlist.9ea8258c")}</TableHead>
+                    <TableHead data-vid="1t60w4l" className="type-eyebrow text-text-muted text-right">{t("watchlist.bd82ce58")}</TableHead>
+                    <TableHead data-vid="kgd6igf" className="type-eyebrow text-text-muted">{t("watchlist.920e413c.table-column")}</TableHead>
+                    <TableHead data-vid="309j3fa" className="type-eyebrow text-text-muted text-right">{t("watchlist.ff8059dc")}</TableHead>
                   </TableRow>
                 </TableHeader>
-                <TableBody>
+                <TableBody data-vid="ml04lk7">
                   {rows.map(({ w, asset }) => {
                     if (!asset) return null;
                     const paused = w.status === "PAUSED";
                     return (
-                      <TableRow key={w.id} className="transition-colors">
-                        <TableCell className="max-w-64">
-                          <div className="min-w-0">
-                            <button
+                      <TableRow data-vid="0636lod" key={w.id} className="transition-colors">
+                        <TableCell data-vid="sudgpcy" className="max-w-64">
+                          <div data-vid="n6jynx4" className="min-w-0">
+                            <button data-vid="wbsmnlh"
                               type="button"
                               onClick={() => props.navigate(routes["asset-detail"]({ id: asset.id }))}
                               className="type-row-title inline-flex min-h-6 max-w-full items-center truncate text-foreground hover:underline focus-visible:ring-2 focus-visible:ring-ring"
                             >
                               {asset.name}
                             </button>
-                            <span className="type-mono-id text-text-muted">{asset.symbol}</span>
+                            <span data-vid="js2t5x6" className="type-mono-id text-text-muted">{asset.symbol}</span>
                           </div>
                         </TableCell>
-                        <TableCell className="max-w-64">
-                          <span className="type-meta text-text-body">—</span>
+                        <TableCell data-vid="fg021e1" className="max-w-64">
+                          <span data-vid="xgxtoyu" className="type-meta text-text-body">—</span>
                         </TableCell>
-                        <TableCell className="max-w-64 whitespace-nowrap text-right tabular-nums">
-                          <Money value={asset.currentPrice} align="end" />
+                        <TableCell data-vid="rv65h4a" className="max-w-64 whitespace-nowrap text-right tabular-nums">
+                          <Money data-vid="wqosa40" value={asset.currentPrice} align="end" />
                         </TableCell>
-                        <TableCell className="max-w-64 whitespace-nowrap text-right tabular-nums">
-                          <Change value={asset.dayChange} />
+                        <TableCell data-vid="t4ep20y" className="max-w-64 whitespace-nowrap text-right tabular-nums">
+                          <Change data-vid="e9d3u8f" value={asset.dayChange} />
                         </TableCell>
-                        <TableCell className="max-w-64 whitespace-nowrap text-right tabular-nums">
-                          <Change value={w.performanceSinceAdded} />
+                        <TableCell data-vid="pugk6zd" className="max-w-64 whitespace-nowrap text-right tabular-nums">
+                          <Change data-vid="yds76zu" value={w.performanceSinceAdded} />
                         </TableCell>
-                        <TableCell className="max-w-64">
+                        <TableCell data-vid="z30gz29" className="max-w-64">
                           {paused ? (
-                            <StatusMark entity="Alert" status="Paused" />
+                            <StatusMark data-vid="7aqh7bq" entity="Alert" status="Paused" />
                           ) : (
-                            <StatusMark entity="WatchedAsset" status={w.status} />
+                            <StatusMark data-vid="45lpf1e" entity="WatchedAsset" status={w.status} />
                           )}
                         </TableCell>
-                        <TableCell className="max-w-64 whitespace-nowrap text-right tabular-nums">
-                          <div className="flex items-center justify-end gap-1">
-                            <Button variant="ghost" size="sm" disabled title={t("_reason.escritura-no-disponible")} className="whitespace-nowrap">
-                              {paused ? <Play className="size-4" /> : <Pause className="size-4" />}
+                        <TableCell data-vid="txgmvp4" className="max-w-64 whitespace-nowrap text-right tabular-nums">
+                          <div data-vid="16e4epq" className="flex items-center justify-end gap-1">
+                            <Button data-vid="f221rp0" variant="ghost" size="sm" disabled title={t("_reason.escritura-no-disponible")} className="whitespace-nowrap">
+                              {paused ? <Play data-vid="fwgcjmy" className="size-4" /> : <Pause data-vid="6ff6c6f" className="size-4" />}
                               {paused ? t("watchlist.e836ee38") : t("watchlist.4ca5fe7f")}
                             </Button>
-                            <Button
+                            <Button data-vid="6d0ub6d"
                               variant="ghost"
                               size="icon-sm"
                               aria-label={`${t("watchlist.c3812fc4")} ${asset.name} ${t("watchlist.a58e9c13")}`}
                               onClick={() => props.onDeleteWatchedAsset(w.id)}
                             >
-                              <Trash2 className="size-4" />
+                              <Trash2 data-vid="qw01bqq" className="size-4" />
                             </Button>
                           </div>
                         </TableCell>
@@ -188,17 +188,17 @@ export function WatchlistView(props: WatchlistScreenViewModel): React.ReactEleme
                 </TableBody>
               </Table>
             </div>
-            <p className="type-caption text-text-muted p-2">{t("_reason.escritura-no-disponible")}</p>
+            <p data-vid="q4hgpcm" className="type-caption text-text-muted p-2">{t("_reason.escritura-no-disponible")}</p>
           </Card>
         )}
       </section>
 
-      <section className="flex flex-col gap-(--component-gap) border-t border-border pt-(--component-gap)">
-        <h2 className="type-section">{t("watchlist.dd57c661")}</h2>
-        <div className="flex flex-wrap gap-x-(--section-gap) gap-y-3">
-          <div className="shrink-0">
-            <div className="type-eyebrow text-text-muted">{t("watchlist.eff2ec58")}</div>
-            <div className="type-stat tabular-nums">{totalCount}</div>
+      <section data-vid="flix6lw" className="flex flex-col gap-(--component-gap) border-t border-border pt-(--component-gap)">
+        <h2 data-vid="e2pnaih" className="type-section">{t("watchlist.dd57c661")}</h2>
+        <div data-vid="qi6qpnd" className="flex flex-wrap gap-x-(--section-gap) gap-y-3">
+          <div data-vid="9pejj25" className="shrink-0">
+            <div data-vid="c747u15" className="type-eyebrow text-text-muted">{t("watchlist.eff2ec58")}</div>
+            <div data-vid="jespo39" className="type-stat tabular-nums">{totalCount}</div>
           </div>
         </div>
       </section>

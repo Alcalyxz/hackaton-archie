@@ -146,7 +146,7 @@ export default function AcceptInvitationRoute() {
       : null;
 
   return (
-    <AcceptInvitationPageView
+    <AcceptInvitationPageView data-vid="l10l44a"
       phase={phase}
       password={password}
       confirm={confirm}

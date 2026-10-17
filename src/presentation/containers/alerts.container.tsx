@@ -274,11 +274,11 @@ export function AlertsScreenContainer(
   return (
     <>
       {loading ? (
-        <ScreenLoading />
+        <ScreenLoading data-vid="s6dg5ne" />
       ) : loadError !== null ? (
-        <ScreenError error={loadError} onRetry={reload} />
+        <ScreenError data-vid="fn0n75q" error={loadError} onRetry={reload} />
       ) : (
-        <View {...vm} />
+        <View data-vid="scdhhbf" {...vm} />
       )}
     </>
   );
@@ -287,5 +287,5 @@ export function AlertsScreenContainer(
 // THE ROUTE MODULE. `routes.config.tsx` lazy-imports this file and needs a prop-less
 // `export default`: it binds the container to its view and does nothing else.
 export default function AlertsScreenRoute(): React.ReactElement {
-  return <AlertsScreenContainer view={AlertsView} />;
+  return <AlertsScreenContainer data-vid="pvwsb3g" view={AlertsView} />;
 }

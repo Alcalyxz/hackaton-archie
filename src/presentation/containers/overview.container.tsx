@@ -212,13 +212,13 @@ export function OverviewScreenContainer(
   return (
     <>
       {loading ? (
-        <ScreenLoading />
+        <ScreenLoading data-vid="22d2qer" />
       ) : loadError !== null ? (
-        <ScreenError error={loadError} onRetry={reload} />
+        <ScreenError data-vid="olyjht1" error={loadError} onRetry={reload} />
       ) : (
         <>
           {truncatedCap !== null && (
-            <div
+            <div data-vid="pygzeut"
               role="status"
               data-truncation-banner=""
               className="border-b border-amber-300 bg-amber-50 px-4 py-2 text-sm text-amber-900"
@@ -226,7 +226,7 @@ export function OverviewScreenContainer(
               {t('_app.truncated', { limit: truncatedCap.toLocaleString() })}
             </div>
           )}
-          <View {...vm} />
+          <View data-vid="o6u8x1r" {...vm} />
         </>
       )}
     </>
@@ -236,5 +236,5 @@ export function OverviewScreenContainer(
 // THE ROUTE MODULE. `routes.config.tsx` lazy-imports this file and needs a prop-less
 // `export default`: it binds the container to its view and does nothing else.
 export default function OverviewScreenRoute(): React.ReactElement {
-  return <OverviewScreenContainer view={OverviewView} />;
+  return <OverviewScreenContainer data-vid="svanhqh" view={OverviewView} />;
 }

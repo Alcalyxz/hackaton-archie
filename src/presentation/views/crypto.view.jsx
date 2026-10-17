@@ -104,7 +104,7 @@ const directoryColumns = [
 /** @param {import("@/application/view-models/crypto.vm").CryptoScreenViewModel} props */
 export function CryptoView(props) {
   return (
-    <CryptoDirectory
+    <CryptoDirectory data-vid="ct9pz9g"
       Crypto={props.Crypto}
       onOpen={(id) => props.navigate(props.href("crypto-detail", { id }))}
       onRefresh={props.onRefresh}

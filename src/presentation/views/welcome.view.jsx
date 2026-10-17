@@ -141,7 +141,7 @@ export function WelcomeView(props) {
         </div>
       </section>
 
-      <CryptoCarousel />
+      <CryptoCarousel data-vid="5911z8v" />
 
       {/* SNAPSHOT */}
       <section data-vid="f5b391f3" className="border-y border-border bg-surface-sunken px-(--container-padding) py-(--section-gap)">
@@ -160,17 +160,17 @@ export function WelcomeView(props) {
               </div>
               <ChartContainer data-vid="72fbda00" config={chartConfig} className="aspect-auto h-64 w-full">
                 <AreaChart data-vid="bf23ef4b" data={series} margin={{ top: 12, right: 12 }}>
-                  <defs>
-                    <linearGradient id="btcFill" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="var(--color-value)" stopOpacity={0.35} />
-                      <stop offset="100%" stopColor="var(--color-value)" stopOpacity={0} />
+                  <defs data-vid="3w31d8v">
+                    <linearGradient data-vid="rhkz6tq" id="btcFill" x1="0" y1="0" x2="0" y2="1">
+                      <stop data-vid="cbi6nud" offset="0%" stopColor="var(--color-value)" stopOpacity={0.35} />
+                      <stop data-vid="e9dpfok" offset="100%" stopColor="var(--color-value)" stopOpacity={0} />
                     </linearGradient>
                   </defs>
                   <CartesianGrid data-vid="473ec895" vertical={false} strokeDasharray="3 3" />
                   <XAxis data-vid="c9acfa36" dataKey="at" tickLine={false} axisLine={false} tickFormatter={(v) => formatDate(v)} className="type-caption tabular-nums" />
                   <YAxis data-vid="89efbed0" domain={[yMin, yMax]} tickLine={false} axisLine={false} width={64} tickFormatter={(v) => formatMoney(v, { compact: true })} className="type-caption tabular-nums" />
                   <ReferenceLine data-vid="310b858e" y={threshold} stroke="var(--border-strong)" strokeDasharray="4 4" label={{ value: `Alert ${formatMoney(threshold)}`, position: "insideTopLeft", className: "type-caption fill-foreground" }} />
-                  <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel formatter={(v) => formatMoney(Number(v))} />} />
+                  <ChartTooltip data-vid="8kwuwxs" cursor={false} content={<ChartTooltipContent data-vid="2canixx" hideLabel formatter={(v) => formatMoney(Number(v))} />} />
                   <Area data-vid="2e62fd5e" type="monotone" dataKey="value" stroke="var(--color-value)" strokeWidth={2.5} fill="url(#btcFill)" dot={false} activeDot={{ r: 4 }} isAnimationActive={false} />
                 </AreaChart>
               </ChartContainer>

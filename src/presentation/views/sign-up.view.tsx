@@ -44,37 +44,37 @@ export function SignUpView(props: AuthViewModel): React.ReactElement {
   };
 
   return (
-    <main className="flex flex-1 flex-col items-center justify-center bg-background px-(--container-padding) py-(--section-gap)">
-      <div className="flex w-full max-w-sm flex-col items-center gap-(--section-gap) text-center">
-        <div className="flex flex-col items-center gap-2">
-          <LogoMark className="size-10" />
-          <span className="type-row-title text-foreground">Market Beacon</span>
+    <main data-vid="pz6hzz5" className="flex flex-1 flex-col items-center justify-center bg-background px-(--container-padding) py-(--section-gap)">
+      <div data-vid="qkcldz0" className="flex w-full max-w-sm flex-col items-center gap-(--section-gap) text-center">
+        <div data-vid="k40oj30" className="flex flex-col items-center gap-2">
+          <LogoMark data-vid="d2i8jys" className="size-10" />
+          <span data-vid="a84e8iu" className="type-row-title text-foreground">Market Beacon</span>
         </div>
 
-        <header className="flex flex-col items-center gap-2">
-          <h1 className="type-page-title text-foreground [overflow-wrap:anywhere]">
+        <header data-vid="yn3j39q" className="flex flex-col items-center gap-2">
+          <h1 data-vid="i57crih" className="type-page-title text-foreground [overflow-wrap:anywhere]">
             {t("signup.title")}
           </h1>
-          <p className="type-body text-text-muted">{t("signup.subtitle")}</p>
+          <p data-vid="y8jfjo5" className="type-body text-text-muted">{t("signup.subtitle")}</p>
         </header>
 
-        <Card className="w-full border border-border bg-card text-left">
-          <CardContent className="p-(--card-padding)">
-            <form
+        <Card data-vid="qqu9r5s" className="w-full border border-border bg-card text-left">
+          <CardContent data-vid="kfckg26" className="p-(--card-padding)">
+            <form data-vid="vd4t1qy"
               onSubmit={(e) => {
                 e.preventDefault();
                 void form.handleSubmit(onValid)(e);
               }}
               noValidate
             >
-              <FieldGroup>
-                <Controller
+              <FieldGroup data-vid="kk83mmq">
+                <Controller data-vid="66i8riw"
                   name="firstName"
                   control={form.control}
                   render={({ field, fieldState }) => (
-                    <Field data-invalid={fieldState.invalid}>
-                      <FieldLabel htmlFor="firstName">{t("signup.firstName")}</FieldLabel>
-                      <Input
+                    <Field data-vid="we0bhip" data-invalid={fieldState.invalid}>
+                      <FieldLabel data-vid="jsgrwu9" htmlFor="firstName">{t("signup.firstName")}</FieldLabel>
+                      <Input data-vid="b4jhsjg"
                         name={field.name}
                         ref={field.ref}
                         onBlur={field.onBlur}
@@ -88,17 +88,17 @@ export function SignUpView(props: AuthViewModel): React.ReactElement {
                         aria-invalid={fieldState.invalid}
                         className="min-h-11 border-border-strong"
                       />
-                      {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                      {fieldState.invalid && <FieldError data-vid="irgb88q" errors={[fieldState.error]} />}
                     </Field>
                   )}
                 />
-                <Controller
+                <Controller data-vid="mg4ritz"
                   name="lastName"
                   control={form.control}
                   render={({ field, fieldState }) => (
-                    <Field data-invalid={fieldState.invalid}>
-                      <FieldLabel htmlFor="lastName">{t("signup.lastName")}</FieldLabel>
-                      <Input
+                    <Field data-vid="ai1yrw4" data-invalid={fieldState.invalid}>
+                      <FieldLabel data-vid="ympgc9b" htmlFor="lastName">{t("signup.lastName")}</FieldLabel>
+                      <Input data-vid="wobs7lp"
                         name={field.name}
                         ref={field.ref}
                         onBlur={field.onBlur}
@@ -112,17 +112,17 @@ export function SignUpView(props: AuthViewModel): React.ReactElement {
                         aria-invalid={fieldState.invalid}
                         className="min-h-11 border-border-strong"
                       />
-                      {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                      {fieldState.invalid && <FieldError data-vid="9uaj2b4" errors={[fieldState.error]} />}
                     </Field>
                   )}
                 />
-                <Controller
+                <Controller data-vid="zawfrcx"
                   name="email"
                   control={form.control}
                   render={({ field, fieldState }) => (
-                    <Field data-invalid={fieldState.invalid}>
-                      <FieldLabel htmlFor="email">{t("signup.email")}</FieldLabel>
-                      <Input
+                    <Field data-vid="kg701ha" data-invalid={fieldState.invalid}>
+                      <FieldLabel data-vid="u0nco4k" htmlFor="email">{t("signup.email")}</FieldLabel>
+                      <Input data-vid="gkzo8r6"
                         name={field.name}
                         ref={field.ref}
                         onBlur={field.onBlur}
@@ -137,18 +137,18 @@ export function SignUpView(props: AuthViewModel): React.ReactElement {
                         aria-invalid={fieldState.invalid}
                         className="min-h-11 border-border-strong"
                       />
-                      {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                      {fieldState.invalid && <FieldError data-vid="e6nzvwn" errors={[fieldState.error]} />}
                     </Field>
                   )}
                 />
-                <Controller
+                <Controller data-vid="cd84uor"
                   name="password"
                   control={form.control}
                   render={({ field, fieldState }) => (
-                    <Field data-invalid={fieldState.invalid}>
-                      <FieldLabel htmlFor="password">{t("signup.password")}</FieldLabel>
-                      <div className="flex items-center rounded-control border border-border-strong bg-background focus-within:ring-2 focus-within:ring-ring">
-                        <Input
+                    <Field data-vid="z7qxzpw" data-invalid={fieldState.invalid}>
+                      <FieldLabel data-vid="9cci2zn" htmlFor="password">{t("signup.password")}</FieldLabel>
+                      <div data-vid="oakpvgt" className="flex items-center rounded-control border border-border-strong bg-background focus-within:ring-2 focus-within:ring-ring">
+                        <Input data-vid="udmdlj1"
                           name={field.name}
                           ref={field.ref}
                           onBlur={field.onBlur}
@@ -163,7 +163,7 @@ export function SignUpView(props: AuthViewModel): React.ReactElement {
                           aria-invalid={fieldState.invalid}
                           className="min-h-11 min-w-0 flex-1 border-0 bg-transparent focus-visible:ring-0"
                         />
-                        <Button
+                        <Button data-vid="m0wp236"
                           type="button"
                           variant="ghost"
                           size="icon"
@@ -172,28 +172,28 @@ export function SignUpView(props: AuthViewModel): React.ReactElement {
                           aria-pressed={show}
                           onClick={() => setShow((s) => !s)}
                         >
-                          {show ? <EyeOff className="size-4" /> : <Eye className="size-4" />}
+                          {show ? <EyeOff data-vid="064unaa" className="size-4" /> : <Eye data-vid="9pnraid" className="size-4" />}
                         </Button>
                       </div>
-                      {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                      {fieldState.invalid && <FieldError data-vid="99dwcnt" errors={[fieldState.error]} />}
                     </Field>
                   )}
                 />
 
                 {props.error && (
-                  <p
+                  <p data-vid="m648rll"
                     role="alert"
                     className="type-meta flex items-start gap-2 rounded-control bg-status-danger-bg p-3 text-status-danger-ink"
                   >
-                    <CircleAlert className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
-                    <span>{props.error}</span>
+                    <CircleAlert data-vid="yoeklui" className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
+                    <span data-vid="ozxcko6">{props.error}</span>
                   </p>
                 )}
 
-                <Button type="submit" className="min-h-11 w-full" disabled={props.loading}>
+                <Button data-vid="hve9sb4" type="submit" className="min-h-11 w-full" disabled={props.loading}>
                   {props.loading ? (
                     <>
-                      <Spinner className="size-4" /> {t("signup.creating")}
+                      <Spinner data-vid="9qib2cs" className="size-4" /> {t("signup.creating")}
                     </>
                   ) : (
                     t("signup.submit")
@@ -204,9 +204,9 @@ export function SignUpView(props: AuthViewModel): React.ReactElement {
           </CardContent>
         </Card>
 
-        <p className="type-caption text-text-muted">
+        <p data-vid="bk7l5bq" className="type-caption text-text-muted">
           {t("signup.haveAccount")}{" "}
-          <Button
+          <Button data-vid="m13y6x7"
             type="button"
             variant="link"
             className="type-caption h-auto p-0 text-text-link hover:underline"

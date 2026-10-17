@@ -23,11 +23,11 @@ import type { AccountScreenViewModel } from "@/application/view-models/account.v
 import { AvatarUploader } from "@/presentation/components/domain/avatar-uploader";
 
 function Panel({ children, className = "" }: { children: React.ReactNode; className?: string }): React.ReactElement {
-  return <div className={`rounded-card border border-border bg-card text-card-foreground ${className}`}>{children}</div>;
+  return <div data-vid="3ipvuco" className={`rounded-card border border-border bg-card text-card-foreground ${className}`}>{children}</div>;
 }
 
 function SectionHead({ children }: { children: React.ReactNode }): React.ReactElement {
-  return <h2 className="type-section text-foreground">{children}</h2>;
+  return <h2 data-vid="rea7sce" className="type-section text-foreground">{children}</h2>;
 }
 
 export function AccountView(props: AccountScreenViewModel): React.ReactElement {
@@ -73,122 +73,122 @@ export function AccountView(props: AccountScreenViewModel): React.ReactElement {
   const themeLabel = (v: string): string => (v === "light" ? "Light" : v === "dark" ? "Dark" : "System");
 
   return (
-    <MotionConfig reducedMotion="user">
-      <div className="flex flex-col gap-(--section-gap) px-(--container-padding) pt-2 pb-(--section-gap)">
-        <header className="flex flex-col gap-1">
-          <h1 className="type-page-title text-foreground">{t("account.271c62fa")}</h1>
-          <p className="type-body text-text-muted">{t("account.6e4ac288")}</p>
+    <MotionConfig data-vid="vk5iung" reducedMotion="user">
+      <div data-vid="n4eg3be" className="flex flex-col gap-(--section-gap) px-(--container-padding) pt-2 pb-(--section-gap)">
+        <header data-vid="9bzvc0e" className="flex flex-col gap-1">
+          <h1 data-vid="wgp14nv" className="type-page-title text-foreground">{t("account.271c62fa")}</h1>
+          <p data-vid="19v5xwv" className="type-body text-text-muted">{t("account.6e4ac288")}</p>
         </header>
 
-        <Tabs defaultValue="profile" className="flex flex-col gap-(--component-gap)">
-          <div className="overflow-x-auto">
-            <TabsList variant="line" className="w-max">
-              <TabsTrigger value="profile" className="min-h-11">{t("account.d696a35b")}</TabsTrigger>
-              <TabsTrigger value="notifications" className="min-h-11">{t("account.78801183")}</TabsTrigger>
-              <TabsTrigger value="appearance" className="min-h-11">{t("account.3907fa7f.tabstrigger")}</TabsTrigger>
-              <TabsTrigger value="activity" className="min-h-11">{t("account.38da1505")}</TabsTrigger>
+        <Tabs data-vid="nuwtr9b" defaultValue="profile" className="flex flex-col gap-(--component-gap)">
+          <div data-vid="o4actel" className="overflow-x-auto">
+            <TabsList data-vid="kk0o47d" variant="line" className="w-max">
+              <TabsTrigger data-vid="ugw8cr4" value="profile" className="min-h-11">{t("account.d696a35b")}</TabsTrigger>
+              <TabsTrigger data-vid="exhswuu" value="notifications" className="min-h-11">{t("account.78801183")}</TabsTrigger>
+              <TabsTrigger data-vid="rb5fxpa" value="appearance" className="min-h-11">{t("account.3907fa7f.tabstrigger")}</TabsTrigger>
+              <TabsTrigger data-vid="6aq4nng" value="activity" className="min-h-11">{t("account.38da1505")}</TabsTrigger>
             </TabsList>
           </div>
 
-          <TabsContent value="profile" className="flex max-w-3xl flex-col gap-(--section-gap)">
-            <Panel>
-              <div className="flex flex-wrap items-center gap-(--component-gap) p-(--card-padding)">
-                <Avatar className="size-16">
-                  <AvatarImage src={me?.avatar?.src ?? undefined} alt={fullName} />
-                  <AvatarFallback>{initials}</AvatarFallback>
+          <TabsContent data-vid="9bh2i29" value="profile" className="flex max-w-3xl flex-col gap-(--section-gap)">
+            <Panel data-vid="bfzyqdf">
+              <div data-vid="be9ukz8" className="flex flex-wrap items-center gap-(--component-gap) p-(--card-padding)">
+                <Avatar data-vid="dsmj2ti" className="size-16">
+                  <AvatarImage data-vid="3s1t91k" src={me?.avatar?.src ?? undefined} alt={fullName} />
+                  <AvatarFallback data-vid="1idbov3">{initials}</AvatarFallback>
                 </Avatar>
-                <AvatarUploader value={me?.avatar?.src ?? null} disabled={me === null || props.profileStatus === "saving"} onUploaded={props.onAvatarUploaded} />
-                <div className="min-w-0 flex-1 basis-56">
-                  <p className="type-card-title text-foreground [overflow-wrap:anywhere]">{fullName}</p>
-                  <p className="type-mono-id text-text-muted [overflow-wrap:anywhere]">{me?.email}</p>
+                <AvatarUploader data-vid="084v0if" value={me?.avatar?.src ?? null} disabled={me === null || props.profileStatus === "saving"} onUploaded={props.onAvatarUploaded} />
+                <div data-vid="7uju3hy" className="min-w-0 flex-1 basis-56">
+                  <p data-vid="78k4yss" className="type-card-title text-foreground [overflow-wrap:anywhere]">{fullName}</p>
+                  <p data-vid="2jgand6" className="type-mono-id text-text-muted [overflow-wrap:anywhere]">{me?.email}</p>
                 </div>
-                <Badge variant="outline">{me?.role ?? t("account.7c968fb7")}</Badge>
+                <Badge data-vid="msbjaox" variant="outline">{me?.role ?? t("account.7c968fb7")}</Badge>
               </div>
-              <div className="flex flex-wrap gap-x-(--section-gap) gap-y-3 border-t border-border p-(--card-padding)">
-                <div className="shrink-0">
-                  <p className="type-eyebrow text-text-muted">{t("account.63dceb88.p")}</p>
-                  <p className="type-mono-id text-text-body whitespace-nowrap">{me?.phone ?? "—"}</p>
+              <div data-vid="rvdfcfh" className="flex flex-wrap gap-x-(--section-gap) gap-y-3 border-t border-border p-(--card-padding)">
+                <div data-vid="9pxufm4" className="shrink-0">
+                  <p data-vid="qqxq04j" className="type-eyebrow text-text-muted">{t("account.63dceb88.p")}</p>
+                  <p data-vid="pslyow1" className="type-mono-id text-text-body whitespace-nowrap">{me?.phone ?? "—"}</p>
                 </div>
-                <div className="shrink-0">
-                  <p className="type-eyebrow text-text-muted">{t("account.9321bcc0")}</p>
-                  <p className="type-mono-id text-text-body whitespace-nowrap">{formatDate(me?.createdAt)}</p>
+                <div data-vid="3husfzo" className="shrink-0">
+                  <p data-vid="3gkz3k8" className="type-eyebrow text-text-muted">{t("account.9321bcc0")}</p>
+                  <p data-vid="kqav07y" className="type-mono-id text-text-body whitespace-nowrap">{formatDate(me?.createdAt)}</p>
                 </div>
               </div>
-              <p className="type-caption border-t border-border px-(--card-padding) py-3 text-text-muted">
+              <p data-vid="huw51bp" className="type-caption border-t border-border px-(--card-padding) py-3 text-text-muted">
                 {t("account.a5fcfe93")}
               </p>
             </Panel>
 
-            <section className="flex flex-col gap-(--component-gap)">
-              <SectionHead>{t("account.15c4aa13")}</SectionHead>
-              <Panel className="p-(--card-padding)">
-                <form onSubmit={profileForm.handleSubmit((v) => props.onSaveProfile(v))} noValidate className="flex flex-col gap-(--component-gap)">
-                  <FieldGroup>
-                    <Controller
+            <section data-vid="ii0llx9" className="flex flex-col gap-(--component-gap)">
+              <SectionHead data-vid="lxfbzz2">{t("account.15c4aa13")}</SectionHead>
+              <Panel data-vid="het3zlb" className="p-(--card-padding)">
+                <form data-vid="tgjcqwz" onSubmit={profileForm.handleSubmit((v) => props.onSaveProfile(v))} noValidate className="flex flex-col gap-(--component-gap)">
+                  <FieldGroup data-vid="958tz0c">
+                    <Controller data-vid="7ie4bub"
                       name="displayName"
                       control={profileForm.control}
                       render={({ field, fieldState }) => (
-                        <Field data-invalid={fieldState.invalid}>
-                          <FieldLabel htmlFor={field.name}>{t("account.2b7f6a84")}</FieldLabel>
-                          <Input {...field} id={field.name} aria-invalid={fieldState.invalid} autoComplete="name" className="min-h-11 border-border-strong" />
-                          <FieldDescription>{t("account.d76cb651")}</FieldDescription>
-                          {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                        <Field data-vid="nargm78" data-invalid={fieldState.invalid}>
+                          <FieldLabel data-vid="qa4t4dx" htmlFor={field.name}>{t("account.2b7f6a84")}</FieldLabel>
+                          <Input data-vid="g959k2n" {...field} id={field.name} aria-invalid={fieldState.invalid} autoComplete="name" className="min-h-11 border-border-strong" />
+                          <FieldDescription data-vid="s7ek7ev">{t("account.d76cb651")}</FieldDescription>
+                          {fieldState.invalid && <FieldError data-vid="j6ys501" errors={[fieldState.error]} />}
                         </Field>
                       )}
                     />
-                    <Controller
+                    <Controller data-vid="kqcfsg9"
                       name="phone"
                       control={profileForm.control}
                       render={({ field, fieldState }) => (
-                        <Field data-invalid={fieldState.invalid}>
-                          <FieldLabel htmlFor={field.name}>{t("account.63dceb88.fieldlabel")}</FieldLabel>
-                          <Input {...field} id={field.name} type="tel" aria-invalid={fieldState.invalid} autoComplete="tel" className="min-h-11 border-border-strong" />
-                          <FieldDescription>{t("account.3c5254ad")}</FieldDescription>
-                          {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                        <Field data-vid="appktjn" data-invalid={fieldState.invalid}>
+                          <FieldLabel data-vid="zbblc9c" htmlFor={field.name}>{t("account.63dceb88.fieldlabel")}</FieldLabel>
+                          <Input data-vid="ki471ob" {...field} id={field.name} type="tel" aria-invalid={fieldState.invalid} autoComplete="tel" className="min-h-11 border-border-strong" />
+                          <FieldDescription data-vid="rdvid59">{t("account.3c5254ad")}</FieldDescription>
+                          {fieldState.invalid && <FieldError data-vid="owecakv" errors={[fieldState.error]} />}
                         </Field>
                       )}
                     />
                   </FieldGroup>
-                  <div className="flex flex-wrap items-center gap-3">
-                    <Button type="submit" disabled={me === null || props.profileStatus === "saving"} className="min-h-11">
+                  <div data-vid="suer0tc" className="flex flex-wrap items-center gap-3">
+                    <Button data-vid="8wvjieg" type="submit" disabled={me === null || props.profileStatus === "saving"} className="min-h-11">
                       {t("account.0c8209e7")}
                     </Button>
                   </div>
-                  <p role="status" className="type-body text-text-muted">
+                  <p data-vid="ev7v1v8" role="status" className="type-body text-text-muted">
                     {props.profileStatus === "saved" ? t("account.saved", "Changes saved.") : props.profileStatus === "error" ? t("account.saveError", "We couldn't save your changes. Try again.") : ""}
                   </p>
                 </form>
               </Panel>
             </section>
 
-            <section id="language" className="flex flex-col gap-(--component-gap)">
-              <SectionHead>{t("account.4f9555cd")}</SectionHead>
-              <Panel className="flex flex-col gap-(--component-gap) p-(--card-padding)">
-                <div className="grid grid-cols-[repeat(auto-fill,minmax(11rem,1fr))] gap-3">
-                  <div className="flex flex-col gap-2">
-                    <Label htmlFor="lang">{t("account.a4fe6526")}</Label>
-                    <Select value={language} onValueChange={setLanguage}>
-                      <SelectTrigger id="lang" className="min-h-11 w-full border-border-strong">
-                        <SelectValue />
+            <section data-vid="shdbly5" id="language" className="flex flex-col gap-(--component-gap)">
+              <SectionHead data-vid="b8ouq2y">{t("account.4f9555cd")}</SectionHead>
+              <Panel data-vid="s4sntgb" className="flex flex-col gap-(--component-gap) p-(--card-padding)">
+                <div data-vid="x90w46r" className="grid grid-cols-[repeat(auto-fill,minmax(11rem,1fr))] gap-3">
+                  <div data-vid="n4b5d5y" className="flex flex-col gap-2">
+                    <Label data-vid="2blaire" htmlFor="lang">{t("account.a4fe6526")}</Label>
+                    <Select data-vid="qkuyflg" value={language} onValueChange={setLanguage}>
+                      <SelectTrigger data-vid="p11y54m" id="lang" className="min-h-11 w-full border-border-strong">
+                        <SelectValue data-vid="v2dmrp9" />
                       </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="en">{t("account.ba118bf7")}</SelectItem>
-                        <SelectItem value="es">{t("account.94b382b6")}</SelectItem>
+                      <SelectContent data-vid="f33iq1n">
+                        <SelectItem data-vid="3dnnmtf" value="en">{t("account.ba118bf7")}</SelectItem>
+                        <SelectItem data-vid="gtosnji" value="es">{t("account.94b382b6")}</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
-                  <div className="flex flex-col gap-2">
-                    <Label htmlFor="region">{t("account.d3a008ef")}</Label>
-                    <Input id="region" className="min-h-11 border-border-strong" value={region} onChange={(e) => setRegion(e.target.value)} />
+                  <div data-vid="6d0j3ze" className="flex flex-col gap-2">
+                    <Label data-vid="ou0laz3" htmlFor="region">{t("account.d3a008ef")}</Label>
+                    <Input data-vid="l5iqvh0" id="region" className="min-h-11 border-border-strong" value={region} onChange={(e) => setRegion(e.target.value)} />
                   </div>
-                  <div className="flex flex-col gap-2">
-                    <Label htmlFor="datefmt">{t("account.43123f5c")}</Label>
-                    <Input id="datefmt" className="min-h-11 border-border-strong" value={dateFormat} onChange={(e) => setDateFormat(e.target.value)} />
+                  <div data-vid="os563so" className="flex flex-col gap-2">
+                    <Label data-vid="1ievqvb" htmlFor="datefmt">{t("account.43123f5c")}</Label>
+                    <Input data-vid="1nhjeh7" id="datefmt" className="min-h-11 border-border-strong" value={dateFormat} onChange={(e) => setDateFormat(e.target.value)} />
                   </div>
                 </div>
-                <div className="flex flex-wrap items-center gap-3">
-                  <span className="inline-flex items-center gap-(--component-gap)" title={t("account.da1ce7cb.span-attr-title")}>
-                    <Button
+                <div data-vid="q5kaxu3" className="flex flex-wrap items-center gap-3">
+                  <span data-vid="iu01cx2" className="inline-flex items-center gap-(--component-gap)" title={t("account.da1ce7cb.span-attr-title")}>
+                    <Button data-vid="r6qlec9"
                       disabled
                       aria-disabled="true"
                       title={t("account.da1ce7cb.button-attr-title")}
@@ -201,14 +201,14 @@ export function AccountView(props: AccountScreenViewModel): React.ReactElement {
                     >
                       {t("account.e80e0bd0")}
                     </Button>
-                    <span className="type-body text-text-muted">{t("account.da1ce7cb.span")}</span>
+                    <span data-vid="mck2swx" className="type-body text-text-muted">{t("account.da1ce7cb.span")}</span>
                   </span>
                 </div>
-                <AnimatePresence initial={false}>
+                <AnimatePresence data-vid="jsgdfd4" initial={false}>
                   {langNotice ? (
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.15 }}>
-                      <Alert>
-                        <AlertDescription className="text-status-info-ink">{t("account.d9691cba")}</AlertDescription>
+                    <motion.div data-vid="f1sosex" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.15 }}>
+                      <Alert data-vid="kd87fij">
+                        <AlertDescription data-vid="6p9fyxy" className="text-status-info-ink">{t("account.d9691cba")}</AlertDescription>
                       </Alert>
                     </motion.div>
                   ) : null}
@@ -217,26 +217,26 @@ export function AccountView(props: AccountScreenViewModel): React.ReactElement {
             </section>
           </TabsContent>
 
-          <TabsContent value="notifications" className="flex max-w-3xl flex-col gap-(--component-gap)">
-            <SectionHead>{t("account.aab79ba9")}</SectionHead>
-            <Panel>
-              <div className="flex items-center justify-between gap-3 border-b border-border px-(--card-padding) py-3">
-                <span className="type-eyebrow text-text-muted">{t("account.7d31b833")}</span>
-                <span className="type-eyebrow w-16 text-center text-text-muted">{t("account.969ccbd3")}</span>
+          <TabsContent data-vid="kk69qct" value="notifications" className="flex max-w-3xl flex-col gap-(--component-gap)">
+            <SectionHead data-vid="l50w7cb">{t("account.aab79ba9")}</SectionHead>
+            <Panel data-vid="8fgbhn1">
+              <div data-vid="rdmc5i2" className="flex items-center justify-between gap-3 border-b border-border px-(--card-padding) py-3">
+                <span data-vid="tpfn0pa" className="type-eyebrow text-text-muted">{t("account.7d31b833")}</span>
+                <span data-vid="5515af9" className="type-eyebrow w-16 text-center text-text-muted">{t("account.969ccbd3")}</span>
               </div>
               {groups.map((g) => (
-                <div key={g}>
-                  <p className="type-eyebrow border-t border-border bg-surface-sunken px-(--card-padding) py-2 text-text-muted first:border-t-0">{groupLabel(g)}</p>
+                <div data-vid="2x1p70t" key={g}>
+                  <p data-vid="2kvkw2g" className="type-eyebrow border-t border-border bg-surface-sunken px-(--card-padding) py-2 text-text-muted first:border-t-0">{groupLabel(g)}</p>
                   {notificationTypes.filter((n) => n.group === g).map((n) => (
-                    <div key={n.id} className="flex min-h-14 items-center justify-between gap-3 border-t border-border px-(--card-padding) py-3">
-                      <div className="min-w-0">
-                        <p className="type-row-title text-foreground">{n.label}</p>
+                    <div data-vid="dgv6js9" key={n.id} className="flex min-h-14 items-center justify-between gap-3 border-t border-border px-(--card-padding) py-3">
+                      <div data-vid="331fsk6" className="min-w-0">
+                        <p data-vid="du33bhq" className="type-row-title text-foreground">{n.label}</p>
                         {n.mandatory ? (
-                          <p className="type-caption flex items-center gap-1 text-text-muted"><Lock className="size-3" /> {t("account.044ba8a9")}</p>
+                          <p data-vid="q2tbuhx" className="type-caption flex items-center gap-1 text-text-muted"><Lock data-vid="zg0ey5b" className="size-3" /> {t("account.044ba8a9")}</p>
                         ) : null}
                       </div>
-                      <div className="flex w-16 justify-center">
-                        <Switch
+                      <div data-vid="rdvqsqt" className="flex w-16 justify-center">
+                        <Switch data-vid="38whe71"
                           aria-label={`${n.label} ${t("account.418de7f0")}`}
                           checked={prefs[n.id] ?? false}
                           disabled={n.mandatory}
@@ -247,43 +247,43 @@ export function AccountView(props: AccountScreenViewModel): React.ReactElement {
                   ))}
                 </div>
               ))}
-              <div className="flex justify-end border-t border-border p-(--card-padding)">
-                <Button className="min-h-11" disabled={!changed} onClick={() => setSavedPrefs(prefs)}>
+              <div data-vid="dkfxq4f" className="flex justify-end border-t border-border p-(--card-padding)">
+                <Button data-vid="1hn41o6" className="min-h-11" disabled={!changed} onClick={() => setSavedPrefs(prefs)}>
                   {t("account.089e57e3")}
                 </Button>
               </div>
             </Panel>
           </TabsContent>
 
-          <TabsContent value="appearance" className="flex max-w-3xl flex-col gap-(--component-gap)">
-            <SectionHead>{t("account.3907fa7f.sectionhead")}</SectionHead>
-            <Panel className="p-(--card-padding)">
-              <RadioGroup value={theme} onValueChange={setTheme} className="gap-3">
+          <TabsContent data-vid="8fe718a" value="appearance" className="flex max-w-3xl flex-col gap-(--component-gap)">
+            <SectionHead data-vid="j6hyyw6">{t("account.3907fa7f.sectionhead")}</SectionHead>
+            <Panel data-vid="oimereg" className="p-(--card-padding)">
+              <RadioGroup data-vid="cct40zm" value={theme} onValueChange={setTheme} className="gap-3">
                 {["light", "dark", "system"].map((v) => (
-                  <label key={v} htmlFor={`theme-${v}`} className="flex min-h-11 cursor-pointer items-center gap-3 rounded-control border border-border-strong px-3">
-                    <RadioGroupItem id={`theme-${v}`} value={v} />
-                    <span className="type-body text-text-body">{themeLabel(v)}</span>
+                  <label data-vid="bzaed8h" key={v} htmlFor={`theme-${v}`} className="flex min-h-11 cursor-pointer items-center gap-3 rounded-control border border-border-strong px-3">
+                    <RadioGroupItem data-vid="urvy7g8" id={`theme-${v}`} value={v} />
+                    <span data-vid="o48j6pp" className="type-body text-text-body">{themeLabel(v)}</span>
                   </label>
                 ))}
               </RadioGroup>
-              <p className="type-caption mt-(--component-gap) text-text-muted">{t("account.a72c52da")}</p>
+              <p data-vid="bc9kjee" className="type-caption mt-(--component-gap) text-text-muted">{t("account.a72c52da")}</p>
             </Panel>
           </TabsContent>
 
-          <TabsContent value="activity" className="flex max-w-3xl flex-col gap-(--component-gap)">
-            <SectionHead>{t("account.6cb44b56")}</SectionHead>
+          <TabsContent data-vid="6im9sw9" value="activity" className="flex max-w-3xl flex-col gap-(--component-gap)">
+            <SectionHead data-vid="4cv6bn3">{t("account.6cb44b56")}</SectionHead>
             {props.userActivities.length === 0 ? (
-              <Panel className="p-(--card-padding)">
-                <p className="type-body text-text-muted">{t("account.7b788335")}</p>
+              <Panel data-vid="otdxk6e" className="p-(--card-padding)">
+                <p data-vid="nzcktqz" className="type-body text-text-muted">{t("account.7b788335")}</p>
               </Panel>
             ) : (
-              <Panel>
-                <ul>
+              <Panel data-vid="nnolh55">
+                <ul data-vid="7bqdaqj">
                   {props.userActivities.map((a) => (
-                    <li key={a.id} className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-x-(--component-gap) border-t border-border px-(--card-padding) py-3 first:border-t-0">
-                      <span className="type-mono-id tabular-nums whitespace-nowrap text-text-muted">{formatDate(a.createdAt)} {formatTime(a.createdAt)}</span>
-                      <span className="type-row-title truncate text-foreground">{a.operation}</span>
-                      <span className="type-mono-id truncate text-text-muted">{a.tableName}{a.rowPk ? ` · ${a.rowPk}` : ""}</span>
+                    <li data-vid="hn2pchk" key={a.id} className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-x-(--component-gap) border-t border-border px-(--card-padding) py-3 first:border-t-0">
+                      <span data-vid="76jastg" className="type-mono-id tabular-nums whitespace-nowrap text-text-muted">{formatDate(a.createdAt)} {formatTime(a.createdAt)}</span>
+                      <span data-vid="lz6ym9z" className="type-row-title truncate text-foreground">{a.operation}</span>
+                      <span data-vid="27ou9uj" className="type-mono-id truncate text-text-muted">{a.tableName}{a.rowPk ? ` · ${a.rowPk}` : ""}</span>
                     </li>
                   ))}
                 </ul>

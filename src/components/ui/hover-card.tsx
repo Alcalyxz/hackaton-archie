@@ -5,14 +5,14 @@ import { HoverCard as HoverCardPrimitive } from "radix-ui"
 function HoverCard({
   ...props
 }: React.ComponentProps<typeof HoverCardPrimitive.Root>) {
-  return <HoverCardPrimitive.Root data-slot="hover-card" {...props} />
+  return <HoverCardPrimitive.Root data-vid="m955p01" data-slot="hover-card" {...props} />
 }
 
 function HoverCardTrigger({
   ...props
 }: React.ComponentProps<typeof HoverCardPrimitive.Trigger>) {
   return (
-    <HoverCardPrimitive.Trigger data-slot="hover-card-trigger" {...props} />
+    <HoverCardPrimitive.Trigger data-vid="u5kxgib" data-slot="hover-card-trigger" {...props} />
   )
 }
 
@@ -23,8 +23,8 @@ function HoverCardContent({
   ...props
 }: React.ComponentProps<typeof HoverCardPrimitive.Content>) {
   return (
-    <HoverCardPrimitive.Portal data-slot="hover-card-portal">
-      <HoverCardPrimitive.Content
+    <HoverCardPrimitive.Portal data-vid="xv7w34c" data-slot="hover-card-portal">
+      <HoverCardPrimitive.Content data-vid="xamdqgq"
         data-slot="hover-card-content"
         align={align}
         sideOffset={sideOffset}

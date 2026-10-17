@@ -36,25 +36,25 @@ export function ForgotPasswordView(props: AuthViewModel): React.ReactElement {
   };
 
   return (
-    <main className="flex flex-1 flex-col items-center justify-center gap-(--section-gap) bg-background px-(--container-padding) py-(--section-gap) text-center">
-      <header className="flex w-full flex-col items-center gap-2">
-        <h1 className="type-page-title text-foreground [overflow-wrap:anywhere]">{t("forgot-password.29ce9bfb")}</h1>
-        <p className="type-body mx-auto max-w-prose text-text-muted">
+    <main data-vid="vk4pt1c" className="flex flex-1 flex-col items-center justify-center gap-(--section-gap) bg-background px-(--container-padding) py-(--section-gap) text-center">
+      <header data-vid="rz62op5" className="flex w-full flex-col items-center gap-2">
+        <h1 data-vid="ljn2bm1" className="type-page-title text-foreground [overflow-wrap:anywhere]">{t("forgot-password.29ce9bfb")}</h1>
+        <p data-vid="wxe3niu" className="type-body mx-auto max-w-prose text-text-muted">
           {t("forgot-password.18e9a8fb")}
         </p>
       </header>
 
-      <Card className="flex w-full max-w-md flex-col gap-(--component-gap) border border-border bg-card p-(--card-padding) text-left">
+      <Card data-vid="48e7gjz" className="flex w-full max-w-md flex-col gap-(--component-gap) border border-border bg-card p-(--card-padding) text-left">
         {props.succeeded ? (
-          <div className="flex flex-col items-center gap-3 text-center" role="status">
-            <MailCheck className="size-6 text-text-muted" aria-hidden="true" />
-            <p className="type-card-title text-foreground">{t("forgot-password.c57e00ea")}</p>
-            <p className="type-body text-text-body [overflow-wrap:anywhere]">
+          <div data-vid="5rvlzcb" className="flex flex-col items-center gap-3 text-center" role="status">
+            <MailCheck data-vid="akbcwm4" className="size-6 text-text-muted" aria-hidden="true" />
+            <p data-vid="ubt6lw5" className="type-card-title text-foreground">{t("forgot-password.c57e00ea")}</p>
+            <p data-vid="u6nnvbd" className="type-body text-text-body [overflow-wrap:anywhere]">
               {t("forgot-password.5930e552")} {props.email}{t("forgot-password.854a75d9")}
             </p>
           </div>
         ) : (
-          <form
+          <form data-vid="cp4wjgk"
             onSubmit={(e) => {
               e.preventDefault();
               void form.handleSubmit(onSend)(e);
@@ -62,14 +62,14 @@ export function ForgotPasswordView(props: AuthViewModel): React.ReactElement {
             noValidate
             className="flex flex-col gap-(--component-gap)"
           >
-            <FieldGroup>
-              <Controller
+            <FieldGroup data-vid="n4lxnmq">
+              <Controller data-vid="d5jqlbb"
                 name="email"
                 control={form.control}
                 render={({ field, fieldState }) => (
-                  <Field data-invalid={fieldState.invalid}>
-                    <FieldLabel htmlFor={field.name}>{t("forgot-password.969ccbd3")}</FieldLabel>
-                    <Input
+                  <Field data-vid="pfmfafg" data-invalid={fieldState.invalid}>
+                    <FieldLabel data-vid="gol8qle" htmlFor={field.name}>{t("forgot-password.969ccbd3")}</FieldLabel>
+                    <Input data-vid="1wqt847"
                       name={field.name}
                       ref={field.ref}
                       onBlur={field.onBlur}
@@ -85,35 +85,35 @@ export function ForgotPasswordView(props: AuthViewModel): React.ReactElement {
                       aria-invalid={fieldState.invalid}
                       className="min-h-11 border-border-strong"
                     />
-                    <FieldDescription>
+                    <FieldDescription data-vid="eem5tw2">
                       {t("forgot-password.ef69c74f")}
                     </FieldDescription>
-                    {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                    {fieldState.invalid && <FieldError data-vid="sje5jdp" errors={[fieldState.error]} />}
                   </Field>
                 )}
               />
             </FieldGroup>
             {props.error !== null && (
-              <p className="type-meta text-destructive" role="alert">{props.error}</p>
+              <p data-vid="kkxtfpe" className="type-meta text-destructive" role="alert">{props.error}</p>
             )}
-            <Button type="submit" className="min-h-11 w-full" disabled={props.loading}>
+            <Button data-vid="qs0ovvd" type="submit" className="min-h-11 w-full" disabled={props.loading}>
               {t("forgot-password.5dbdb1b3")}
             </Button>
           </form>
         )}
       </Card>
 
-      <div className="flex flex-col items-center gap-3">
-        <p className="type-meta mx-auto max-w-prose text-text-muted">
+      <div data-vid="an7l4io" className="flex flex-col items-center gap-3">
+        <p data-vid="9vhwfrv" className="type-meta mx-auto max-w-prose text-text-muted">
           {t("forgot-password.43f676cf")}
         </p>
-        <Button
+        <Button data-vid="zstone6"
           type="button"
           variant="link"
           onClick={() => props.navigate(routes["login"]())}
           className="type-meta inline-flex min-h-11 items-center gap-2 text-text-link hover:underline focus-visible:ring-2 focus-visible:ring-ring"
         >
-          <ArrowLeft className="size-4" aria-hidden="true" />
+          <ArrowLeft data-vid="5d540q9" className="size-4" aria-hidden="true" />
           {t("forgot-password.71fe31cc")}
         </Button>
       </div>

@@ -219,11 +219,11 @@ export function WatchlistScreenContainer(
   return (
     <>
       {loading ? (
-        <ScreenLoading />
+        <ScreenLoading data-vid="hrusubk" />
       ) : loadError !== null ? (
-        <ScreenError error={loadError} onRetry={reload} />
+        <ScreenError data-vid="x3mywvm" error={loadError} onRetry={reload} />
       ) : (
-        <View {...vm} />
+        <View data-vid="vz2ycbu" {...vm} />
       )}
     </>
   );
@@ -232,5 +232,5 @@ export function WatchlistScreenContainer(
 // THE ROUTE MODULE. `routes.config.tsx` lazy-imports this file and needs a prop-less
 // `export default`: it binds the container to its view and does nothing else.
 export default function WatchlistScreenRoute(): React.ReactElement {
-  return <WatchlistScreenContainer view={WatchlistView} />;
+  return <WatchlistScreenContainer data-vid="ap9ugnb" view={WatchlistView} />;
 }

@@ -117,11 +117,11 @@ export function PrivacyScreenContainer(
   return (
     <>
       {loading ? (
-        <ScreenLoading />
+        <ScreenLoading data-vid="z1x72lk" />
       ) : loadError !== null ? (
-        <ScreenError error={loadError} onRetry={reload} />
+        <ScreenError data-vid="ft7jeiy" error={loadError} onRetry={reload} />
       ) : (
-        <View {...vm} />
+        <View data-vid="2yxslj9" {...vm} />
       )}
     </>
   );
@@ -130,5 +130,5 @@ export function PrivacyScreenContainer(
 // THE ROUTE MODULE. `routes.config.tsx` lazy-imports this file and needs a prop-less
 // `export default`: it binds the container to its view and does nothing else.
 export default function PrivacyScreenRoute(): React.ReactElement {
-  return <PrivacyScreenContainer view={PrivacyView} />;
+  return <PrivacyScreenContainer data-vid="1atq2p7" view={PrivacyView} />;
 }

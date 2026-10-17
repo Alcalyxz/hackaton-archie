@@ -31,7 +31,7 @@ function ToggleGroup({
     spacing?: number
   }) {
   return (
-    <ToggleGroupPrimitive.Root
+    <ToggleGroupPrimitive.Root data-vid="co5pzay"
       data-slot="toggle-group"
       data-variant={variant}
       data-size={size}
@@ -48,7 +48,7 @@ function ToggleGroup({
       )}
       {...props}
     >
-      <ToggleGroupContext.Provider
+      <ToggleGroupContext.Provider data-vid="enprs51"
         value={{ variant, size, spacing, orientation }}
       >
         {children}
@@ -68,7 +68,7 @@ function ToggleGroupItem({
   const context = React.useContext(ToggleGroupContext)
 
   return (
-    <ToggleGroupPrimitive.Item
+    <ToggleGroupPrimitive.Item data-vid="jy6wo7d"
       data-slot="toggle-group-item"
       data-variant={context.variant || variant}
       data-size={context.size || size}

@@ -390,5 +390,5 @@ export function AssetWorkspaceShellContainer({ children }: { readonly children: 
         }
       : {}),
   };
-  return <AssetWorkspaceShell vm={vm}>{children}</AssetWorkspaceShell>;
+  return <AssetWorkspaceShell data-vid="tcca6j1" vm={vm}>{children}</AssetWorkspaceShell>;
 }

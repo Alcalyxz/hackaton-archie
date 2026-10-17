@@ -18,37 +18,37 @@ const rows: Task[] = [
 
 describe("instruments render to static HTML", () => {
   test("Stepper", () => {
-    const html = renderToString(<Stepper steps={["Draft", "Review"]} current={1} />)
+    const html = renderToString(<Stepper data-vid="orlm9a6" steps={["Draft", "Review"]} current={1} />)
     expect(html.length).toBeGreaterThan(0)
     expect(html).toContain('data-slot="stepper"')
     expect(html).toContain("Review")
   })
   test("Schedule", () => {
-    const html = renderToString(<Schedule rows={rows} start="startsAt" end="endsAt" date="2026-10-01" today="2026-10-01" />)
+    const html = renderToString(<Schedule data-vid="10pqrn1" rows={rows} start="startsAt" end="endsAt" date="2026-10-01" today="2026-10-01" />)
     expect(html).toContain('data-slot="schedule"')
     expect(html).toContain("Kickoff")
   })
   test("Timeline", () => {
-    const html = renderToString(<Timeline rows={rows} start="startsAt" end="endsAt" lane="status" />)
+    const html = renderToString(<Timeline data-vid="6q5w19f" rows={rows} start="startsAt" end="endsAt" lane="status" />)
     expect(html).toContain('data-slot="timeline"')
     expect(html).toContain("Review")
   })
   test("Board", () => {
-    const html = renderToString(<Board rows={rows} groupBy="status" columns={["Open", "Done"]} />)
+    const html = renderToString(<Board data-vid="l82o7h6" rows={rows} groupBy="status" columns={["Open", "Done"]} />)
     expect(html).toContain('data-slot="board"')
     expect(html).toContain("Kickoff")
   })
   test("Queue", () => {
-    const html = renderToString(<Queue rows={rows} stage="status" at="receivedAt" now="2026-10-02T00:00:00Z" renderDetail={(r: Task) => <p>{r.title}</p>} />)
+    const html = renderToString(<Queue data-vid="kg33kfs" rows={rows} stage="status" at="receivedAt" now="2026-10-02T00:00:00Z" renderDetail={(r: Task) => <p data-vid="k3qpb00">{r.title}</p>} />)
     expect(html).toContain('data-slot="queue"')
     expect(html).toContain("Kickoff")
   })
   test("Map renders its client fallback", () => {
-    const html = renderToString(<Map markers={[{ lat: 1, lng: 2, label: "A" }, { lat: 3, lng: 4, label: "B" }]} />)
+    const html = renderToString(<Map data-vid="v3ft4wb" markers={[{ lat: 1, lng: 2, label: "A" }, { lat: 3, lng: 4, label: "B" }]} />)
     expect(html).toContain('data-slot="map"')
   })
   test("Scene renders its client fallback", () => {
-    const html = renderToString(<Scene>{() => null}</Scene>)
+    const html = renderToString(<Scene data-vid="xgf24r9">{() => null}</Scene>)
     expect(html).toContain('data-slot="scene"')
   })
 })

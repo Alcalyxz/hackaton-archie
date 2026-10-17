@@ -483,5 +483,5 @@ export function PublicTrackerShellContainer({ children }: { readonly children: R
         }
       : {}),
   };
-  return <PublicTrackerShell vm={vm}>{children}</PublicTrackerShell>;
+  return <PublicTrackerShell data-vid="simmuo9" vm={vm}>{children}</PublicTrackerShell>;
 }

@@ -85,7 +85,7 @@ const toneLookup = (t: unknown): ToneClasses | undefined => (typeof t === "strin
 
 // The row is a link when it has an href, a plain box otherwise.
 function RowTag({ href, children, ...props }: Omit<ComponentPropsWithoutRef<"div">, "onClick"> & { href?: string; onClick: (e: MouseEvent<HTMLElement>) => void }) {
-  return href ? <a href={href} {...(props as ComponentPropsWithoutRef<"a">)}>{children}</a> : <div {...props}>{children}</div>
+  return href ? <a data-vid="cudqq07" href={href} {...(props as ComponentPropsWithoutRef<"a">)}>{children}</a> : <div data-vid="4vr98v9" {...props}>{children}</div>
 }
 
 const nowMs = (now: unknown): number | null => { const d = toDate(now); return d ? d.getTime() : null }
@@ -278,9 +278,9 @@ export function Queue<Row = unknown>({
   const overdue = (it: QueueItem<Row>): boolean => sla != null && now_ != null && it.at != null && (now_ - it.at.getTime()) / HOUR > Number(sla)
 
   const list = !rows.length || !visible.length ? (
-    <p className="rounded-md border border-dashed border-border-strong px-3 py-6 text-center type-caption text-text-muted">{rows.length ? filteredEmptyLabel : emptyLabel}</p>
+    <p data-vid="5kret7m" className="rounded-md border border-dashed border-border-strong px-3 py-6 text-center type-caption text-text-muted">{rows.length ? filteredEmptyLabel : emptyLabel}</p>
   ) : (
-    <div ref={listRef} role="listbox" tabIndex={0} aria-label={label} aria-activedescendant={current ? optionId(current) : undefined} onKeyDown={onKey}
+    <div data-vid="u5n3l3r" ref={listRef} role="listbox" tabIndex={0} aria-label={label} aria-activedescendant={current ? optionId(current) : undefined} onKeyDown={onKey}
       className="min-w-0 overflow-hidden rounded-md border border-border bg-card outline-none focus-visible:ring-2 focus-visible:ring-ring">
       {shown.map((it) => {
         const href = hrefOf(it)
@@ -291,7 +291,7 @@ export function Queue<Row = unknown>({
         const sub = subtitle ? get(it.row, subtitle) : null
         const who = assignee ? get(it.row, assignee) : null
         return (
-          <RowTag key={it.key} href={href} id={optionId(it)} role="option" aria-selected={selected} tabIndex={-1} data-element="queue-row" data-queue-key={it.key}
+          <RowTag data-vid="d2ibjnp" key={it.key} href={href} id={optionId(it)} role="option" aria-selected={selected} tabIndex={-1} data-element="queue-row" data-queue-key={it.key}
             onClick={(e: MouseEvent<HTMLElement>) => {
               if (href && (!renderDetail || !wide() || e.metaKey || e.ctrlKey || e.shiftKey)) { choose(it); return }
               if (href) e.preventDefault()
@@ -300,21 +300,21 @@ export function Queue<Row = unknown>({
               choose(it, !href)
             }}
             className="relative flex min-w-0 cursor-pointer flex-col gap-1 border-b border-border px-3 py-2.5 text-left last:border-b-0 hover:bg-muted/60 aria-selected:bg-muted aria-selected:shadow-[inset_2px_0_0_var(--color-primary)] max-md:min-h-[44px]">
-            <span className="flex min-w-0 items-baseline gap-2">
-              <span className="min-w-0 truncate type-row-title text-foreground">{String(get(it.row, title) ?? "")}</span>
-              {ident != null && ident !== "" ? <span className="shrink-0 type-mono-id tabular-nums text-text-muted">{String(ident)}</span> : null}
-              {it.at ? <span className="ml-auto shrink-0 type-caption tabular-nums text-text-muted">{ageText(it.at, now_)}</span> : null}
+            <span data-vid="ng7sa7c" className="flex min-w-0 items-baseline gap-2">
+              <span data-vid="q105gwe" className="min-w-0 truncate type-row-title text-foreground">{String(get(it.row, title) ?? "")}</span>
+              {ident != null && ident !== "" ? <span data-vid="shumw0z" className="shrink-0 type-mono-id tabular-nums text-text-muted">{String(ident)}</span> : null}
+              {it.at ? <span data-vid="4u9accy" className="ml-auto shrink-0 type-caption tabular-nums text-text-muted">{ageText(it.at, now_)}</span> : null}
             </span>
-            <span className="flex min-w-0 items-center gap-2">
-              <span className={cn("inline-flex h-5 shrink-0 items-center rounded-4xl px-2 type-caption", c.cls)}>{c.text}</span>
+            <span data-vid="n0b5cga" className="flex min-w-0 items-center gap-2">
+              <span data-vid="3eccnax" className={cn("inline-flex h-5 shrink-0 items-center rounded-4xl px-2 type-caption", c.cls)}>{c.text}</span>
               {late ? (
-                <span className="inline-flex shrink-0 items-center gap-1 type-caption text-status-danger-ink">
-                  <svg viewBox="0 0 16 16" aria-hidden="true" className="size-3.5" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><circle cx="8" cy="8" r="6" /><path d="M8 4.75v3.75M8 11v.01" /></svg>
+                <span data-vid="eu465bn" className="inline-flex shrink-0 items-center gap-1 type-caption text-status-danger-ink">
+                  <svg data-vid="js93x0k" viewBox="0 0 16 16" aria-hidden="true" className="size-3.5" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><circle data-vid="28f8i88" cx="8" cy="8" r="6" /><path data-vid="m7yu5vy" d="M8 4.75v3.75M8 11v.01" /></svg>
                   Overdue
                 </span>
               ) : null}
-              {sub != null && sub !== "" ? <span className="min-w-0 truncate type-meta text-text-muted">{String(sub)}</span> : null}
-              {who != null && who !== "" ? <span className="ml-auto max-w-[40%] shrink-0 truncate type-caption text-text-muted">{String(who)}</span> : null}
+              {sub != null && sub !== "" ? <span data-vid="jgrsybx" className="min-w-0 truncate type-meta text-text-muted">{String(sub)}</span> : null}
+              {who != null && who !== "" ? <span data-vid="a5mcbjg" className="ml-auto max-w-[40%] shrink-0 truncate type-caption text-text-muted">{String(who)}</span> : null}
             </span>
           </RowTag>
         )
@@ -323,47 +323,47 @@ export function Queue<Row = unknown>({
   )
 
   return (
-    <section data-slot="queue" aria-label={label} className={cn("grid min-w-0 gap-(--component-gap)", className)} {...rest}>
-      <div className="flex min-w-0 flex-wrap items-center gap-2 lg:flex-nowrap">
+    <section data-vid="3heycbn" data-slot="queue" aria-label={label} className={cn("grid min-w-0 gap-(--component-gap)", className)} {...rest}>
+      <div data-vid="30bivhl" className="flex min-w-0 flex-wrap items-center gap-2 lg:flex-nowrap">
         {search?.length ? (
-          <Input type="search" aria-label={`Search ${label}`} placeholder="Search" value={query} onChange={(e) => changeQuery(e.target.value)} className="w-full sm:w-72 lg:shrink-0" />
+          <Input data-vid="2ja9amf" type="search" aria-label={`Search ${label}`} placeholder="Search" value={query} onChange={(e) => changeQuery(e.target.value)} className="w-full sm:w-72 lg:shrink-0" />
         ) : null}
         {tabs.length ? (
-          <div className="min-w-0 max-w-full overflow-x-auto">
-            <ToggleGroup type="single" variant="outline" spacing={0} value={tab} onValueChange={(v) => { if (v) changeTab(v) }} aria-label="Stage">
-              <ToggleGroupItem value={ALL} className="max-md:min-h-[44px]">All <span className="tabular-nums text-text-muted">{scoped.length}</span></ToggleGroupItem>
+          <div data-vid="hh8qcju" className="min-w-0 max-w-full overflow-x-auto">
+            <ToggleGroup data-vid="i7hwxpq" type="single" variant="outline" spacing={0} value={tab} onValueChange={(v) => { if (v) changeTab(v) }} aria-label="Stage">
+              <ToggleGroupItem data-vid="5v2cszh" value={ALL} className="max-md:min-h-[44px]">All <span data-vid="beacgkn" className="tabular-nums text-text-muted">{scoped.length}</span></ToggleGroupItem>
               {tabs.map((s) => (
-                <ToggleGroupItem key={s.key} value={s.key} className="max-md:min-h-[44px]">{s.label} <span className="tabular-nums text-text-muted">{countOf(s.key)}</span></ToggleGroupItem>
+                <ToggleGroupItem data-vid="zo8o5i9" key={s.key} value={s.key} className="max-md:min-h-[44px]">{s.label} <span data-vid="2bmfnaw" className="tabular-nums text-text-muted">{countOf(s.key)}</span></ToggleGroupItem>
               ))}
             </ToggleGroup>
           </div>
         ) : null}
-        {onTakeNext ? <Button type="button" className="lg:ml-auto" disabled={!next} onClick={takeNext}>Take next</Button> : null}
+        {onTakeNext ? <Button data-vid="eanl41g" type="button" className="lg:ml-auto" disabled={!next} onClick={takeNext}>Take next</Button> : null}
       </div>
-      <div className={cn("grid min-w-0 items-start gap-(--component-gap)", split && "lg:grid-cols-[minmax(22rem,28rem)_minmax(0,1fr)]")}>
-        <div className={cn("grid min-w-0 gap-2", split && phoneDetail && "max-lg:hidden")}>
+      <div data-vid="cwlumra" className={cn("grid min-w-0 items-start gap-(--component-gap)", split && "lg:grid-cols-[minmax(22rem,28rem)_minmax(0,1fr)]")}>
+        <div data-vid="19tffwk" className={cn("grid min-w-0 gap-2", split && phoneDetail && "max-lg:hidden")}>
           {list}
           {pages > 1 ? (
-            <nav aria-label={`${label} pages`} className="flex items-center justify-center gap-2">
-              <Button type="button" variant="ghost" size="sm" disabled={pageAt === 0} onClick={() => pageTo(pageAt - 1)}><ChevronIcon dir="left" className="size-4" />Previous</Button>
-              <span className="type-caption tabular-nums text-text-muted">{pageAt + 1} of {pages}</span>
-              <Button type="button" variant="ghost" size="sm" disabled={pageAt >= pages - 1} onClick={() => pageTo(pageAt + 1)}>Next<ChevronIcon className="size-4" /></Button>
+            <nav data-vid="n8pbnae" aria-label={`${label} pages`} className="flex items-center justify-center gap-2">
+              <Button data-vid="uxocig9" type="button" variant="ghost" size="sm" disabled={pageAt === 0} onClick={() => pageTo(pageAt - 1)}><ChevronIcon data-vid="m1k20qv" dir="left" className="size-4" />Previous</Button>
+              <span data-vid="4co46fg" className="type-caption tabular-nums text-text-muted">{pageAt + 1} of {pages}</span>
+              <Button data-vid="irmzjzg" type="button" variant="ghost" size="sm" disabled={pageAt >= pages - 1} onClick={() => pageTo(pageAt + 1)}>Next<ChevronIcon data-vid="w68v5f4" className="size-4" /></Button>
             </nav>
           ) : null}
         </div>
         {split ? (
-          <div ref={detailRef} tabIndex={-1} data-slot="queue-detail" role="region" aria-label={`${label} detail`}
+          <div data-vid="oq4a3lb" ref={detailRef} tabIndex={-1} data-slot="queue-detail" role="region" aria-label={`${label} detail`}
             className={cn("flex min-w-0 flex-col gap-3 outline-none lg:sticky lg:top-[var(--shell-header-h,var(--topbar-h,0px))] lg:max-h-[calc(100dvh-var(--shell-header-h,var(--topbar-h,0px)))]", !phoneDetail && "max-lg:hidden")}>
-            <div className="lg:hidden">
-              <Button type="button" variant="ghost" size="sm" onClick={() => { focusAfter.current = "list"; setPhoneDetail(false) }}><ChevronIcon dir="left" className="size-4" />Back</Button>
+            <div data-vid="634syvn" className="lg:hidden">
+              <Button data-vid="dyfu65k" type="button" variant="ghost" size="sm" onClick={() => { focusAfter.current = "list"; setPhoneDetail(false) }}><ChevronIcon data-vid="7pjjmlz" dir="left" className="size-4" />Back</Button>
             </div>
             {current ? (
               <>
-                <div tabIndex={0} className="min-h-0 flex-1 overflow-y-auto outline-none focus-visible:ring-2 focus-visible:ring-ring">{renderDetail?.(current.row)}</div>
-                {detailActions ? <div className="flex flex-wrap items-center gap-2 border-t border-border pt-3">{detailActions(current.row)}</div> : null}
+                <div data-vid="7xm9z2l" tabIndex={0} className="min-h-0 flex-1 overflow-y-auto outline-none focus-visible:ring-2 focus-visible:ring-ring">{renderDetail?.(current.row)}</div>
+                {detailActions ? <div data-vid="2nujb70" className="flex flex-wrap items-center gap-2 border-t border-border pt-3">{detailActions(current.row)}</div> : null}
               </>
             ) : (
-              <p className="rounded-md border border-dashed border-border-strong px-3 py-6 text-center type-caption text-text-muted">{rows.length ? filteredEmptyLabel : emptyLabel}</p>
+              <p data-vid="cfzpig0" className="rounded-md border border-dashed border-border-strong px-3 py-6 text-center type-caption text-text-muted">{rows.length ? filteredEmptyLabel : emptyLabel}</p>
             )}
           </div>
         ) : null}

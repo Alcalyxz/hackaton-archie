@@ -24,7 +24,7 @@ function Alert({
   ...props
 }: React.ComponentProps<"div"> & VariantProps<typeof alertVariants>) {
   return (
-    <div
+    <div data-vid="x4zpthv"
       data-slot="alert"
       role="alert"
       className={cn(alertVariants({ variant }), className)}
@@ -38,7 +38,7 @@ function AlertTitle({
   ...props
 }: React.ComponentProps<"div">) {
   return (
-    <div
+    <div data-vid="v80zsye"
       data-slot="alert-title"
       className={cn(
         "font-medium group-has-[>svg]/alert:col-start-2 [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-foreground",
@@ -54,7 +54,7 @@ function AlertDescription({
   ...props
 }: React.ComponentProps<"div">) {
   return (
-    <div
+    <div data-vid="qrgoodv"
       data-slot="alert-description"
       className={cn(
         "text-sm text-balance text-muted-foreground md:text-pretty [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-foreground [&_p:not(:last-child)]:mb-4",
@@ -70,7 +70,7 @@ function AlertAction({
   ...props
 }: React.ComponentProps<"div">) {
   return (
-    <div
+    <div data-vid="ct8ud9g"
       data-slot="alert-action"
       className={cn("absolute top-2 right-2", className)}
       {...props}

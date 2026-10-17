@@ -36,24 +36,24 @@ export function CryptoDirectory({ Crypto, onOpen, onRefresh, refreshing }) {
   const clear = () => { setQuery(""); setPage(0); };
 
   return (
-    <div className="flex flex-col gap-(--section-gap)">
-      <header className="flex flex-wrap items-center justify-between gap-(--component-gap)">
-        <div className="min-w-0">
-          <h1 className="type-page-title">{t("crypto.directoryTitle", "Crypto")}</h1>
-          <p className="type-meta text-text-muted tabular-nums">
+    <div data-vid="q407nsz" className="flex flex-col gap-(--section-gap)">
+      <header data-vid="lr0nb8p" className="flex flex-wrap items-center justify-between gap-(--component-gap)">
+        <div data-vid="3v1n6vw" className="min-w-0">
+          <h1 data-vid="liqwa33" className="type-page-title">{t("crypto.directoryTitle", "Crypto")}</h1>
+          <p data-vid="82bwgbp" className="type-meta text-text-muted tabular-nums">
             {t("crypto.listCount", "{{count}} cryptocurrencies, highest price first", { count: Crypto.length })}
           </p>
         </div>
-        <Button variant="outline" onClick={onRefresh} disabled={refreshing} className="min-h-11 gap-2 border-border-strong">
-          <RefreshCw className={refreshing ? "size-4 animate-spin" : "size-4"} aria-hidden="true" />
+        <Button data-vid="rg4rrpf" variant="outline" onClick={onRefresh} disabled={refreshing} className="min-h-11 gap-2 border-border-strong">
+          <RefreshCw data-vid="nva2dha" className={refreshing ? "size-4 animate-spin" : "size-4"} aria-hidden="true" />
           {refreshing ? t("crypto.refreshing", "Refreshing…") : t("crypto.refresh", "Refresh")}
         </Button>
       </header>
 
-      <div className="flex flex-wrap items-center justify-between gap-(--component-gap)">
-        <div className="flex min-h-11 w-full items-center gap-2 rounded-control border border-border-strong bg-background px-3 focus-within:ring-2 focus-within:ring-ring sm:w-80">
-          <Search className="size-4 text-text-muted" />
-          <input
+      <div data-vid="dney4ze" className="flex flex-wrap items-center justify-between gap-(--component-gap)">
+        <div data-vid="t7sw9iw" className="flex min-h-11 w-full items-center gap-2 rounded-control border border-border-strong bg-background px-3 focus-within:ring-2 focus-within:ring-ring sm:w-80">
+          <Search data-vid="jgxfezb" className="size-4 text-text-muted" />
+          <input data-vid="nlufhtt"
             value={query}
             onChange={(e) => { setQuery(e.target.value); setPage(0); }}
             placeholder={t("crypto.searchPlaceholder", "Search by name or symbol")}
@@ -61,80 +61,80 @@ export function CryptoDirectory({ Crypto, onOpen, onRefresh, refreshing }) {
             className="type-body min-w-0 flex-1 bg-transparent outline-none placeholder:text-text-subtle"
           />
         </div>
-        <ToggleGroup
+        <ToggleGroup data-vid="i5vpms8"
           type="single"
           variant="outline"
           value={mode}
           onValueChange={(v) => v && setMode(v)}
           aria-label={t("crypto.viewMode", "View mode")}
         >
-          <ToggleGroupItem value="cards" className="min-h-11 gap-2 border-border-strong" aria-label={t("crypto.modeCards", "Cards")}>
-            <LayoutGrid className="size-4" />{t("crypto.modeCards", "Cards")}
+          <ToggleGroupItem data-vid="zm28baf" value="cards" className="min-h-11 gap-2 border-border-strong" aria-label={t("crypto.modeCards", "Cards")}>
+            <LayoutGrid data-vid="tygnycc" className="size-4" />{t("crypto.modeCards", "Cards")}
           </ToggleGroupItem>
-          <ToggleGroupItem value="table" className="min-h-11 gap-2 border-border-strong" aria-label={t("crypto.modeTable", "Table")}>
-            <List className="size-4" />{t("crypto.modeTable", "Table")}
+          <ToggleGroupItem data-vid="ru7tzqw" value="table" className="min-h-11 gap-2 border-border-strong" aria-label={t("crypto.modeTable", "Table")}>
+            <List data-vid="vdfmlrl" className="size-4" />{t("crypto.modeTable", "Table")}
           </ToggleGroupItem>
         </ToggleGroup>
       </div>
 
       {rows.length === 0 ? (
         Crypto.length === 0 ? (
-          <EmptyState
+          <EmptyState data-vid="ygxje8y"
             title={t("crypto.emptyTitle", "No cryptocurrencies yet")}
             description={t("crypto.emptyDescription", "Cryptocurrencies will appear here once market data is loaded.")}
-            icon={<Coins />}
+            icon={<Coins data-vid="q63x0fa" />}
           />
         ) : (
-          <EmptyState
+          <EmptyState data-vid="1weifci"
             filtered
             title={t("crypto.noResults", "No cryptocurrencies match your search")}
-            icon={<Search />}
-            action={<Button variant="outline" onClick={clear}>{t("crypto.clearSearch", "Clear search")}</Button>}
+            icon={<Search data-vid="y0kj0we" />}
+            action={<Button data-vid="3gd6vz0" variant="outline" onClick={clear}>{t("crypto.clearSearch", "Clear search")}</Button>}
           />
         )
       ) : mode === "cards" ? (
-        <ul className="grid grid-cols-1 gap-(--component-gap) sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <ul data-vid="fpbf7p6" className="grid grid-cols-1 gap-(--component-gap) sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {visible.map((c) => (
-            <li key={c.id} className="min-w-0">
-              <CryptoCard crypto={c} onSelect={open} />
+            <li data-vid="4tvmofz" key={c.id} className="min-w-0">
+              <CryptoCard data-vid="lbvubqs" crypto={c} onSelect={open} />
             </li>
           ))}
         </ul>
       ) : (
-        <div className="overflow-x-auto rounded-card border border-border bg-card">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="type-eyebrow">{t("crypto.colCoin", "Coin")}</TableHead>
-                <TableHead className="type-eyebrow text-right">{t("crypto.colPrice", "Price (USD)")}</TableHead>
-                <TableHead className="type-eyebrow text-right">{t("crypto.colChange1h", "1h")}</TableHead>
-                <TableHead className="type-eyebrow text-right">{t("crypto.colChange", "24h")}</TableHead>
-                <TableHead className="type-eyebrow text-right">{t("crypto.colChange7d", "7d")}</TableHead>
-                <TableHead className="type-eyebrow text-right">{t("crypto.colCap", "Market cap")}</TableHead>
+        <div data-vid="igaeb50" className="overflow-x-auto rounded-card border border-border bg-card">
+          <Table data-vid="u6sk8gj">
+            <TableHeader data-vid="4vftep1">
+              <TableRow data-vid="3rxjlmd">
+                <TableHead data-vid="81dvwwl" className="type-eyebrow">{t("crypto.colCoin", "Coin")}</TableHead>
+                <TableHead data-vid="dtc13ov" className="type-eyebrow text-right">{t("crypto.colPrice", "Price (USD)")}</TableHead>
+                <TableHead data-vid="vqbm8d4" className="type-eyebrow text-right">{t("crypto.colChange1h", "1h")}</TableHead>
+                <TableHead data-vid="4a42m6w" className="type-eyebrow text-right">{t("crypto.colChange", "24h")}</TableHead>
+                <TableHead data-vid="eoo6caw" className="type-eyebrow text-right">{t("crypto.colChange7d", "7d")}</TableHead>
+                <TableHead data-vid="4zlg6bo" className="type-eyebrow text-right">{t("crypto.colCap", "Market cap")}</TableHead>
               </TableRow>
             </TableHeader>
-            <TableBody>
+            <TableBody data-vid="e2duqs8">
               {visible.map((c) => (
-                <TableRow key={c.id} className="cursor-pointer" onClick={() => open(c)}>
-                  <TableCell>
-                    <button type="button" onClick={() => open(c)} className="flex min-w-0 flex-col text-left">
-                      <span className="type-row-title truncate">{c.name}</span>
-                      <span className="type-mono-id text-text-muted">{c.symbol}</span>
+                <TableRow data-vid="hun0gfr" key={c.id} className="cursor-pointer" onClick={() => open(c)}>
+                  <TableCell data-vid="5vlbktc">
+                    <button data-vid="pt3au26" type="button" onClick={() => open(c)} className="flex min-w-0 flex-col text-left">
+                      <span data-vid="g7o9dzx" className="type-row-title truncate">{c.name}</span>
+                      <span data-vid="jthjjdc" className="type-mono-id text-text-muted">{c.symbol}</span>
                     </button>
                   </TableCell>
-                  <TableCell className="whitespace-nowrap text-right tabular-nums">
-                    <Money value={c.currentPrice} align="end" className="type-meta" />
+                  <TableCell data-vid="tlj7vdv" className="whitespace-nowrap text-right tabular-nums">
+                    <Money data-vid="l9th8qo" value={c.currentPrice} align="end" className="type-meta" />
                   </TableCell>
-                  <TableCell className="whitespace-nowrap text-right tabular-nums">
-                    <Change value={c.percentChange1h ?? null} />
+                  <TableCell data-vid="6abraq7" className="whitespace-nowrap text-right tabular-nums">
+                    <Change data-vid="livn1y3" value={c.percentChange1h ?? null} />
                   </TableCell>
-                  <TableCell className="whitespace-nowrap text-right tabular-nums">
-                    <Change value={c.dayChange ?? null} />
+                  <TableCell data-vid="ynuaf5d" className="whitespace-nowrap text-right tabular-nums">
+                    <Change data-vid="5n4b5uz" value={c.dayChange ?? null} />
                   </TableCell>
-                  <TableCell className="whitespace-nowrap text-right tabular-nums">
-                    <Change value={c.percentChange7d ?? null} />
+                  <TableCell data-vid="cp5f42v" className="whitespace-nowrap text-right tabular-nums">
+                    <Change data-vid="yzki1ya" value={c.percentChange7d ?? null} />
                   </TableCell>
-                  <TableCell className="whitespace-nowrap text-right font-mono tabular-nums type-meta">
+                  <TableCell data-vid="v6skt6w" className="whitespace-nowrap text-right font-mono tabular-nums type-meta">
                     {c.marketCap == null ? "—" : money(c.marketCap, { compact: true })}
                   </TableCell>
                 </TableRow>
@@ -145,14 +145,14 @@ export function CryptoDirectory({ Crypto, onOpen, onRefresh, refreshing }) {
       )}
 
       {rows.length > 0 && (
-        <nav aria-label={t("crypto.pagination", "Pagination")} className="flex items-center justify-between gap-3">
-          <Button variant="ghost" size="sm" onClick={() => setPage(Math.max(0, safePage - 1))} disabled={safePage === 0}>
+        <nav data-vid="b9vofau" aria-label={t("crypto.pagination", "Pagination")} className="flex items-center justify-between gap-3">
+          <Button data-vid="jhojeiu" variant="ghost" size="sm" onClick={() => setPage(Math.max(0, safePage - 1))} disabled={safePage === 0}>
             {t("crypto.prev", "Previous")}
           </Button>
-          <span className="type-caption text-text-muted tabular-nums">
+          <span data-vid="r5vhvpp" className="type-caption text-text-muted tabular-nums">
             {from}–{to} {t("crypto.of", "of")} {rows.length} · {safePage + 1}/{pageCount}
           </span>
-          <Button variant="ghost" size="sm" onClick={() => setPage(Math.min(pageCount - 1, safePage + 1))} disabled={safePage >= pageCount - 1}>
+          <Button data-vid="qx0y5sq" variant="ghost" size="sm" onClick={() => setPage(Math.min(pageCount - 1, safePage + 1))} disabled={safePage >= pageCount - 1}>
             {t("crypto.next", "Next")}
           </Button>
         </nav>

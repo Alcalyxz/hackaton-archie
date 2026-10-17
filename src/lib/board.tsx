@@ -118,47 +118,47 @@ export function Board<Row = unknown>({
   }
 
   return (
-    <section data-slot="board" aria-label={label} ref={rootRef} className={cn("min-w-0", className)} style={{ "--board-col": typeof columnWidth === "number" ? `${columnWidth}px` : columnWidth, ...style } as CSSProperties} {...rest}>
-      <p className="sr-only" aria-live="assertive">{announce}</p>
-      <div className="relative flex min-w-0 items-start snap-x snap-mandatory gap-(--component-gap) overflow-x-auto pb-2 md:snap-none md:items-stretch">
+    <section data-vid="e9ocjpz" data-slot="board" aria-label={label} ref={rootRef} className={cn("min-w-0", className)} style={{ "--board-col": typeof columnWidth === "number" ? `${columnWidth}px` : columnWidth, ...style } as CSSProperties} {...rest}>
+      <p data-vid="q1dsasg" className="sr-only" aria-live="assertive">{announce}</p>
+      <div data-vid="5g3emm4" className="relative flex min-w-0 items-start snap-x snap-mandatory gap-(--component-gap) overflow-x-auto pb-2 md:snap-none md:items-stretch">
         {cols.map((c) => {
           const here = items.filter((it) => valueOf(it) === c.value)
           const t = toneOf(c.tone)
           const over = c.limit != null && here.length > c.limit
           const headId = `board-col-${String(c.value).replace(/[^\w-]/g, "_")}`
           return (
-            <section key={String(c.value)} aria-labelledby={headId} data-column={String(c.value)}
+            <section data-vid="ndsbw21" key={String(c.value)} aria-labelledby={headId} data-column={String(c.value)}
               className="relative flex w-[min(85vw,var(--board-col))] min-w-0 shrink-0 snap-start flex-col gap-2 rounded-md bg-surface-sunken p-2"
               onDragOver={movable ? (e: DragEvent<HTMLElement>) => e.preventDefault() : undefined}
               onDrop={movable ? (e: DragEvent<HTMLElement>) => { e.preventDefault(); const k = e.dataTransfer.getData("text/plain"); const it = items.find((x) => x.key === k); if (it) move(it, c.value) } : undefined}>
-              <header className="flex min-w-0 items-center gap-2 px-1">
-                <span className={cn("size-2 shrink-0 rounded-full", t.dot)} aria-hidden="true" />
-                <h3 id={headId} className="min-w-0 truncate type-eyebrow text-foreground">{c.label}</h3>
-                <span className={cn("ml-auto shrink-0 type-mono-id tabular-nums", over ? "text-status-danger-ink" : "text-text-muted")}>
+              <header data-vid="ycqadps" className="flex min-w-0 items-center gap-2 px-1">
+                <span data-vid="s1cb7fu" className={cn("size-2 shrink-0 rounded-full", t.dot)} aria-hidden="true" />
+                <h3 data-vid="xurf8kq" id={headId} className="min-w-0 truncate type-eyebrow text-foreground">{c.label}</h3>
+                <span data-vid="6nuw60l" className={cn("ml-auto shrink-0 type-mono-id tabular-nums", over ? "text-status-danger-ink" : "text-text-muted")}>
                   {c.limit != null ? `${here.length}/${c.limit}` : here.length}
-                  {over ? <span className="sr-only">{` ${chrome("kit.board.overLimit")}`}</span> : null}
+                  {over ? <span data-vid="8gmisvd" className="sr-only">{` ${chrome("kit.board.overLimit")}`}</span> : null}
                 </span>
               </header>
               {here.length ? (
-                <ul className="grid min-w-0 gap-2">
+                <ul data-vid="f1ngrol" className="grid min-w-0 gap-2">
                   {here.map((it) => {
                     const up = lifted?.key === it.key
                     return (
-                      <li key={it.key} data-card-key={it.key} className={cn("relative min-w-0", up && "ring-2 ring-ring rounded-md")}
+                      <li data-vid="4z8390z" key={it.key} data-card-key={it.key} className={cn("relative min-w-0", up && "ring-2 ring-ring rounded-md")}
                         draggable={movable || undefined}
                         onDragStart={movable ? (e: DragEvent<HTMLElement>) => { e.dataTransfer.setData("text/plain", it.key); e.dataTransfer.effectAllowed = "move" } : undefined}>
                         {renderCard ? renderCard(it.row) : (
-                          <div className="rounded-md border border-border bg-card p-3">
-                            <span className="line-clamp-2 type-row-title text-foreground">{it.title}</span>
+                          <div data-vid="je17ehg" className="rounded-md border border-border bg-card p-3">
+                            <span data-vid="kui6zkr" className="line-clamp-2 type-row-title text-foreground">{it.title}</span>
                           </div>
                         )}
                         {movable ? (
-                          <button type="button" data-slot="board-handle" aria-pressed={up}
+                          <button data-vid="o18n5kp" type="button" data-slot="board-handle" aria-pressed={up}
                             aria-label={chrome("kit.board.move", { title: it.title || chrome("kit.board.cardLower"), column: c.label })}
                             onKeyDown={(e) => onHandleKey(e, it)}
                             onClick={() => setLifted(up ? null : { key: it.key, origin: valueOf(it) })}
                             className="absolute right-1.5 top-1.5 inline-flex size-6 cursor-grab items-center justify-center rounded-sm text-text-muted outline-none hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring">
-                            <svg viewBox="0 0 16 16" aria-hidden="true" className="size-4" fill="currentColor"><circle cx="6" cy="4" r="1.1" /><circle cx="10" cy="4" r="1.1" /><circle cx="6" cy="8" r="1.1" /><circle cx="10" cy="8" r="1.1" /><circle cx="6" cy="12" r="1.1" /><circle cx="10" cy="12" r="1.1" /></svg>
+                            <svg data-vid="3j56n5g" viewBox="0 0 16 16" aria-hidden="true" className="size-4" fill="currentColor"><circle data-vid="6b4w5k6" cx="6" cy="4" r="1.1" /><circle data-vid="wg87m6y" cx="10" cy="4" r="1.1" /><circle data-vid="0jwl1o1" cx="6" cy="8" r="1.1" /><circle data-vid="89kr0d3" cx="10" cy="8" r="1.1" /><circle data-vid="dek6jwq" cx="6" cy="12" r="1.1" /><circle data-vid="gijxe0u" cx="10" cy="12" r="1.1" /></svg>
                           </button>
                         ) : null}
                       </li>
@@ -166,7 +166,7 @@ export function Board<Row = unknown>({
                   })}
                 </ul>
               ) : (
-                <p className="rounded-md border border-dashed border-border-strong px-3 py-4 text-center type-caption text-text-muted">{emptyLabel}</p>
+                <p data-vid="7smafsn" className="rounded-md border border-dashed border-border-strong px-3 py-4 text-center type-caption text-text-muted">{emptyLabel}</p>
               )}
             </section>
           )

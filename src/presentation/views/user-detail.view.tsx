@@ -61,180 +61,180 @@ function MemberView(props: { member: Member; props: UserDetailScreenViewModel })
   };
 
   return (
-    <div className="flex flex-col gap-(--section-gap)">
-      <header className="flex flex-col gap-(--component-gap)">
-        <Button
+    <div data-vid="y8wrm2u" className="flex flex-col gap-(--section-gap)">
+      <header data-vid="2yi8pc2" className="flex flex-col gap-(--component-gap)">
+        <Button data-vid="8bcb8sq"
           type="button"
           variant="ghost"
           className="type-meta text-text-link inline-flex min-h-11 w-fit items-center gap-2 hover:underline"
           onClick={() => vm.navigate(routes.users())}
         >
-          <ArrowLeft className="size-4" /> {t("user-detail.6b0cc904")}
+          <ArrowLeft data-vid="6fl1h3m" className="size-4" /> {t("user-detail.6b0cc904")}
         </Button>
-        <div className="flex flex-wrap items-center gap-(--component-gap)">
-          <Avatar className="size-16">
-            <AvatarFallback>{initials}</AvatarFallback>
+        <div data-vid="a6lmuyt" className="flex flex-wrap items-center gap-(--component-gap)">
+          <Avatar data-vid="9f8abeb" className="size-16">
+            <AvatarFallback data-vid="nmuj981">{initials}</AvatarFallback>
           </Avatar>
-          <div className="flex min-w-0 flex-1 flex-col gap-1">
-            <h1 className="type-page-title [overflow-wrap:anywhere]">{fullName}</h1>
-            <p className="type-mono-id text-text-muted [overflow-wrap:anywhere]">{saved.email}</p>
-            <p className="type-caption text-text-muted">
-              {t("user-detail.382ac5f3.p")} <span className="font-mono tabular-nums">{formatDateTime(member.updatedAt)}</span>
+          <div data-vid="aggj0lt" className="flex min-w-0 flex-1 flex-col gap-1">
+            <h1 data-vid="kv2yn7s" className="type-page-title [overflow-wrap:anywhere]">{fullName}</h1>
+            <p data-vid="c7036lv" className="type-mono-id text-text-muted [overflow-wrap:anywhere]">{saved.email}</p>
+            <p data-vid="wx48bi9" className="type-caption text-text-muted">
+              {t("user-detail.382ac5f3.p")} <span data-vid="ypcxwt7" className="font-mono tabular-nums">{formatDateTime(member.updatedAt)}</span>
             </p>
           </div>
-          <div className="flex flex-wrap items-center gap-2">
-            <Badge variant="outline" className="whitespace-nowrap border-border-strong text-text-muted">
-              <span className="size-2 rounded-full bg-status-neutral" />
+          <div data-vid="8pzp3iv" className="flex flex-wrap items-center gap-2">
+            <Badge data-vid="b9ceicy" variant="outline" className="whitespace-nowrap border-border-strong text-text-muted">
+              <span data-vid="nbtb7zp" className="size-2 rounded-full bg-status-neutral" />
               {t("user-detail.92340695")}
             </Badge>
           </div>
         </div>
       </header>
 
-      <Tabs defaultValue="profile" className="flex flex-col gap-(--component-gap)">
-        <TabsList variant="line">
-          <TabsTrigger value="profile">{t("user-detail.d696a35b")}</TabsTrigger>
-          <TabsTrigger value="history">{t("user-detail.fb6268d1.tabstrigger")}</TabsTrigger>
+      <Tabs data-vid="a93qfbu" defaultValue="profile" className="flex flex-col gap-(--component-gap)">
+        <TabsList data-vid="r7314q7" variant="line">
+          <TabsTrigger data-vid="r2fw7kt" value="profile">{t("user-detail.d696a35b")}</TabsTrigger>
+          <TabsTrigger data-vid="8w4vppn" value="history">{t("user-detail.fb6268d1.tabstrigger")}</TabsTrigger>
         </TabsList>
 
-        <TabsContent value="profile">
-          <div className="grid grid-cols-1 gap-(--section-gap) lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
-            <form onSubmit={save} noValidate className="flex min-w-0 flex-col gap-(--component-gap) rounded-card border border-border bg-card p-(--card-padding)">
-              <h2 className="type-card-title">{t("user-detail.15c4aa13")}</h2>
-              <FieldGroup>
-                <div className="grid grid-cols-[repeat(auto-fit,minmax(14rem,1fr))] gap-(--component-gap)">
-                  <Field data-invalid={touched && !firstOk}>
-                    <FieldLabel htmlFor="firstName">{t("user-detail.5e0088a4")}</FieldLabel>
-                    <Input id="firstName" value={values.firstName} onChange={set("firstName")} aria-invalid={touched && !firstOk} className="border-border-strong" />
-                    {touched && !firstOk && <FieldError errors={[{ message: t("user-detail.d7b99480") }]} />}
+        <TabsContent data-vid="b4cc2z5" value="profile">
+          <div data-vid="cz06mpn" className="grid grid-cols-1 gap-(--section-gap) lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
+            <form data-vid="49c42f5" onSubmit={save} noValidate className="flex min-w-0 flex-col gap-(--component-gap) rounded-card border border-border bg-card p-(--card-padding)">
+              <h2 data-vid="ta49ap4" className="type-card-title">{t("user-detail.15c4aa13")}</h2>
+              <FieldGroup data-vid="0m8y9d7">
+                <div data-vid="8qqe24p" className="grid grid-cols-[repeat(auto-fit,minmax(14rem,1fr))] gap-(--component-gap)">
+                  <Field data-vid="ihou6gl" data-invalid={touched && !firstOk}>
+                    <FieldLabel data-vid="sww71l6" htmlFor="firstName">{t("user-detail.5e0088a4")}</FieldLabel>
+                    <Input data-vid="on0ww8f" id="firstName" value={values.firstName} onChange={set("firstName")} aria-invalid={touched && !firstOk} className="border-border-strong" />
+                    {touched && !firstOk && <FieldError data-vid="33my3dk" errors={[{ message: t("user-detail.d7b99480") }]} />}
                   </Field>
-                  <Field>
-                    <FieldLabel htmlFor="lastName">{t("user-detail.7b488804")}</FieldLabel>
-                    <Input id="lastName" value={values.lastName} onChange={set("lastName")} className="border-border-strong" />
+                  <Field data-vid="r7dn6tq">
+                    <FieldLabel data-vid="85k8zgn" htmlFor="lastName">{t("user-detail.7b488804")}</FieldLabel>
+                    <Input data-vid="bl9vms8" id="lastName" value={values.lastName} onChange={set("lastName")} className="border-border-strong" />
                   </Field>
                 </div>
-                <Field data-invalid={touched && !emailOk}>
-                  <FieldLabel htmlFor="email">{t("user-detail.4fa7a1d2")}</FieldLabel>
-                  <Input id="email" type="email" value={values.email} onChange={set("email")} aria-invalid={touched && !emailOk} className="border-border-strong font-mono" />
-                  {touched && !emailOk && <FieldError errors={[{ message: t("user-detail.b816c030") }]} />}
+                <Field data-vid="npojisk" data-invalid={touched && !emailOk}>
+                  <FieldLabel data-vid="tpvohql" htmlFor="email">{t("user-detail.4fa7a1d2")}</FieldLabel>
+                  <Input data-vid="x9xk29u" id="email" type="email" value={values.email} onChange={set("email")} aria-invalid={touched && !emailOk} className="border-border-strong font-mono" />
+                  {touched && !emailOk && <FieldError data-vid="yuryrj7" errors={[{ message: t("user-detail.b816c030") }]} />}
                 </Field>
-                <Field>
-                  <FieldLabel htmlFor="phone">{t("user-detail.63dceb88")}</FieldLabel>
-                  <Input id="phone" value={values.phone} onChange={set("phone")} placeholder={t("user-detail.d83b9ff3")} className="border-border-strong font-mono" />
+                <Field data-vid="1hbnojg">
+                  <FieldLabel data-vid="f1urlgn" htmlFor="phone">{t("user-detail.63dceb88")}</FieldLabel>
+                  <Input data-vid="q33c6un" id="phone" value={values.phone} onChange={set("phone")} placeholder={t("user-detail.d83b9ff3")} className="border-border-strong font-mono" />
                 </Field>
-                <Field>
-                  <FieldLabel>{t("user-detail.ca8e826d")}</FieldLabel>
-                  <FieldDescription>{t("user-detail.eeab1853")}</FieldDescription>
+                <Field data-vid="e7wytw6">
+                  <FieldLabel data-vid="v2fbov0">{t("user-detail.ca8e826d")}</FieldLabel>
+                  <FieldDescription data-vid="m47lxqo">{t("user-detail.eeab1853")}</FieldDescription>
                 </Field>
               </FieldGroup>
               {!vm.availability.onUpdateUser.available && (
-                <p className="type-meta text-text-muted">{reasonText(vm.availability.onUpdateUser.reason)}</p>
+                <p data-vid="eseub8o" className="type-meta text-text-muted">{reasonText(vm.availability.onUpdateUser.reason)}</p>
               )}
-              <div className="flex flex-wrap items-center justify-end gap-2">
-                <Button type="button" variant="ghost" className="min-h-11" onClick={() => { setValues(saved); setTouched(false); }}>
+              <div data-vid="tb1z2dg" className="flex flex-wrap items-center justify-end gap-2">
+                <Button data-vid="gtdmeqx" type="button" variant="ghost" className="min-h-11" onClick={() => { setValues(saved); setTouched(false); }}>
                   {t("user-detail.19766ed6")}
                 </Button>
-                <Button type="submit" className="min-h-11" disabled>
+                <Button data-vid="r4cdo3u" type="submit" className="min-h-11" disabled>
                   {t("user-detail.dd0ae7a5")}
                 </Button>
               </div>
             </form>
 
-            <section className="flex h-fit min-w-0 flex-col gap-(--component-gap) rounded-card border border-border bg-card p-(--card-padding)">
-              <h2 className="type-card-title">{t("user-detail.ec5ba0ab")}</h2>
-              <div className="flex flex-col gap-2">
-                <Button variant="outline" className="min-h-11 justify-start border-border-strong" onClick={() => setOpen("role")}>{t("user-detail.a43a8d8c")}</Button>
-                <Button variant="outline" className="min-h-11 justify-start border-border-strong" onClick={() => setOpen("reset")}>{t("user-detail.d22c5045")}</Button>
-                <Button variant="outline" className="min-h-11 justify-start border-border-strong" onClick={() => setOpen("revoke")}>{t("user-detail.87a6096a")}</Button>
-                <Button variant="outline" className="min-h-11 justify-start border-border-strong" onClick={() => setOpen("suspend")}>{t("user-detail.97763d15")}</Button>
+            <section data-vid="2hkt6bh" className="flex h-fit min-w-0 flex-col gap-(--component-gap) rounded-card border border-border bg-card p-(--card-padding)">
+              <h2 data-vid="zo7edvq" className="type-card-title">{t("user-detail.ec5ba0ab")}</h2>
+              <div data-vid="la0o8io" className="flex flex-col gap-2">
+                <Button data-vid="3g81rrc" variant="outline" className="min-h-11 justify-start border-border-strong" onClick={() => setOpen("role")}>{t("user-detail.a43a8d8c")}</Button>
+                <Button data-vid="19ynerk" variant="outline" className="min-h-11 justify-start border-border-strong" onClick={() => setOpen("reset")}>{t("user-detail.d22c5045")}</Button>
+                <Button data-vid="1267uhp" variant="outline" className="min-h-11 justify-start border-border-strong" onClick={() => setOpen("revoke")}>{t("user-detail.87a6096a")}</Button>
+                <Button data-vid="fihqerc" variant="outline" className="min-h-11 justify-start border-border-strong" onClick={() => setOpen("suspend")}>{t("user-detail.97763d15")}</Button>
               </div>
-              <div className="border-t border-border pt-(--component-gap)">
-                <Button variant="destructive" className="min-h-11 w-full" onClick={() => setOpen("remove")}>{t("user-detail.9438e0ba")}</Button>
+              <div data-vid="skgjk2z" className="border-t border-border pt-(--component-gap)">
+                <Button data-vid="8rwo5ft" variant="destructive" className="min-h-11 w-full" onClick={() => setOpen("remove")}>{t("user-detail.9438e0ba")}</Button>
               </div>
             </section>
           </div>
         </TabsContent>
 
-        <TabsContent value="history">
-          <section className="flex flex-col gap-(--component-gap) rounded-card border border-border bg-card p-(--card-padding)">
-            <h2 className="type-card-title">{t("user-detail.fb6268d1.h2")}</h2>
-            <dl className="flex flex-wrap gap-x-(--section-gap) gap-y-3">
-              <div className="shrink-0">
-                <dt className="type-eyebrow text-text-muted">{t("user-detail.d70b9e24")}</dt>
-                <dd className="font-mono type-meta whitespace-nowrap tabular-nums">{formatDateTime(member.createdAt)}</dd>
+        <TabsContent data-vid="l21mey8" value="history">
+          <section data-vid="p7uznyq" className="flex flex-col gap-(--component-gap) rounded-card border border-border bg-card p-(--card-padding)">
+            <h2 data-vid="c6g94uu" className="type-card-title">{t("user-detail.fb6268d1.h2")}</h2>
+            <dl data-vid="j4jlxw2" className="flex flex-wrap gap-x-(--section-gap) gap-y-3">
+              <div data-vid="ywww6je" className="shrink-0">
+                <dt data-vid="ty1zl76" className="type-eyebrow text-text-muted">{t("user-detail.d70b9e24")}</dt>
+                <dd data-vid="3mdk2bh" className="font-mono type-meta whitespace-nowrap tabular-nums">{formatDateTime(member.createdAt)}</dd>
               </div>
-              <div className="shrink-0">
-                <dt className="type-eyebrow text-text-muted">{t("user-detail.382ac5f3.dt")}</dt>
-                <dd className="font-mono type-meta whitespace-nowrap tabular-nums">{formatDateTime(member.updatedAt)}</dd>
+              <div data-vid="l2ywz82" className="shrink-0">
+                <dt data-vid="wn5xwvq" className="type-eyebrow text-text-muted">{t("user-detail.382ac5f3.dt")}</dt>
+                <dd data-vid="0eya0yq" className="font-mono type-meta whitespace-nowrap tabular-nums">{formatDateTime(member.updatedAt)}</dd>
               </div>
             </dl>
-            {unchanged && <p className="type-meta text-text-muted">{t("user-detail.9826bd61")}</p>}
+            {unchanged && <p data-vid="eydw2fe" className="type-meta text-text-muted">{t("user-detail.9826bd61")}</p>}
           </section>
         </TabsContent>
       </Tabs>
 
-      <Dialog open={open === "role"} onOpenChange={close}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>{t("user-detail.8a2ecac5")} {fullName}</DialogTitle>
-            <DialogDescription>{t("user-detail.f6f1946c")} {saved.firstName || t("user-detail.a802a70b")} {t("user-detail.7b45388a")}</DialogDescription>
+      <Dialog data-vid="ymit1rq" open={open === "role"} onOpenChange={close}>
+        <DialogContent data-vid="g9z9m7w">
+          <DialogHeader data-vid="2239hw3">
+            <DialogTitle data-vid="mqleym4">{t("user-detail.8a2ecac5")} {fullName}</DialogTitle>
+            <DialogDescription data-vid="u52ns5c">{t("user-detail.f6f1946c")} {saved.firstName || t("user-detail.a802a70b")} {t("user-detail.7b45388a")}</DialogDescription>
           </DialogHeader>
-          <p className="type-meta text-text-muted">{t("_reason.escritura-no-disponible")}</p>
-          <DialogFooter>
-            <DialogClose asChild><Button variant="ghost">{t("user-detail.19766ed6")}</Button></DialogClose>
-            <Button disabled>{t("user-detail.bff70dea")}</Button>
+          <p data-vid="cz2f6qa" className="type-meta text-text-muted">{t("_reason.escritura-no-disponible")}</p>
+          <DialogFooter data-vid="4v6l8cq">
+            <DialogClose data-vid="z0hmhx7" asChild><Button data-vid="fllidp3" variant="ghost">{t("user-detail.19766ed6")}</Button></DialogClose>
+            <Button data-vid="tg2yamm" disabled>{t("user-detail.bff70dea")}</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
 
-      <Dialog open={open === "reset"} onOpenChange={close}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>{t("user-detail.9728f99c")} {fullName}</DialogTitle>
-            <DialogDescription>{t("user-detail.97e02014")} {saved.email}{t("user-detail.44fa39dd")}</DialogDescription>
+      <Dialog data-vid="g2alx45" open={open === "reset"} onOpenChange={close}>
+        <DialogContent data-vid="24ojopk">
+          <DialogHeader data-vid="jyu90op">
+            <DialogTitle data-vid="vwxpkqx">{t("user-detail.9728f99c")} {fullName}</DialogTitle>
+            <DialogDescription data-vid="uqmdcet">{t("user-detail.97e02014")} {saved.email}{t("user-detail.44fa39dd")}</DialogDescription>
           </DialogHeader>
-          <DialogFooter>
-            <DialogClose asChild><Button variant="ghost">{t("user-detail.19766ed6")}</Button></DialogClose>
-            <Button disabled>{t("user-detail.dcdb5ecb")}</Button>
+          <DialogFooter data-vid="dm14d1f">
+            <DialogClose data-vid="bs3dck5" asChild><Button data-vid="l0ljs6u" variant="ghost">{t("user-detail.19766ed6")}</Button></DialogClose>
+            <Button data-vid="opzj42l" disabled>{t("user-detail.dcdb5ecb")}</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
 
-      <Dialog open={open === "revoke"} onOpenChange={close}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>{t("user-detail.afd659fc")} {fullName}</DialogTitle>
-            <DialogDescription>{t("user-detail.c71e5468")}</DialogDescription>
+      <Dialog data-vid="0d1bnrb" open={open === "revoke"} onOpenChange={close}>
+        <DialogContent data-vid="o3knrdc">
+          <DialogHeader data-vid="v8fvcmt">
+            <DialogTitle data-vid="1787mwr">{t("user-detail.afd659fc")} {fullName}</DialogTitle>
+            <DialogDescription data-vid="exwdcbz">{t("user-detail.c71e5468")}</DialogDescription>
           </DialogHeader>
-          <DialogFooter>
-            <DialogClose asChild><Button variant="ghost">{t("user-detail.19766ed6")}</Button></DialogClose>
-            <Button disabled>{t("user-detail.87a6096a")}</Button>
+          <DialogFooter data-vid="i6afhwh">
+            <DialogClose data-vid="0evt2dh" asChild><Button data-vid="iurxoxf" variant="ghost">{t("user-detail.19766ed6")}</Button></DialogClose>
+            <Button data-vid="5o13h0t" disabled>{t("user-detail.87a6096a")}</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
 
-      <Dialog open={open === "suspend"} onOpenChange={close}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>{t("user-detail.4948e134")} {fullName}</DialogTitle>
-            <DialogDescription>{t("user-detail.89d123fc")}</DialogDescription>
+      <Dialog data-vid="cfhxjxn" open={open === "suspend"} onOpenChange={close}>
+        <DialogContent data-vid="le8btr9">
+          <DialogHeader data-vid="4oo1i3b">
+            <DialogTitle data-vid="sa8a6gh">{t("user-detail.4948e134")} {fullName}</DialogTitle>
+            <DialogDescription data-vid="h5dp8cc">{t("user-detail.89d123fc")}</DialogDescription>
           </DialogHeader>
-          <DialogFooter>
-            <DialogClose asChild><Button variant="ghost">{t("user-detail.19766ed6")}</Button></DialogClose>
-            <Button disabled>{t("user-detail.97763d15")}</Button>
+          <DialogFooter data-vid="7e3op3f">
+            <DialogClose data-vid="43mtv92" asChild><Button data-vid="bth4f9f" variant="ghost">{t("user-detail.19766ed6")}</Button></DialogClose>
+            <Button data-vid="3fd73ze" disabled>{t("user-detail.97763d15")}</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
 
-      <Dialog open={open === "remove"} onOpenChange={close}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>{t("user-detail.c3812fc4")} {fullName}</DialogTitle>
-            <DialogDescription>{t("user-detail.d3d35618")}</DialogDescription>
+      <Dialog data-vid="8ilmi1v" open={open === "remove"} onOpenChange={close}>
+        <DialogContent data-vid="lz95wer">
+          <DialogHeader data-vid="z9mkdxw">
+            <DialogTitle data-vid="wxm209y">{t("user-detail.c3812fc4")} {fullName}</DialogTitle>
+            <DialogDescription data-vid="eevyqkq">{t("user-detail.d3d35618")}</DialogDescription>
           </DialogHeader>
-          <DialogFooter>
-            <DialogClose asChild><Button variant="ghost">{t("user-detail.19766ed6")}</Button></DialogClose>
-            <Button variant="destructive" disabled>{t("user-detail.9438e0ba")}</Button>
+          <DialogFooter data-vid="1mh4hsg">
+            <DialogClose data-vid="iejoxpt" asChild><Button data-vid="r8rajqq" variant="ghost">{t("user-detail.19766ed6")}</Button></DialogClose>
+            <Button data-vid="rc9dwrj" variant="destructive" disabled>{t("user-detail.9438e0ba")}</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
@@ -247,18 +247,18 @@ export function UserDetailView(props: UserDetailScreenViewModel): React.ReactEle
   const member = props.member;
   if (!member) {
     return (
-      <div className="flex flex-col items-start gap-(--component-gap) p-(--container-padding)">
-        <h1 className="type-page-title">{t("user-detail.4902d47f")}</h1>
-        <p className="type-body text-text-muted">{t("user-detail.323dfab3")}</p>
-        <Button type="button" variant="ghost" className="type-meta text-text-link hover:underline" onClick={() => props.navigate(routes.users())}>
+      <div data-vid="g1yqivp" className="flex flex-col items-start gap-(--component-gap) p-(--container-padding)">
+        <h1 data-vid="w0335av" className="type-page-title">{t("user-detail.4902d47f")}</h1>
+        <p data-vid="2ukqg6u" className="type-body text-text-muted">{t("user-detail.323dfab3")}</p>
+        <Button data-vid="7y20ala" type="button" variant="ghost" className="type-meta text-text-link hover:underline" onClick={() => props.navigate(routes.users())}>
           {t("user-detail.7f739763")}
         </Button>
       </div>
     );
   }
   return (
-    <div className="p-(--container-padding)">
-      <MemberView key={member.id} member={member} props={props} />
+    <div data-vid="hrw7xr7" className="p-(--container-padding)">
+      <MemberView data-vid="2nhy8ug" key={member.id} member={member} props={props} />
     </div>
   );
 }

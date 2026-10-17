@@ -71,41 +71,41 @@ export function AlertsView(props: AlertsScreenViewModel): React.ReactElement {
   let body: React.ReactNode;
   if (props.loading) {
     body = [0, 1, 2, 3, 4].map((i) => (
-      <TableRow key={i}>
-        <TableCell colSpan={colSpan}>
-          <Skeleton className="h-10 w-full" />
+      <TableRow data-vid="08gobdj" key={i}>
+        <TableCell data-vid="687zga5" colSpan={colSpan}>
+          <Skeleton data-vid="jjkcucm" className="h-10 w-full" />
         </TableCell>
       </TableRow>
     ));
   } else if (props.error) {
     body = (
-      <TableRow>
-        <TableCell colSpan={colSpan} className="p-(--card-padding)">
-          <div className="flex flex-wrap items-center gap-3">
-            <AlertTriangle className="size-5 text-text-muted" />
-            <p className="type-body text-text-body">{t("alerts.c1c639f7")}</p>
+      <TableRow data-vid="l41c5bd">
+        <TableCell data-vid="ctb1pfq" colSpan={colSpan} className="p-(--card-padding)">
+          <div data-vid="jgceujl" className="flex flex-wrap items-center gap-3">
+            <AlertTriangle data-vid="5ki2ms7" className="size-5 text-text-muted" />
+            <p data-vid="560keks" className="type-body text-text-body">{t("alerts.c1c639f7")}</p>
           </div>
         </TableCell>
       </TableRow>
     );
   } else if (props.alertsTotal === 0) {
     body = (
-      <TableRow>
-        <TableCell colSpan={colSpan} className="p-(--card-padding)">
-          <EmptyState title={t("alerts.7d079cdf")} description={t("alerts.b35903e4")} />
+      <TableRow data-vid="g8bmfit">
+        <TableCell data-vid="hm0ed4k" colSpan={colSpan} className="p-(--card-padding)">
+          <EmptyState data-vid="3h645de" title={t("alerts.7d079cdf")} description={t("alerts.b35903e4")} />
         </TableCell>
       </TableRow>
     );
   } else if (data.length === 0) {
     body = (
-      <TableRow>
-        <TableCell colSpan={colSpan} className="p-(--card-padding)">
-          <EmptyState
+      <TableRow data-vid="mhacjo2">
+        <TableCell data-vid="4vlj1hg" colSpan={colSpan} className="p-(--card-padding)">
+          <EmptyState data-vid="faau0xt"
             filtered
             title={t("alerts.0106064d")}
             description={t("alerts.27e72384")}
             action={
-              <Button variant="outline" onClick={clearAll}>
+              <Button data-vid="hwmciw8" variant="outline" onClick={clearAll}>
                 {t("alerts.29a390f9")}
               </Button>
             }
@@ -118,74 +118,74 @@ export function AlertsView(props: AlertsScreenViewModel): React.ReactElement {
       const a = assetOf(r.watchedAssetId);
       const paused = r.status === "PAUSED";
       return (
-        <TableRow key={r.id} className="transition-colors">
-          <TableCell>
-            <div className="min-w-0">
-              <button
+        <TableRow data-vid="upsq8sd" key={r.id} className="transition-colors">
+          <TableCell data-vid="2s1x5wr">
+            <div data-vid="k6olsgh" className="min-w-0">
+              <button data-vid="igiwtjd"
                 type="button"
                 onClick={() => props.navigate(routes["asset-detail"]())}
                 className="type-row-title block truncate text-foreground hover:underline focus-visible:ring-2 focus-visible:ring-ring"
               >
                 {a?.name ?? "—"}
               </button>
-              <span className="type-mono-id block truncate text-text-muted">{a?.symbol ?? "—"}</span>
+              <span data-vid="x2jw3an" className="type-mono-id block truncate text-text-muted">{a?.symbol ?? "—"}</span>
             </div>
           </TableCell>
-          <TableCell>
-            <span className="type-body whitespace-nowrap text-text-body">
+          <TableCell data-vid="2xbvcq3">
+            <span data-vid="k7yp5kn" className="type-body whitespace-nowrap text-text-body">
               {r.alertType} {r.direction}
             </span>
           </TableCell>
-          <TableCell className="text-right">
-            <span className="font-mono type-stat whitespace-nowrap tabular-nums">
+          <TableCell data-vid="7wjdk7h" className="text-right">
+            <span data-vid="wxwcuuh" className="font-mono type-stat whitespace-nowrap tabular-nums">
               {r.alertType === "price" ? (
-                <Money value={r.thresholdValue} />
+                <Money data-vid="d8a2r8e" value={r.thresholdValue} />
               ) : (
-                <Change value={r.thresholdValue} />
+                <Change data-vid="zjoa7vj" value={r.thresholdValue} />
               )}
             </span>
           </TableCell>
-          <TableCell>
-            <StatusMark entity="Alert" status={r.status} />
+          <TableCell data-vid="c2obf07">
+            <StatusMark data-vid="apjgil3" entity="Alert" status={r.status} />
           </TableCell>
-          <TableCell>
-            <span className="type-meta whitespace-nowrap text-text-muted tabular-nums">
+          <TableCell data-vid="bf5btqc">
+            <span data-vid="mgwblpb" className="type-meta whitespace-nowrap text-text-muted tabular-nums">
               {r.triggeredAt ? formatDate(r.triggeredAt) : "—"}
             </span>
           </TableCell>
-          <TableCell>
-            <div className="flex items-center justify-end gap-1">
-              <Button
+          <TableCell data-vid="qveex99">
+            <div data-vid="gpmkomu" className="flex items-center justify-end gap-1">
+              <Button data-vid="vkfmh0k"
                 variant="ghost"
                 size="sm"
                 className="min-h-11 md:min-h-0"
                 disabled={!props.availability.onUpdateAlert.available}
                 onClick={() => props.onUpdateAlert(r.id, { status: paused ? "ACTIVE" : "PAUSED" })}
               >
-                {paused ? <Play className="size-4" /> : <Pause className="size-4" />}
+                {paused ? <Play data-vid="s0bb5p7" className="size-4" /> : <Pause data-vid="y551393" className="size-4" />}
                 {paused ? t("alerts.0bf97c37") : t("alerts.8562fd43")}
               </Button>
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button
+              <DropdownMenu data-vid="h9z5fpx">
+                <DropdownMenuTrigger data-vid="ky55hi2" asChild>
+                  <Button data-vid="udh9hud"
                     variant="ghost"
                     size="icon-sm"
                     aria-label={t("alerts.f8d46c25")}
                     className="min-h-11 min-w-11 md:min-h-0 md:min-w-0"
                   >
-                    <MoreHorizontal className="size-4" />
+                    <MoreHorizontal data-vid="9s0674f" className="size-4" />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                  <DropdownMenuItem disabled>
-                    <Pencil className="size-4" /> {t("alerts.5365a626.dropdownmenuitem")}
+                <DropdownMenuContent data-vid="znvzk4n" align="end">
+                  <DropdownMenuItem data-vid="8rr9up9" disabled>
+                    <Pencil data-vid="ew4b3g7" className="size-4" /> {t("alerts.5365a626.dropdownmenuitem")}
                   </DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem
+                  <DropdownMenuSeparator data-vid="u8c8xpa" />
+                  <DropdownMenuItem data-vid="iagwsqx"
                     disabled={!props.availability.onDeleteAlert.available}
                     onSelect={() => props.onDeleteAlert(r.id)}
                   >
-                    <Trash2 className="size-4" /> {t("alerts.fea4fd15")}
+                    <Trash2 data-vid="i9vbarb" className="size-4" /> {t("alerts.fea4fd15")}
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -197,45 +197,45 @@ export function AlertsView(props: AlertsScreenViewModel): React.ReactElement {
   }
 
   return (
-    <div className="flex flex-col gap-(--section-gap) px-(--container-padding) py-(--section-gap)">
-      <header className="flex flex-wrap items-end justify-between gap-(--component-gap)">
-        <div className="min-w-0">
-          <h1 className="type-page-title text-foreground">{t("alerts.f62e9267.h1")}</h1>
-          <p className="type-body text-text-muted">{t("alerts.f4f2c148")}</p>
+    <div data-vid="3rbpob9" className="flex flex-col gap-(--section-gap) px-(--container-padding) py-(--section-gap)">
+      <header data-vid="7j7ivtu" className="flex flex-wrap items-end justify-between gap-(--component-gap)">
+        <div data-vid="qsgt6co" className="min-w-0">
+          <h1 data-vid="8zj8jf9" className="type-page-title text-foreground">{t("alerts.f62e9267.h1")}</h1>
+          <p data-vid="jpu65uk" className="type-body text-text-muted">{t("alerts.f4f2c148")}</p>
         </div>
-        <div className="flex flex-col items-end gap-1">
-          <Button className="min-h-11 max-md:w-full" disabled={!createAvail.available}>
+        <div data-vid="80psbjk" className="flex flex-col items-end gap-1">
+          <Button data-vid="snb4hbm" className="min-h-11 max-md:w-full" disabled={!createAvail.available}>
             {t("alerts.84f39e0f.button")}
           </Button>
           {!createAvail.available && (
-            <p className="type-meta text-text-muted">{reasonText(createAvail.reason)}</p>
+            <p data-vid="zrtu55f" className="type-meta text-text-muted">{reasonText(createAvail.reason)}</p>
           )}
         </div>
       </header>
 
-      <section
+      <section data-vid="ijas0xm"
         aria-label={t("alerts.ce948b24")}
         className="grid grid-cols-[repeat(auto-fit,minmax(10rem,1fr))] border-y border-border"
       >
         {countCells.map((c, i) => (
-          <div
+          <div data-vid="uryzj5e"
             key={c.label}
             className={`flex min-w-0 flex-col gap-1 py-4 ${i > 0 ? "md:border-l md:border-border md:pl-(--card-padding)" : ""}`}
           >
-            <span className="type-eyebrow text-text-muted">{c.label}</span>
-            <span className="type-stat tabular-nums text-foreground">{c.value === null ? "—" : c.value}</span>
-            <span className="type-meta text-text-muted tabular-nums">
+            <span data-vid="7m4sout" className="type-eyebrow text-text-muted">{c.label}</span>
+            <span data-vid="rb60c0u" className="type-stat tabular-nums text-foreground">{c.value === null ? "—" : c.value}</span>
+            <span data-vid="383brve" className="type-meta text-text-muted tabular-nums">
               {t("alerts.28391d3b")} {totalCount} {t("alerts.deb3e366.span")}
             </span>
           </div>
         ))}
       </section>
 
-      <section aria-label={t("alerts.546ebb8e")} className="flex flex-col gap-3">
-        <div className="flex flex-wrap items-center gap-(--component-gap)">
-          <div className="flex min-h-11 w-full min-w-0 items-center gap-2 rounded-control border border-border-strong bg-background px-3 focus-within:ring-2 focus-within:ring-ring md:max-w-sm">
-            <Search className="size-4 shrink-0 text-text-muted" />
-            <input
+      <section data-vid="nv8fte7" aria-label={t("alerts.546ebb8e")} className="flex flex-col gap-3">
+        <div data-vid="1gmwgw0" className="flex flex-wrap items-center gap-(--component-gap)">
+          <div data-vid="shhy298" className="flex min-h-11 w-full min-w-0 items-center gap-2 rounded-control border border-border-strong bg-background px-3 focus-within:ring-2 focus-within:ring-ring md:max-w-sm">
+            <Search data-vid="tl86yme" className="size-4 shrink-0 text-text-muted" />
+            <input data-vid="88a53vd"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder={t("alerts.5dc7c797")}
@@ -243,73 +243,73 @@ export function AlertsView(props: AlertsScreenViewModel): React.ReactElement {
               className="type-body min-w-0 flex-1 bg-transparent text-foreground outline-none placeholder:text-text-subtle"
             />
           </div>
-          <ToggleGroup
+          <ToggleGroup data-vid="fnyk65p"
             type="single"
             variant="outline"
             value={status}
             onValueChange={(v) => v && setStatus(v)}
             className="flex-wrap"
           >
-            <ToggleGroupItem value="all" className="min-h-11 border-border-strong">
+            <ToggleGroupItem data-vid="cos6pb0" value="all" className="min-h-11 border-border-strong">
               {t("alerts.a52ace42")} {totalCount}
             </ToggleGroupItem>
-            <ToggleGroupItem value="ACTIVE" className="min-h-11 border-border-strong">
+            <ToggleGroupItem data-vid="711x0fe" value="ACTIVE" className="min-h-11 border-border-strong">
               {t("alerts.92340695.togglegroupitem")}
             </ToggleGroupItem>
-            <ToggleGroupItem value="PAUSED" className="min-h-11 border-border-strong">
+            <ToggleGroupItem data-vid="jcvwqmc" value="PAUSED" className="min-h-11 border-border-strong">
               {t("alerts.e159b061.togglegroupitem")}
             </ToggleGroupItem>
-            <ToggleGroupItem value="TRIGGERED" className="min-h-11 border-border-strong">
+            <ToggleGroupItem data-vid="92k2zcx" value="TRIGGERED" className="min-h-11 border-border-strong">
               {t("alerts.aeffb918.togglegroupitem")}
             </ToggleGroupItem>
           </ToggleGroup>
         </div>
         {(status !== "all" || q !== "") && (
-          <div className="flex flex-wrap items-center gap-2">
+          <div data-vid="rwfedux" className="flex flex-wrap items-center gap-2">
             {status !== "all" && (
-              <button
+              <button data-vid="0haj1gb"
                 type="button"
                 onClick={() => setStatus("all")}
                 className="type-meta inline-flex min-h-8 items-center gap-1 rounded-badge border border-border-strong px-2 text-text-body focus-visible:ring-2 focus-visible:ring-ring"
               >
-                <StatusMark entity="Alert" status={status} />
-                <X className="size-3.5" aria-hidden="true" />
-                <span className="sr-only">{t("alerts.23c5cdc6")}</span>
+                <StatusMark data-vid="215wqr5" entity="Alert" status={status} />
+                <X data-vid="stawan2" className="size-3.5" aria-hidden="true" />
+                <span data-vid="aiisiho" className="sr-only">{t("alerts.23c5cdc6")}</span>
               </button>
             )}
             {q !== "" && (
-              <button
+              <button data-vid="enbbqpt"
                 type="button"
                 onClick={() => setSearch("")}
                 className="type-meta inline-flex min-h-8 items-center gap-1 rounded-badge border border-border-strong px-2 text-text-body focus-visible:ring-2 focus-visible:ring-ring"
               >
                 “{search.trim()}”
-                <X className="size-3.5" aria-hidden="true" />
-                <span className="sr-only">{t("alerts.23c5cdc6")}</span>
+                <X data-vid="enpt4zd" className="size-3.5" aria-hidden="true" />
+                <span data-vid="dbdlch0" className="sr-only">{t("alerts.23c5cdc6")}</span>
               </button>
             )}
           </div>
         )}
       </section>
 
-      <section
+      <section data-vid="2vdez41"
         aria-label={t("alerts.f62e9267.section-attr-aria-label")}
         className="overflow-x-auto rounded-card border border-border bg-card"
       >
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="type-eyebrow text-text-muted">{t("alerts.80d298c9")}</TableHead>
-              <TableHead className="type-eyebrow text-text-muted">{t("alerts.44a57b22")}</TableHead>
-              <TableHead className="type-eyebrow text-text-muted text-right">{t("alerts.0da627ad")}</TableHead>
-              <TableHead className="type-eyebrow text-text-muted">{t("alerts.920e413c")}</TableHead>
-              <TableHead className="type-eyebrow text-text-muted">{t("alerts.aeffb918.table-column")}</TableHead>
-              <TableHead className="type-eyebrow text-text-muted">
-                <span className="sr-only">{t("alerts.ff8059dc")}</span>
+        <Table data-vid="mas6sxj">
+          <TableHeader data-vid="7gohofa">
+            <TableRow data-vid="7ushzxj">
+              <TableHead data-vid="sho012m" className="type-eyebrow text-text-muted">{t("alerts.80d298c9")}</TableHead>
+              <TableHead data-vid="tc0xdwc" className="type-eyebrow text-text-muted">{t("alerts.44a57b22")}</TableHead>
+              <TableHead data-vid="jmqgzlp" className="type-eyebrow text-text-muted text-right">{t("alerts.0da627ad")}</TableHead>
+              <TableHead data-vid="v4164ti" className="type-eyebrow text-text-muted">{t("alerts.920e413c")}</TableHead>
+              <TableHead data-vid="2n7f2p3" className="type-eyebrow text-text-muted">{t("alerts.aeffb918.table-column")}</TableHead>
+              <TableHead data-vid="1fpwofh" className="type-eyebrow text-text-muted">
+                <span data-vid="webrg1o" className="sr-only">{t("alerts.ff8059dc")}</span>
               </TableHead>
             </TableRow>
           </TableHeader>
-          <TableBody>{body}</TableBody>
+          <TableBody data-vid="l93brjq">{body}</TableBody>
         </Table>
       </section>
     </div>

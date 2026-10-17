@@ -20,10 +20,10 @@ import { useClientLinks } from '../app/client-links';
 export function Layout() {
   useClientLinks();
   return (
-    <ArchiePreviewAuth>
-      <AppProviders>
-        <ShellMount>
-          <Outlet />
+    <ArchiePreviewAuth data-vid="rzd1o2w">
+      <AppProviders data-vid="evtdl86">
+        <ShellMount data-vid="nliu7ea">
+          <Outlet data-vid="ryzcjcu" />
         </ShellMount>
       </AppProviders>
     </ArchiePreviewAuth>

@@ -160,13 +160,13 @@ export function OpportunitiesScreenContainer(
   return (
     <>
       {loading ? (
-        <ScreenLoading />
+        <ScreenLoading data-vid="i54bkn7" />
       ) : loadError !== null ? (
-        <ScreenError error={loadError} onRetry={reload} />
+        <ScreenError data-vid="ki6lak6" error={loadError} onRetry={reload} />
       ) : (
         <>
           {truncatedCap !== null && (
-            <div
+            <div data-vid="6ngzom5"
               role="status"
               data-truncation-banner=""
               className="border-b border-amber-300 bg-amber-50 px-4 py-2 text-sm text-amber-900"
@@ -174,7 +174,7 @@ export function OpportunitiesScreenContainer(
               {t('_app.truncated', { limit: truncatedCap.toLocaleString() })}
             </div>
           )}
-          <View {...vm} />
+          <View data-vid="0fmjq38" {...vm} />
         </>
       )}
     </>
@@ -184,5 +184,5 @@ export function OpportunitiesScreenContainer(
 // THE ROUTE MODULE. `routes.config.tsx` lazy-imports this file and needs a prop-less
 // `export default`: it binds the container to its view and does nothing else.
 export default function OpportunitiesScreenRoute(): React.ReactElement {
-  return <OpportunitiesScreenContainer view={OpportunitiesView} />;
+  return <OpportunitiesScreenContainer data-vid="hiup5ze" view={OpportunitiesView} />;
 }

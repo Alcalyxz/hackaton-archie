@@ -13,7 +13,7 @@ export function AvatarUploader(props: {
   const { t } = useTranslation();
   const uploader = useUploaderHook()();
   return (
-    <UploadField
+    <UploadField data-vid="lmdenky"
       variant="avatar"
       label={t('account.avatar.label', 'Profile photo')}
       description={t('account.avatar.description', 'PNG or JPG, up to 5 MB.')}

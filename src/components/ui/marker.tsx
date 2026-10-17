@@ -29,7 +29,7 @@ function Marker({
   const Comp = asChild ? Slot.Root : "div"
 
   return (
-    <Comp
+    <Comp data-vid="wf9oxgu"
       data-slot="marker"
       data-variant={variant}
       className={cn(markerVariants({ variant, className }))}
@@ -43,7 +43,7 @@ function MarkerIcon({
   ...props
 }: React.ComponentProps<"span">) {
   return (
-    <span
+    <span data-vid="varjzhn"
       data-slot="marker-icon"
       aria-hidden="true"
       className={cn(
@@ -60,7 +60,7 @@ function MarkerContent({
   ...props
 }: React.ComponentProps<"span">) {
   return (
-    <span
+    <span data-vid="qczjchu"
       data-slot="marker-content"
       className={cn(
         "min-w-0 wrap-break-word group-data-[variant=separator]/marker:flex-none group-data-[variant=separator]/marker:text-center *:[a]:underline *:[a]:underline-offset-3 *:[a]:hover:text-foreground",

@@ -34,8 +34,8 @@ const FormField = <
   ...props
 }: ControllerProps<TFieldValues, TName>) => {
   return (
-    <FormFieldContext.Provider value={{ name: props.name }}>
-      <Controller {...props} />
+    <FormFieldContext.Provider data-vid="tq15bmq" value={{ name: props.name }}>
+      <Controller data-vid="bp2prex" {...props} />
     </FormFieldContext.Provider>
   )
 }
@@ -75,8 +75,8 @@ function FormItem({ className, ...props }: React.ComponentProps<"div">) {
   const id = React.useId()
 
   return (
-    <FormItemContext.Provider value={{ id }}>
-      <div
+    <FormItemContext.Provider data-vid="l2miuq3" value={{ id }}>
+      <div data-vid="3h4nmkg"
         data-slot="form-item"
         className={cn("grid gap-2", className)}
         {...props}
@@ -92,7 +92,7 @@ function FormLabel({
   const { error, formItemId } = useFormField()
 
   return (
-    <Label
+    <Label data-vid="rswon9a"
       data-slot="form-label"
       data-error={!!error}
       className={cn("data-[error=true]:text-destructive", className)}
@@ -106,7 +106,7 @@ function FormControl({ ...props }: React.ComponentProps<typeof Slot.Root>) {
   const { error, formItemId, formDescriptionId, formMessageId } = useFormField()
 
   return (
-    <Slot.Root
+    <Slot.Root data-vid="vi0td01"
       data-slot="form-control"
       id={formItemId}
       aria-describedby={
@@ -124,7 +124,7 @@ function FormDescription({ className, ...props }: React.ComponentProps<"p">) {
   const { formDescriptionId } = useFormField()
 
   return (
-    <p
+    <p data-vid="myc9f4b"
       data-slot="form-description"
       id={formDescriptionId}
       className={cn("text-sm text-muted-foreground", className)}
@@ -142,7 +142,7 @@ function FormMessage({ className, ...props }: React.ComponentProps<"p">) {
   }
 
   return (
-    <p
+    <p data-vid="1ph0e23"
       data-slot="form-message"
       id={formMessageId}
       className={cn("text-sm text-destructive", className)}

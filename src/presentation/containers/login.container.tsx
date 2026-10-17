@@ -9,5 +9,5 @@ import { AuthContainer } from './auth.container';
 import { LoginView } from '../views/login.view';
 
 export default function LoginRoute(): React.ReactElement {
-  return <AuthContainer intent="signIn" view={LoginView} />;
+  return <AuthContainer data-vid="kgnnn9s" intent="signIn" view={LoginView} />;
 }
