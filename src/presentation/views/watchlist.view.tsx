@@ -68,18 +68,18 @@ export function WatchlistView(props: WatchlistScreenViewModel): React.ReactEleme
             <SelectTrigger data-vid="6yc2akp" className="min-h-11 w-44 shrink-0 border-border-strong bg-background text-sm shadow-none md:min-h-9" aria-label={t("watchlist.f8bd4d21")}>
               <SelectValue data-vid="kytae65" />
             </SelectTrigger>
-            <SelectContent data-vid="2zobc93">
-              <SelectItem data-vid="r4t4dgf" value="all">{t("watchlist.9329251b")}</SelectItem>
+            <SelectContent data-vid="2zobc93" position="popper" sideOffset={6} className="min-w-(--radix-select-trigger-width) rounded-xl border border-border bg-popover p-1.5 shadow-lg">
+              <SelectItem data-vid="r4t4dgf" value="all" className="cursor-pointer rounded-lg py-2 text-sm focus:bg-accent focus:text-accent-foreground data-[state=checked]:font-medium">{t("watchlist.9329251b")}</SelectItem>
             </SelectContent>
           </Select>
           <Select data-vid="vq8pci5" value={statusFilter} onValueChange={setStatusFilter}>
             <SelectTrigger data-vid="qoeupao" className="min-h-11 w-44 shrink-0 border-border-strong bg-background text-sm shadow-none md:min-h-9" aria-label={t("watchlist.920e413c.selecttrigger-attr-aria-label")}>
               <SelectValue data-vid="z3tdlqf" />
             </SelectTrigger>
-            <SelectContent data-vid="pfbkhbf">
-              <SelectItem data-vid="mc4fc0h" value="all">{t("watchlist.8ee57323")}</SelectItem>
-              <SelectItem data-vid="yqatx84" value="watching">{t("watchlist.fbc59405")}</SelectItem>
-              <SelectItem data-vid="dhr70du" value="paused">{t("watchlist.e159b061")}</SelectItem>
+            <SelectContent data-vid="pfbkhbf" position="popper" sideOffset={6} className="min-w-(--radix-select-trigger-width) rounded-xl border border-border bg-popover p-1.5 shadow-lg">
+              <SelectItem data-vid="mc4fc0h" value="all" className="cursor-pointer rounded-lg py-2 text-sm focus:bg-accent focus:text-accent-foreground data-[state=checked]:font-medium">{t("watchlist.8ee57323")}</SelectItem>
+              <SelectItem data-vid="yqatx84" value="watching" className="cursor-pointer rounded-lg py-2 text-sm focus:bg-accent focus:text-accent-foreground data-[state=checked]:font-medium">{t("watchlist.fbc59405")}</SelectItem>
+              <SelectItem data-vid="dhr70du" value="paused" className="cursor-pointer rounded-lg py-2 text-sm focus:bg-accent focus:text-accent-foreground data-[state=checked]:font-medium">{t("watchlist.e159b061")}</SelectItem>
             </SelectContent>
           </Select>
         </div>
