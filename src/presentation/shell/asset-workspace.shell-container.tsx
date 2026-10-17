@@ -75,14 +75,6 @@ const SURFACES: Readonly<Record<string, SurfaceData>> = {
           "icon": "Layers"
         },
         {
-          "slug": "crypto-detail",
-          "href": "/crypto-detail",
-          "label": "Crypto detail",
-          "order": 2.5,
-          "parent": "crypto",
-          "icon": "Coins"
-        },
-        {
           "slug": "alerts",
           "href": "/alerts",
           "label": "Alerts",
