@@ -111,7 +111,7 @@ export class ArchieUserRepository implements UserRepository {
   }
 
   async setAvatar(id: UserId, fileId: string): Promise<RepoResult<User>> {
-    return this.write(id, { avatar: { connect: { id: fileId } } });
+    return this.write(id, { avatar: fileId });
   }
 
   async delete(): Promise<RepoResult<void>> {
