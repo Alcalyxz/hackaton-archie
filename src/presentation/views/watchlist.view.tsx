@@ -28,11 +28,11 @@ export function WatchlistView(props: WatchlistScreenViewModel): React.ReactEleme
   const rows = useMemo(() => {
     const q = search.trim().toLowerCase();
     return props.watchedAssets
-      .map((w) => ({ w, asset: props.assets.find((a) => a.id === w.assetId) }))
+      .map((w) => ({ w, asset: w.asset ?? props.assets.find((a) => a.id === w.assetId) }))
       .filter((r) => {
         const a = r.asset;
         if (!a) return false;
-        if (classFilter !== "all" && a.assetClass !== classFilter) return false;
+        if (classFilter !== "all" && String(a.assetClass ?? "").toLowerCase() !== classFilter) return false;
         if (statusFilter === "watching" && r.w.status !== "WATCHING") return false;
         if (statusFilter === "paused" && r.w.status !== "PAUSED") return false;
         if (q && !(a.name.toLowerCase().includes(q) || a.symbol.toLowerCase().includes(q))) return false;
