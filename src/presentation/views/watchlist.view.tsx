@@ -11,7 +11,6 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { StatusMark } from "@/presentation/components/domain/status-mark";
 import { Money, Change } from "@/presentation/components/domain/value-format";
 import { EmptyState } from "@/presentation/components/domain/empty-state";
 import type { WatchlistScreenViewModel } from "@/application/view-models/watchlist.vm";
@@ -188,11 +187,11 @@ export function WatchlistView(props: WatchlistScreenViewModel): React.ReactEleme
                   <TableRow data-vid="vi00zy5">
                     <TableHead className="w-8" aria-label="Reordenar" />
                     <TableHead data-vid="btfmi66" className="type-eyebrow text-text-muted">{t("watchlist.80d298c9")}</TableHead>
-                    <TableHead data-vid="fel2nis" className="type-eyebrow text-text-muted">{t("watchlist.4f3a9bd0")}</TableHead>
-                    <TableHead data-vid="88zg3hh" className="type-eyebrow text-text-muted text-right">{t("watchlist.28af28fc")}</TableHead>
+                    <TableHead data-vid="fel2nis" className="type-eyebrow text-text-muted text-right">{t("watchlist.priceWhenAdded", { defaultValue: "Precio al agregar" })}</TableHead>
+                    <TableHead data-vid="88zg3hh" className="type-eyebrow text-text-muted text-right">{t("watchlist.currentPrice", { defaultValue: "Precio actual" })}</TableHead>
                     <TableHead data-vid="uxzqi0l" className="type-eyebrow text-text-muted text-right">{t("watchlist.9ea8258c")}</TableHead>
                     <TableHead data-vid="1t60w4l" className="type-eyebrow text-text-muted text-right">{t("watchlist.bd82ce58")}</TableHead>
-                    <TableHead data-vid="kgd6igf" className="type-eyebrow text-text-muted">{t("watchlist.920e413c.table-column")}</TableHead>
+                    <TableHead data-vid="kgd6igf" className="w-12 type-eyebrow text-text-muted text-center">{t("watchlist.920e413c.table-column")}</TableHead>
                     <TableHead data-vid="309j3fa" className="type-eyebrow text-text-muted text-right">{t("watchlist.ff8059dc")}</TableHead>
                   </TableRow>
                 </TableHeader>
@@ -214,8 +213,12 @@ export function WatchlistView(props: WatchlistScreenViewModel): React.ReactEleme
                             <span data-vid="js2t5x6" className="type-mono-id text-text-muted">{asset.symbol}</span>
                           </div>
                         </TableCell>
-                        <TableCell data-vid="fg021e1" className="max-w-64">
-                          <span data-vid="xgxtoyu" className="type-meta text-text-body">—</span>
+                        <TableCell data-vid="fg021e1" className="max-w-64 whitespace-nowrap text-right tabular-nums text-text-muted">
+                          {w.priceWhenAdded != null ? (
+                            <Money data-vid="xgxtoyu" value={w.priceWhenAdded} align="end" />
+                          ) : (
+                            <span className="type-meta">—</span>
+                          )}
                         </TableCell>
                         <TableCell data-vid="rv65h4a" className="max-w-64 whitespace-nowrap text-right tabular-nums">
                           <Money data-vid="wqosa40" value={asset.currentPrice} align="end" />
@@ -226,12 +229,23 @@ export function WatchlistView(props: WatchlistScreenViewModel): React.ReactEleme
                         <TableCell data-vid="pugk6zd" className="max-w-64 whitespace-nowrap text-right tabular-nums">
                           <Change data-vid="yds76zu" value={w.performanceSinceAdded} />
                         </TableCell>
-                        <TableCell data-vid="z30gz29" className="max-w-64">
-                          {paused ? (
-                            <StatusMark data-vid="7aqh7bq" entity="Alert" status="Paused" />
-                          ) : (
-                            <StatusMark data-vid="45lpf1e" entity="WatchedAsset" status={w.status} />
-                          )}
+                        <TableCell data-vid="z30gz29" className="w-12 text-center">
+                          <span
+                            className="group relative inline-flex size-6 items-center justify-center"
+                            tabIndex={0}
+                            aria-label={paused ? t("watchlist.statusPaused", { defaultValue: "Pausado" }) : t("watchlist.statusWatching", { defaultValue: "En seguimiento" })}
+                          >
+                            <span
+                              aria-hidden="true"
+                              className={`size-2.5 rounded-full ${paused ? "bg-destructive" : "bg-success animate-pulse"} ring-4 ${paused ? "ring-destructive/15" : "ring-success/20"}`}
+                            />
+                            <span
+                              role="tooltip"
+                              className="pointer-events-none absolute bottom-full left-1/2 z-20 mb-1.5 -translate-x-1/2 whitespace-nowrap rounded-md bg-foreground px-2 py-1 text-xs text-background opacity-0 shadow-md transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100"
+                            >
+                              {paused ? t("watchlist.statusPaused", { defaultValue: "Pausado" }) : t("watchlist.statusWatching", { defaultValue: "En seguimiento" })}
+                            </span>
+                          </span>
                         </TableCell>
                         <TableCell data-vid="txgmvp4" className="max-w-64 whitespace-nowrap text-right tabular-nums">
                           <div data-vid="16e4epq" className="flex items-center justify-end gap-1">
