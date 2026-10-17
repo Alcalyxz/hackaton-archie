@@ -52,6 +52,10 @@ const ROUTES: readonly { readonly path: string; readonly surface: string }[] = [
     "surface": "asset-workspace"
   },
   {
+    "path": "/crypto-detail",
+    "surface": "asset-workspace"
+  },
+  {
     "path": "/users",
     "surface": "asset-workspace"
   },

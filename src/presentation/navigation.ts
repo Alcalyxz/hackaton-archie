@@ -51,6 +51,8 @@ export const routes = {
   "welcome": (): string => "/welcome",
   "reset-password": (): string => "/reset-password",
   "crypto": (): string => "/crypto",
+  "crypto-detail": (params?: { readonly id?: string | number }): string =>
+    fill("/crypto-detail", ["id"], [], params),
   "users": (): string => "/users",
   "alerts": (): string => "/alerts",
   "account": (): string => "/account",
@@ -74,6 +76,7 @@ export const routePatterns: Readonly<Record<RouteSlug, string>> = {
   "welcome": "/welcome",
   "reset-password": "/reset-password",
   "crypto": "/crypto",
+  "crypto-detail": "/crypto-detail/:id?",
   "users": "/users",
   "alerts": "/alerts",
   "account": "/account",

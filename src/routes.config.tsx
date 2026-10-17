@@ -92,6 +92,17 @@ function Guarded_crypto() {
   );
 }
 
+const LazyScreen_crypto_detail = lazy(() => import('./presentation/containers/crypto-detail.container'));
+function Guarded_crypto_detail() {
+  return (
+    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
+      <Suspense fallback={<LoadingFallback />}>
+        <LazyScreen_crypto_detail />
+      </Suspense>
+    </AuthGuard>
+  );
+}
+
 const LazyScreen_users = lazy(() => import('./presentation/containers/users.container'));
 function Guarded_users() {
   return (
@@ -385,6 +396,18 @@ export const routes: AppRoute[] = [
     order: null,
     visibility: null,
     Component: Guarded_crypto,
+    ErrorBoundary: ErrorBoundary,
+  },
+  {
+    slug: "crypto-detail",
+    path: "/crypto-detail/:id?",
+    handle: { surface: "asset-workspace", frame: "desktop" },
+    layoutType: "dashboard",
+    name: "Crypto detail",
+    icon: null,
+    order: null,
+    visibility: null,
+    Component: Guarded_crypto_detail,
     ErrorBoundary: ErrorBoundary,
   },
   {

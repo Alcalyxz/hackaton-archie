@@ -205,11 +205,6 @@ export function CryptoScreenContainer(
     [],
   );
 
-  const loadCoinDetail = React.useCallback(
-    (assetId: string) => repositories.coinInfo.byAssetId(assetId),
-    [repositories],
-  );
-
   const { t } = useTranslation();
   const vm: CryptoScreenViewModel = {
     Alert,
@@ -223,7 +218,6 @@ export function CryptoScreenContainer(
     loading,
     error: loadError ?? writeError,
     onUnavailable,
-    loadCoinDetail,
     availability: cryptoScreenViewModelAvailability,
     navigate,
     href,

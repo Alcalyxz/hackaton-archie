@@ -1,10 +1,9 @@
-// Adapter for the project's custom API `GET /api/coin/info/?id=<providerId>`.
-// The provider id comes from the asset row (`externalId`); the call goes through the SDK client
-// so the session credential travels with it.
+// Adapter for the project's custom function `assetDetailAssetTickerDetail(assetId)`, exposed in GraphQL.
+// It goes through the SDK's GraphQL module, so the session credential travels with it.
 
 import type { ArchieClient, IGraphQLModule } from '@archie/js-sdk';
 import type { RepoResult } from '../../domain/shared';
-import type { CoinInfo, CoinInfoRepository } from '../../domain/ports/coin-info.repository';
+import type { AssetTickerDetail, CoinInfoRepository } from '../../domain/ports/coin-info.repository';
 import { fromGraphQL, repoError, missingData } from './transport';
 
 function str(v: unknown): string | null {
@@ -24,71 +23,45 @@ function isRecord(v: unknown): v is Record<string, unknown> {
   return typeof v === 'object' && v !== null;
 }
 
+const FIELDS = `id csupply marketCapUsd msupply name nameId percentChange1h percentChange7d percentChange24h priceBtc priceUsd rank symbol tsupply volume24`;
+
 export class ArchieCoinInfoRepository implements CoinInfoRepository {
   constructor(
     private readonly gql: IGraphQLModule,
-    private readonly rest: ArchieClient['rest'],
+    _rest?: ArchieClient['rest'],
   ) {}
 
-  async byAssetId(assetId: string): Promise<RepoResult<CoinInfo>> {
-    const lookup = await this.gql.query<{ assetById: { externalId: string | null } | null }>(
-      `query AssetExternalId($id: String) { assetById(id: $id) { externalId } }`,
-      { id: assetId },
+  async byAssetId(assetId: string): Promise<RepoResult<AssetTickerDetail>> {
+    // The id is inlined as a JSON string literal (a safe GraphQL string), so the query does not
+    // depend on how the function declares its argument type.
+    const res = await this.gql.query<{ assetDetailAssetTickerDetail: unknown }>(
+      `query AssetTickerDetail { assetDetailAssetTickerDetail(assetId: ${JSON.stringify(assetId)}) { ${FIELDS} } }`,
     );
-    if (lookup.error !== null) return { ok: false, error: fromGraphQL(lookup.error) };
-    if (lookup.data === null) return missingData('CoinInfo', 'byAssetId');
-    const externalId = lookup.data.assetById?.externalId ?? null;
-    if (externalId === null || externalId === '') {
-      return {
-        ok: false,
-        error: repoError('not-found', 'CoinInfo.byAssetId: el activo no tiene `externalId`'),
-      };
-    }
-
-    const projectId = String(import.meta.env.VITE_ARCHIE_PROJECT_ID ?? '');
-    const path = `/gw/${projectId}/api/coin/info/?id=${encodeURIComponent(externalId)}`;
-    // The REST module may answer the raw body or a `{ data, error }` envelope: accept both.
-    let raw: unknown;
-    try {
-      raw = await this.rest.get<unknown>(path);
-    } catch (cause: unknown) {
-      return {
-        ok: false,
-        error: repoError('network', `CoinInfo.byAssetId: ${cause instanceof Error ? cause.message : 'fallo de red'}`),
-      };
-    }
-    if (isRecord(raw) && !Array.isArray(raw) && 'error' in raw && raw.error) {
-      return { ok: false, error: repoError('transport', 'CoinInfo.byAssetId: la API respondió con error') };
-    }
-    const body: unknown = isRecord(raw) && !Array.isArray(raw) && 'data' in raw ? raw.data : raw;
-    const first: unknown = Array.isArray(body) ? body[0] : body;
-    if (!isRecord(first)) {
-      return {
-        ok: false,
-        error: repoError('not-found', 'CoinInfo.byAssetId: la API no devolvió datos para ese id'),
-      };
+    if (res.error !== null) return { ok: false, error: fromGraphQL(res.error) };
+    if (res.data === null) return missingData('AssetTickerDetail', 'byAssetId');
+    const raw = res.data.assetDetailAssetTickerDetail;
+    const row: unknown = Array.isArray(raw) ? raw[0] : raw;
+    if (!isRecord(row)) {
+      return { ok: false, error: repoError('not-found', 'AssetTickerDetail.byAssetId: no data for that asset') };
     }
     return {
       ok: true,
       data: {
-        externalId,
-        symbol: str(first.symbol) ?? '',
-        name: str(first.name) ?? '',
-        nameId: str(first.nameid),
-        logo: str(first.logo),
-        website: str(first.website),
-        twitter: str(first.twitter),
-        explorer: str(first.explorer),
-        rank: num(first.rank),
-        ath: num(first.ath),
-        athDate: str(first.ath_date),
-        circulatingSupply: num(first.csupply),
-        totalSupply: num(first.tsupply),
-        maxSupply: num(first.msupply),
-        startDate: str(first.startdate),
-        platform: str(first.platform),
-        firstPrice: num(first.first_price),
-        firstPriceDate: str(first.first_price_date),
+        id: str(row.id) ?? assetId,
+        symbol: str(row.symbol) ?? '',
+        name: str(row.name) ?? '',
+        nameId: str(row.nameId),
+        rank: num(row.rank),
+        priceUsd: num(row.priceUsd),
+        priceBtc: num(row.priceBtc),
+        percentChange1h: num(row.percentChange1h),
+        percentChange24h: num(row.percentChange24h),
+        percentChange7d: num(row.percentChange7d),
+        marketCapUsd: num(row.marketCapUsd),
+        volume24: num(row.volume24),
+        circulatingSupply: num(row.csupply),
+        totalSupply: num(row.tsupply),
+        maxSupply: num(row.msupply),
       },
     };
   }

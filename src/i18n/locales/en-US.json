@@ -320,6 +320,10 @@
     "efb52e71": "Theme",
     "f0585808": "Market Beacon"
   },
+  "cryptoDetail": {
+    "notFoundTitle": "Cryptocurrency not found",
+    "notFoundDesc": "Pick one from the Crypto list."
+  },
   "crypto": {
     "0241ccff": {
       "fieldlabel": "Coin",

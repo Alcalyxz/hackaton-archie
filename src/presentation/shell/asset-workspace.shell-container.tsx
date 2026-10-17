@@ -75,6 +75,14 @@ const SURFACES: Readonly<Record<string, SurfaceData>> = {
           "icon": "Layers"
         },
         {
+          "slug": "crypto-detail",
+          "href": "/crypto-detail",
+          "label": "Crypto detail",
+          "order": 2.5,
+          "parent": "crypto",
+          "icon": "Coins"
+        },
+        {
           "slug": "alerts",
           "href": "/alerts",
           "label": "Alerts",
@@ -197,6 +205,11 @@ const ROUTES: readonly { readonly path: string; readonly slug: string; readonly 
   {
     "path": "/crypto",
     "slug": "crypto",
+    "surface": "asset-workspace"
+  },
+  {
+    "path": "/crypto-detail",
+    "slug": "crypto-detail",
     "surface": "asset-workspace"
   },
   {
