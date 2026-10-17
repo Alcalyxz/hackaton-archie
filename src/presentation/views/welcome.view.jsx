@@ -12,6 +12,7 @@ import { schema } from "@/presentation/components/domain/schema";
 import { enumIs } from "@/presentation/components/domain/enum-vocab";
 import { useTranslation } from "react-i18next";
 import { useMemo } from "react";
+import { CryptoCarousel } from "@/presentation/components/domain/crypto-carousel";
 
 const FEATURED_ASSET = "ast-003";
 
@@ -139,6 +140,8 @@ export function WelcomeView(props) {
           </div>
         </div>
       </section>
+
+      <CryptoCarousel />
 
       {/* SNAPSHOT */}
       <section data-vid="f5b391f3" className="border-y border-border bg-surface-sunken px-(--container-padding) py-(--section-gap)">
