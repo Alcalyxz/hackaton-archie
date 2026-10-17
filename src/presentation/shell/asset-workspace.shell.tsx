@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { LogoMark } from "@/presentation/components/domain/logo-mark";
 import { navEntryMask, IDENTITY_MASK } from "@/presentation/fidelity-mask";
 import { useTranslation } from "react-i18next";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
@@ -116,6 +116,7 @@ function IdentityMenu(props: { vm: ShellViewModel }) {
             className={cn("flex h-9 shrink-0 items-center gap-2 rounded-control px-1 hover:bg-chrome-hover max-md:h-11", focus)}
           >
             <Avatar className="size-8">
+              {id.avatarSrc ? <AvatarImage src={id.avatarSrc} alt={id.name} /> : null}
               <AvatarFallback className="type-caption">{id.initials}</AvatarFallback>
             </Avatar>
             <span className="type-meta hidden lg:inline">{id.name}</span>
@@ -268,6 +269,7 @@ export function AssetWorkspaceShell(props: ShellProps): React.ReactElement {
           {vm.identity !== null ? (
             <div className="flex items-center gap-3 border-t border-chrome-border p-4">
               <Avatar className="size-8">
+                {vm.identity.avatarSrc ? <AvatarImage src={vm.identity.avatarSrc} alt={vm.identity.name} /> : null}
                 <AvatarFallback className="type-caption">{vm.identity.initials}</AvatarFallback>
               </Avatar>
               <div className="flex min-w-0 flex-col">

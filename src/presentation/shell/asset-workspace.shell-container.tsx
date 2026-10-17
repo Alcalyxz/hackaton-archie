@@ -6,7 +6,8 @@
 
 import type { ReactNode } from 'react';
 import { matchPath, useLocation, useNavigate } from 'react-router';
-import { useIdentity } from '../app-context';
+import { useEffect, useState } from 'react';
+import { useIdentity, useRepositories } from '../app-context';
 import { pickActiveRole, setActiveRole, useStoredActiveRole } from '../active-role';
 import type { ShellNavItem, ShellViewModel } from '@/application/view-models/shell.vm';
 import { AssetWorkspaceShell } from './asset-workspace.shell';
@@ -277,17 +278,27 @@ function initialsOf(name: string): string {
 }
 
 /** The identity menu's data: the profile name (the e-mail when there is none) and the resolved role's label. */
+interface Profile {
+  readonly name: string;
+  readonly avatarSrc?: string;
+}
+
 function identityOf(
   who: ReturnType<typeof useIdentity>['identity'],
   roleLabel: string,
+  profile: Profile | null,
 ): ShellViewModel['identity'] {
   if (who === null || who === undefined) return null;
-  const name = ((who.firstName ?? '') + ' ' + (who.lastName ?? '')).trim() || who.email;
+  const name =
+    profile?.name ||
+    ((who.firstName ?? '') + ' ' + (who.lastName ?? '')).trim() ||
+    who.email;
   return {
     name,
     ...(who.email === '' ? {} : { email: who.email }),
     roleLabel,
     initials: initialsOf(name),
+    ...(profile?.avatarSrc ? { avatarSrc: profile.avatarSrc } : {}),
   };
 }
 
@@ -317,6 +328,29 @@ export function AssetWorkspaceShellContainer({ children }: { readonly children: 
   const { identity } = useIdentity();
   const navigate = useNavigate();
   const storedRole = useStoredActiveRole();
+  const repositories = useRepositories();
+  const [profile, setProfile] = useState<Profile | null>(null);
+  const email = identity?.email ?? '';
+  useEffect(() => {
+    if (email === '') {
+      setProfile(null);
+      return;
+    }
+    let live = true;
+    void repositories.user
+      .list({ first: 1, filter: { email } })
+      .then((res) => {
+        if (!live || res.ok === false) return;
+        const u = res.data.items[0];
+        if (u === undefined) return;
+        const name = (u.firstName + ' ' + (u.lastName ?? '')).trim();
+        setProfile({ name, ...(u.avatar?.src ? { avatarSrc: u.avatar.src } : {}) });
+      })
+      .catch(() => undefined);
+    return () => {
+      live = false;
+    };
+  }, [repositories, email, pathname]);
   const hit = routeOf(pathname);
   const surfaceId = hit?.surface ?? FIRST_SURFACE;
   const surface = SURFACES[surfaceId];
@@ -338,7 +372,7 @@ export function AssetWorkspaceShellContainer({ children }: { readonly children: 
     actions: unmatched ? [] : (surface.actions[key] ?? []),
     brand: BRAND,
     role,
-    identity: identityOf(identity, ROLES.find((r) => r.id === role)?.label ?? ''),
+    identity: identityOf(identity, ROLES.find((r) => r.id === role)?.label ?? '', profile),
     roles: (held.length > 1 ? held : []),
     // Only with 2+ held roles (a single-role viewer gets no switcher). The new role's landing is what `/` resolves to.
     ...(held.length > 1

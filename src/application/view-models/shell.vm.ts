@@ -59,6 +59,8 @@ export interface ShellViewModel {
     readonly email?: string;
     readonly roleLabel: string;
     readonly initials: string;
+    /** The user's avatar image, when they have uploaded one. */
+    readonly avatarSrc?: string;
   } | null;
   /** Roles the viewer can switch to (memory mode "viewing as"); empty when there is nothing to switch. */
   readonly roles: readonly { readonly id: string; readonly label: string }[];
