@@ -6,14 +6,14 @@ import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@
 import { Money, Change, formatMoney as money } from "@/presentation/components/domain/value-format";
 import { EmptyState } from "@/presentation/components/domain/empty-state";
 import { CryptoCard } from "@/presentation/components/domain/crypto-card";
-import { Search, LayoutGrid, List, Coins } from "lucide-react";
+import { Search, LayoutGrid, List, Coins, RefreshCw } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const PAGE_SIZE = 20;
 
 /** Cryptocurrency directory: cards/table switch, search and pages of 20, highest price first.
- *  @param {{ Crypto: ReadonlyArray<any>, onOpen: (assetId: string) => void }} props */
-export function CryptoDirectory({ Crypto, onOpen }) {
+ *  @param {{ Crypto: ReadonlyArray<any>, onOpen: (assetId: string) => void, onRefresh: () => void, refreshing: boolean }} props */
+export function CryptoDirectory({ Crypto, onOpen, onRefresh, refreshing }) {
   const open = (c) => onOpen(c.id);
   const { t } = useTranslation();
   const [mode, setMode] = useState("cards");
@@ -44,6 +44,10 @@ export function CryptoDirectory({ Crypto, onOpen }) {
             {t("crypto.listCount", "{{count}} cryptocurrencies, highest price first", { count: Crypto.length })}
           </p>
         </div>
+        <Button variant="outline" onClick={onRefresh} disabled={refreshing} className="min-h-11 gap-2 border-border-strong">
+          <RefreshCw className={refreshing ? "size-4 animate-spin" : "size-4"} aria-hidden="true" />
+          {refreshing ? t("crypto.refreshing", "Refreshing…") : t("crypto.refresh", "Refresh")}
+        </Button>
       </header>
 
       <div className="flex flex-wrap items-center justify-between gap-(--component-gap)">

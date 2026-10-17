@@ -75,7 +75,12 @@ export function CryptoScreenContainer(
   // spinner again, and a post-write reload must NOT blank the screen (L22).
   const hasLoadedRef = React.useRef(false);
 
+  const [refreshing, setRefreshing] = React.useState(false);
   const reload = React.useCallback((): void => {
+    setReloadToken((n) => n + 1);
+  }, []);
+  const onRefresh = React.useCallback((): void => {
+    setRefreshing(true);
     setReloadToken((n) => n + 1);
   }, []);
   const [writeError, setWriteError] = React.useState<RepoError | null>(null);
@@ -187,6 +192,9 @@ export function CryptoScreenContainer(
         detail: 'promesa rechazada fuera del contrato `RepoResult`',
       });
       setLoading(false);
+    })
+    .finally(() => {
+      if (live) setRefreshing(false);
     });
     return () => {
       live = false;
@@ -218,6 +226,8 @@ export function CryptoScreenContainer(
     loading,
     error: loadError ?? writeError,
     onUnavailable,
+    onRefresh,
+    refreshing,
     availability: cryptoScreenViewModelAvailability,
     navigate,
     href,

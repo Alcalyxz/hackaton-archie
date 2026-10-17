@@ -80,4 +80,8 @@ export interface CryptoScreenViewModel {
    *  (`availability.<write>.available === false`). The container shows the reason in
    *  its write-error state; nothing is written. Returns `void`. */
   readonly onUnavailable: (reason: 'escritura-no-disponible') => void;
+  /** Reloads the list from the backend without blanking the screen. */
+  readonly onRefresh: () => void;
+  /** `true` while a refresh started by `onRefresh` is in flight. */
+  readonly refreshing: boolean;
 }
